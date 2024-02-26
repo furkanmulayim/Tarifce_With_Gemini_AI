@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_food_category_back"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/main_text_color"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="2.46:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/rounded20" />
+
+    <TextView
+        android:id="@+id/food_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_squircle_trans60"
+        android:contentDescription="@string/desc_icon"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="7dp"
+        android:textColor="@color/main_text_color"
+        android:textSize="12sp"
+        app:drawableLeftCompat="@drawable/svg_clock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shapeableImageView"
+        tools:ignore="ImageContrastCheck" />
+
+
+    <TextView
+        android:id="@+id/food_stars"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_squircle_trans60"
+        android:contentDescription="@string/desc_icon"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="7dp"
+        android:textColor="@color/main_text_color"
+        android:textSize="12sp"
+        app:drawableLeftCompat="@drawable/svg_stars"
+        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/food_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/inter_semibold"
+        android:textColor="@color/main_text_color"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
+
+    <TextView
+        android:id="@+id/food_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:textColor="@color/whisper_text_color"
+        android:textSize="14sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="-3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EmulatorDisplays">
+    <option name="displayStateByAvdFolder">
+      <map>
+        <entry key="$USER_HOME$/.android/avd/3_XL_API_34.avd">
+          <value>
+            <MultiDisplayState>
+              <option name="displayDescriptors">
+                <list>
+                  <DisplayDescriptor>
+                    <option name="height" value="3245" />
+                    <option name="width" value="1584" />
+                  </DisplayDescriptor>
+                  <DisplayDescriptor>
+                    <option name="displayId" value="1" />
+                    <option name="height" value="1280" />
+                    <option name="width" value="720" />
+                  </DisplayDescriptor>
+                </list>
+              </option>
+              <option name="emulatorPanelState">
+                <EmulatorPanelState>
+                  <option name="splitPanel">
+                    <SplitPanelState>
+                      <option name="proportion" value="0.7171270847320557" />
+                      <option name="splitType" value="VERTICAL" />
+                      <option name="firstComponent">
+                        <EmulatorPanelState>
+                          <option name="displayId" value="0" />
+                        </EmulatorPanelState>
+                      </option>
+                      <option name="secondComponent">
+                        <EmulatorPanelState>
+                          <option name="displayId" value="1" />
+                        </EmulatorPanelState>
+                      </option>
+                    </SplitPanelState>
+                  </option>
+                </EmulatorPanelState>
+              </option>
+            </MultiDisplayState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

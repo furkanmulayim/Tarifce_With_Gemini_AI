@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.fragment.choose.ChooseFragment">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UselessParent">
+
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_squircle_yellow"
+                android:contentDescription="@string/desc_save"
+                android:foreground="@drawable/svg_back"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/food_names"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/header_ing"
+                android:textColor="@color/main_text_color"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="19sp"
+                android:fontFamily="@font/inter_bold"
+                android:layout_weight="1" />
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

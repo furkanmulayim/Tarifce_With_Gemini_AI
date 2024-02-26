@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_food_category_back"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/food_ingr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:maxLines="1"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_squircle_trans100"
+        android:contentDescription="@string/desc_icon"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="center"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:text="200 Gr Köri"
+        android:textColor="@color/main_text_color2"
+        android:textSize="12sp" />
+</LinearLayout>

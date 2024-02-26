@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/helloFragment">
+
+    <fragment
+        android:id="@+id/helloFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.hello.HelloFragment"
+        android:label="HelloFragment">
+        <action
+            android:id="@+id/action_helloFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_helloFragment_to_savedFragment"
+            app:destination="@id/savedFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_helloFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.detail.DetailFragment"
+        android:label="DetailFragment">
+        <action
+            android:id="@+id/action_detailFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_detailFragment_to_prepareBSFragment"
+            app:destination="@id/prepareBSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.saved.SavedFragment"
+        android:label="SavedFragment">
+        <action
+            android:id="@+id/action_savedFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.choose.ChooseFragment"
+        android:label="ChooseFragment">
+        <action
+            android:id="@+id/action_chooseFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/prepareBSFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.prepare.PrepareBSFragment"
+        android:label="fragment_prepare_b_s"
+        tools:layout="@layout/fragment_prepare_b_s" />
+</navigation>

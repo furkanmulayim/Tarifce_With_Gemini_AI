@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Tarifçe</string>
+    <string name="app_name_space">Tarifçe</string>
+
+    <!-- &&&&&&&&&& HELLO FRAGMENT &&&&&&&&&&& -->
+    <string name="desc_icon">Uygulama Logosu</string>
+    <string name="desc_save">Kaydedilenlerim</string>
+    <string name="item_name">Tarifler</string>
+    <string name="item_all">Tümünü Gör ></string>
+    <string name="welcome">Hoşgeldin!</string>
+    <string name="ai_button_info">Malzemeni Seç, Yemeği Yapay Zeka Yapsın.</string>
+    <string name="ai_now">Şimdi Dene</string>
+
+    <!-- &&&&&&&&&& SAVED FRAGMENT &&&&&&&&&&& -->
+    <string name="trend">Trend</string>
+    <string name="savedds">Kaydedilenler</string>
+
+    <!-- &&&&&&&&&& DETAİL FRAGMENT &&&&&&&&&&& -->
+    <string name="ingred">İçindekiler</string>
+    <string name="prepare">Yapılışı</string>
+    <string name="time">Süre</string>
+    <string name="calories">Kalori</string>
+    <string name="how_many">Porsiyon</string>
+    <string name="levels">Zorluk</string>
+    <string name="see_food_prepare">Yemeğin Yapılışını Gör</string>
+
+    <!-- &&&&&&&&&& CHOOSE FRAGMENT &&&&&&&&&&& -->
+    <string name="header_ing">Malzeme Seç</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
