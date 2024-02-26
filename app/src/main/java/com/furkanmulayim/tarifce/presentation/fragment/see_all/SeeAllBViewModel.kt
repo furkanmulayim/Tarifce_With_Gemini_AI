@@ -8,10 +8,11 @@ class SeeAllBViewModel : ViewModel() {
 
     private val food = arrayListOf(
         Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -19,10 +20,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -30,10 +32,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -41,10 +44,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -52,10 +56,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -63,10 +68,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -74,10 +80,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",
@@ -85,10 +92,11 @@ class SeeAllBViewModel : ViewModel() {
             hastags = "domates/biber/sogan",
             specific = "bla bla bla"
         ), Food(
-            image = R.drawable.svg_dene,
+            image = "R.drawable.svg_dene",
             name = "Köri Soslu Tavuk",
             category = "Trend",
             stars = 4.6,
+            trend = true,
             duration = "35-45",
             calorie = "365",
             person = "2-3",

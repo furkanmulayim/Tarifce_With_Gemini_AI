@@ -1,10 +1,11 @@
 package com.furkanmulayim.tarifce.domain.model
 
 data class Food(
-    val image: Int, //degisecek
+    val image: String, //degisecek
     val name: String,
     val category: String,
     val stars: Double,
+    val trend:Boolean,
     var duration: String,
     var calorie: String,
     var person: String,

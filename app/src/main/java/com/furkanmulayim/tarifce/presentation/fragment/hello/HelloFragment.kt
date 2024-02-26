@@ -12,12 +12,11 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
-import com.furkanmulayim.tarifce.presentation.fragment.prepare.PrepareBSFragment
 import com.furkanmulayim.tarifce.presentation.fragment.see_all.SeeAllBSFragment
 
 class HelloFragment : Fragment() {
 
-    private lateinit var foodAdapter: FoodAdapter
+    private var foodAdapter = FoodAdapter(arrayListOf())
     private lateinit var viewModel: HelloViewModel
     private lateinit var binding: FragmentHelloBinding
     private lateinit var itemAdapter: FoodCategoryAdapter
@@ -33,8 +32,12 @@ class HelloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        //adapter init
+        binding.foodsRcyc.adapter = foodAdapter
+        binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
+        viewModel.getFoods()
+        observeLiveData()
         setItems()
-        setFoods()
         clickListener()
     }
 
@@ -48,7 +51,7 @@ class HelloFragment : Fragment() {
         }
 
         binding.seeAllButton.setOnClickListener {
-            SeeAllBSFragment().show(childFragmentManager,"")
+            SeeAllBSFragment().show(childFragmentManager, "")
         }
     }
 
@@ -67,9 +70,11 @@ class HelloFragment : Fragment() {
         binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
-    private fun setFoods() {
-        foodAdapter = FoodAdapter(viewModel.foodReturn())
-        binding.foodsRcyc.adapter = foodAdapter
-        binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
+    private fun observeLiveData() {
+        viewModel.food.observe(viewLifecycleOwner, Observer {
+            it.let {
+                foodAdapter.updateList(it)
+            }
+        })
     }
 }

@@ -35,7 +35,7 @@ class FoodAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
-        holder.image.setBackgroundResource(item.image)
+       // holder.image.setBackgroundResource(item.image)
         holder.duration.text = item.duration
         holder.stars.text = item.stars.toString()
         holder.name.text = item.name

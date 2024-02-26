@@ -3,14 +3,22 @@ package com.furkanmulayim.tarifce.presentation.fragment.hello
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.data.service.FoodAPIService
 import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.presentation.BaseViewModel
 import com.furkanmulayim.tarifce.presentation.domain.model.FoodCategory
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class HelloViewModel(application: Application) : BaseViewModel(application) {
 
-
     val selectedCategory = MutableLiveData<String>()
+    val food = MutableLiveData<List<Food>>()
+
+    private val foodAPIService = FoodAPIService()
+    private val disposable = CompositeDisposable()
 
     private val categories = arrayListOf(
         FoodCategory(
@@ -26,107 +34,37 @@ class HelloViewModel(application: Application) : BaseViewModel(application) {
         )
     )
 
-    private val food = arrayListOf(
-        Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        ), Food(
-            image = R.drawable.svg_dene,
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = 4.6,
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
+    private fun getFoodFromApi() {
+        disposable.add(
+            foodAPIService.getData()
+                //async new thread
+                .subscribeOn(Schedulers.newThread())
+                //show main Thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableSingleObserver<List<Food>>() {
+                    override fun onSuccess(t: List<Food>) {
+                        food.postValue(t)
+                        println("furkan burasi geldi: " + t[0].calorie)
+                    }
+
+                    override fun onError(e: Throwable) {
+                        println(e.localizedMessage)
+                    }
+                })
         )
-    )
+
+    }
+
+    fun getFoods() {
+        getFoodFromApi()
+    }
 
     fun listReturn(): ArrayList<FoodCategory> {
         return categories
     }
 
-    fun foodReturn(): ArrayList<Food> {
-        return food
-    }
 
-    fun selectedCategories(category:String){
+    fun selectedCategories(category: String) {
         selectedCategory.value = category
     }
 }
