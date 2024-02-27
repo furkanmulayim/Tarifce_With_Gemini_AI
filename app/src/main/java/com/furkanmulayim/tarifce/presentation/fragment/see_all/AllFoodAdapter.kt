@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.data.model.Food
 import com.google.android.material.imageview.ShapeableImageView
 
 

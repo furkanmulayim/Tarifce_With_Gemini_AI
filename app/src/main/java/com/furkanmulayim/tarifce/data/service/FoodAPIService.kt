@@ -1,6 +1,6 @@
 package com.furkanmulayim.tarifce.data.service
 
-import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.data.model.Food
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

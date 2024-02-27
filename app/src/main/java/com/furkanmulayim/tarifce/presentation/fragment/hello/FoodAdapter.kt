@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.util.loadImage
 import com.google.android.material.imageview.ShapeableImageView
 

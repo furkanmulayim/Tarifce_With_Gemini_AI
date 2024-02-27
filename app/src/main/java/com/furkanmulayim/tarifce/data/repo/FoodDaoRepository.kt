@@ -2,7 +2,7 @@ package com.furkanmulayim.tarifce.data.repo
 
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.data.db.FoodDao
-import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.data.model.Food
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,8 +27,8 @@ class FoodDaoRepository(var fdao: FoodDao) {
         image: String,
         name: String,
         category: String,
-        stars: Double,
-        trend: Boolean,
+        stars: String,
+        trend: String,
         duration: String,
         calorie: String,
         person: String,
@@ -62,8 +62,8 @@ class FoodDaoRepository(var fdao: FoodDao) {
         image: String,
         name: String,
         category: String,
-        stars: Double,
-        trend: Boolean,
+        stars: String,
+        trend: String,
         duration: String,
         calorie: String,
         person: String,

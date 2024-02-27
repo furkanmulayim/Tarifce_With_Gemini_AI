@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.data.model.Food
 
 @Dao
 interface FoodDao {

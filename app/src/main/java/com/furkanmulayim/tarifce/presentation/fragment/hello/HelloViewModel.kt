@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
 import com.furkanmulayim.tarifce.data.service.FoodAPIService
-import com.furkanmulayim.tarifce.domain.model.Food
-import com.furkanmulayim.tarifce.domain.model.FoodCategory
+import com.furkanmulayim.tarifce.data.model.Food
+import com.furkanmulayim.tarifce.data.model.FoodCategory
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -50,7 +50,8 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
                 .subscribeWith(object : DisposableSingleObserver<List<Food>>() {
                     override fun onSuccess(t: List<Food>) {
                         food.postValue(t)
-                        saveDatabase()
+                        println("Sayı " + t.size)
+                        saveDatabase(t)
                         deneme()
                     }
 
@@ -61,40 +62,44 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
         )
     }
 
-    fun saveDatabase() {
-        val foodList = food.value
-        foodList?.let {
-            for (foodItem in it) {
+    fun saveDatabase(list: List<Food>) {
+
+        if (list.isNotEmpty()) {
+            for (foodItem in list) {
                 frepo.saveFoods(
-                    foodItem.id,
-                    foodItem.image,
-                    foodItem.name,
-                    foodItem.category,
-                    foodItem.stars,
-                    foodItem.trend,
-                    foodItem.duration,
-                    foodItem.calorie,
-                    foodItem.person,
-                    foodItem.level,
-                    foodItem.hastags,
-                    foodItem.specific
+                    id = 0,
+                    image = foodItem.image,
+                    name = foodItem.name,
+                    category = foodItem.category,
+                    stars = foodItem.stars,
+                    trend = foodItem.trend,
+                    duration = foodItem.duration,
+                    calorie = foodItem.calorie,
+                    person = foodItem.person,
+                    level = foodItem.level,
+                    hastags = foodItem.hastags,
+                    specific = foodItem.specific
                 )
             }
-        } ?: println("Yemek listesi boş.")
+        } else {
+            println("Liste Boş amkl ")
+        }
     }
 
+
     init {
-        getCardList()
-        deneme = frepo.foodsPostViewModel()
+    getCardList()
+    deneme = frepo.foodsPostViewModel()
     }
 
     private fun getCardList() {
-        frepo.getAllFoods()
+    frepo.getAllFoods()
     }
 
     fun deneme() {
-        println("GELDİ:" + (deneme.value?.size ?: println("Bomboş")))
+    println("GELDİ:" + (deneme.value?.size ?: println("Bomboş")))
     }
+
 
     fun getFoods() {
         getFoodFromApi()

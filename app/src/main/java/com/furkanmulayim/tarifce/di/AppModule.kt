@@ -25,8 +25,8 @@ class AppModule {
     @Provides
     @Singleton
     fun provideCardsDao(@ApplicationContext context: Context): FoodDao {
-        val vt = Room.databaseBuilder(context, FoodDatabase::class.java, name = "food.sqlite")
-            .createFromAsset("food.sqlite").build()
+        val vt = Room.databaseBuilder(context, FoodDatabase::class.java, name = "foods.sqlite")
+            .createFromAsset("foods.sqlite").build()
         return vt.foodDao()
     }
 }
