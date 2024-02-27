@@ -1,13 +1,30 @@
 package com.furkanmulayim.tarifce.presentation.fragment.detail
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
+import com.furkanmulayim.tarifce.data.model.Food
+import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DetailViewModel(application: Application) : BaseViewModel(application) {
-    private val ingredients = " 500 Gr. Nohut haşlama@200 ml tahin@75 ml Zeytin Yağı@5 Diş Sarımsak@Çay Kaşığı Kimyon@1 Adet Limon@Yarım Su Bardağı Su@1 Çay Bardağı Deneme"
+@HiltViewModel
+class DetailViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
+    BaseViewModel(application) {
+
+    var food = MutableLiveData<Food>()
+
+    fun commonData(id: Int) {
+        getData(id)
+    }
+
+    private fun getData(id: Int) {
+        frepo.getFood(id)
+        food.value = frepo.foodPostViewModel().value?.get(0)
+    }
 
 
-    fun ingrList(): List<String> {
+    fun ingrList(ingredients:String): List<String> {
         return ingredients.split("@")
     }
 

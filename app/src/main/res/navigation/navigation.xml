@@ -45,6 +45,10 @@
         <action
             android:id="@+id/action_detailFragment_to_prepareBSFragment"
             app:destination="@id/prepareBSFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0"/>
     </fragment>
     <fragment
         android:id="@+id/savedFragment"

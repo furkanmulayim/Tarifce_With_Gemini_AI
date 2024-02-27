@@ -17,10 +17,9 @@ class FoodAdapter(
     private val dataList: ArrayList<Food>
 ) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val image:ShapeableImageView = itemView.findViewById(R.id.shapeableImageView)
+        val image: ShapeableImageView = itemView.findViewById(R.id.shapeableImageView)
         val duration: TextView = itemView.findViewById(R.id.food_duration)
         val stars: TextView = itemView.findViewById(R.id.food_stars)
         val name: TextView = itemView.findViewById(R.id.food_name)
@@ -28,8 +27,7 @@ class FoodAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
         return ViewHolder(view)
 
     }
@@ -38,15 +36,18 @@ class FoodAdapter(
         val item = dataList[position]
         holder.image.loadImage(item.image)
         holder.duration.text = item.duration
-        holder.stars.text = item.stars.toString()
+        holder.stars.text = item.stars
         holder.name.text = item.name
         holder.category.text = item.category
+
+        item.id
 
 
 
 
         holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_helloFragment_to_detailFragment)
+            val act = HelloFragmentDirections.actionHelloFragmentToDetailFragment(item.id)
+            Navigation.findNavController(it).navigate(act)
         }
     }
 

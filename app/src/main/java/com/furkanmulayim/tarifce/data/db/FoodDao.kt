@@ -16,4 +16,7 @@ interface FoodDao {
 
     @Delete
     suspend fun deleteFood(food: Food)
+
+    @Query("SELECT * FROM food WHERE id = :id")
+    suspend fun foodGet(id:Int):List<Food>
 }

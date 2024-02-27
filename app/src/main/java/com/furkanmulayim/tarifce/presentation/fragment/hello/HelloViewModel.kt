@@ -3,11 +3,12 @@ package com.furkanmulayim.tarifce.presentation.fragment.hello
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
-import com.furkanmulayim.tarifce.data.service.FoodAPIService
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.model.FoodCategory
+import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
+import com.furkanmulayim.tarifce.data.service.FoodAPIService
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.util.SharedPrefs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -19,12 +20,24 @@ import javax.inject.Inject
 class HelloViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
     BaseViewModel(application) {
 
+    private var sharedPrefs = SharedPrefs(getApplication())
+
     val selectedCategory = MutableLiveData<String>()
-    val food = MutableLiveData<List<Food>>()
-    var deneme = MutableLiveData<List<Food>>()
+    var food = MutableLiveData<List<Food>>()
 
     private val foodAPIService = FoodAPIService()
     private val disposable = CompositeDisposable()
+
+    /**
+    init {
+    getFoodList()
+    food = frepo.foodsPostViewModel()
+    }
+     */
+    private fun getFoodList() {
+        frepo.getAllFoods()
+    }
+
 
     private val categories = arrayListOf(
         FoodCategory(
@@ -40,6 +53,21 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
         )
     )
 
+    fun getData() {
+        //get download time
+        val updateTime = sharedPrefs.getTime()
+
+        if (updateTime != null && updateTime != 0L) {
+            println("GELDİ SQLİTE")
+            getFoodList()
+            food = frepo.foodsPostViewModel()
+        } else {
+            println("GELDİ API")
+            getFoodFromApi()
+        }
+    }
+
+    // download data from API
     private fun getFoodFromApi() {
         disposable.add(
             foodAPIService.getData()
@@ -52,7 +80,6 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
                         food.postValue(t)
                         println("Sayı " + t.size)
                         saveDatabase(t)
-                        deneme()
                     }
 
                     override fun onError(e: Throwable) {
@@ -62,6 +89,7 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
         )
     }
 
+    // save the data downloaded from API in SQLite
     fun saveDatabase(list: List<Food>) {
 
         if (list.isNotEmpty()) {
@@ -81,29 +109,14 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
                     specific = foodItem.specific
                 )
             }
+
+            //take the saved time
+            sharedPrefs.saveTime(System.nanoTime())
         } else {
-            println("Liste Boş amkl ")
+            println("Liste Boş")
         }
     }
 
-
-    init {
-    getCardList()
-    deneme = frepo.foodsPostViewModel()
-    }
-
-    private fun getCardList() {
-    frepo.getAllFoods()
-    }
-
-    fun deneme() {
-    println("GELDİ:" + (deneme.value?.size ?: println("Bomboş")))
-    }
-
-
-    fun getFoods() {
-        getFoodFromApi()
-    }
 
     fun listReturn(): ArrayList<FoodCategory> {
         return categories

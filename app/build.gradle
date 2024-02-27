@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
-    def navVersion = '2.3.0'
+    def navVersion = '2.4.1'
     def fragmentVersion = '1.6.0'
     def retrofitVersion = '2.8.1'
     def roomVersion = '2.5.0'

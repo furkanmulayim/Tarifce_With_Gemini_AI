@@ -37,7 +37,7 @@ class HelloFragment : Fragment() {
         //adapter init
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
-        viewModel.getFoods()
+        viewModel.getData()
         observeLiveData()
         setItems()
         clickListener()

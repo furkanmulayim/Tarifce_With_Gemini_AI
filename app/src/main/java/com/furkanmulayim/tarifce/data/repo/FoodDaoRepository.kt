@@ -11,9 +11,13 @@ class FoodDaoRepository(var fdao: FoodDao) {
 
 
     private var foodList: MutableLiveData<List<Food>> = MutableLiveData()
+    private var food: MutableLiveData<List<Food>> = MutableLiveData()
 
     fun foodsPostViewModel(): MutableLiveData<List<Food>> {
         return foodList
+    }
+    fun foodPostViewModel(): MutableLiveData<List<Food>> {
+        return food
     }
 
     fun getAllFoods() {
@@ -21,6 +25,13 @@ class FoodDaoRepository(var fdao: FoodDao) {
             foodList.value = fdao.allFoods()
         }
     }
+
+    fun getFood(id:Int){
+        val job = CoroutineScope(Dispatchers.Main).launch {
+            food.value = fdao.foodGet(id)
+        }
+    }
+
 
     fun saveFoods(
         id: Int,
