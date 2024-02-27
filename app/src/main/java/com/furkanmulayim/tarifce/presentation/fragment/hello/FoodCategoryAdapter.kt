@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.presentation.domain.model.FoodCategory
+import com.furkanmulayim.tarifce.domain.model.FoodCategory
 
 
 class FoodCategoryAdapter(

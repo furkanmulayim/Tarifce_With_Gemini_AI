@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.util.loadImage
 import com.google.android.material.imageview.ShapeableImageView
 
 
@@ -35,11 +37,14 @@ class FoodAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
-       // holder.image.setBackgroundResource(item.image)
+        holder.image.loadImage(item.image)
         holder.duration.text = item.duration
         holder.stars.text = item.stars.toString()
         holder.name.text = item.name
         holder.category.text = item.category
+
+
+
 
         holder.itemView.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_helloFragment_to_detailFragment)

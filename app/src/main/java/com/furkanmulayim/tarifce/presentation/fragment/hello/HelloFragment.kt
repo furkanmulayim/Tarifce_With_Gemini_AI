@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
 import com.furkanmulayim.tarifce.presentation.fragment.see_all.SeeAllBSFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HelloFragment : Fragment() {
 
     private var foodAdapter = FoodAdapter(arrayListOf())

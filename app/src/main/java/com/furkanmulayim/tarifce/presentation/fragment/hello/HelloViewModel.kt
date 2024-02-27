@@ -3,19 +3,25 @@ package com.furkanmulayim.tarifce.presentation.fragment.hello
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
 import com.furkanmulayim.tarifce.data.service.FoodAPIService
 import com.furkanmulayim.tarifce.domain.model.Food
+import com.furkanmulayim.tarifce.domain.model.FoodCategory
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
-import com.furkanmulayim.tarifce.presentation.domain.model.FoodCategory
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class HelloViewModel(application: Application) : BaseViewModel(application) {
+@HiltViewModel
+class HelloViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
+    BaseViewModel(application) {
 
     val selectedCategory = MutableLiveData<String>()
     val food = MutableLiveData<List<Food>>()
+    var deneme = MutableLiveData<List<Food>>()
 
     private val foodAPIService = FoodAPIService()
     private val disposable = CompositeDisposable()
@@ -44,7 +50,8 @@ class HelloViewModel(application: Application) : BaseViewModel(application) {
                 .subscribeWith(object : DisposableSingleObserver<List<Food>>() {
                     override fun onSuccess(t: List<Food>) {
                         food.postValue(t)
-                        println("furkan burasi geldi: " + t[0].calorie)
+                        saveDatabase()
+                        deneme()
                     }
 
                     override fun onError(e: Throwable) {
@@ -52,7 +59,41 @@ class HelloViewModel(application: Application) : BaseViewModel(application) {
                     }
                 })
         )
+    }
 
+    fun saveDatabase() {
+        val foodList = food.value
+        foodList?.let {
+            for (foodItem in it) {
+                frepo.saveFoods(
+                    foodItem.id,
+                    foodItem.image,
+                    foodItem.name,
+                    foodItem.category,
+                    foodItem.stars,
+                    foodItem.trend,
+                    foodItem.duration,
+                    foodItem.calorie,
+                    foodItem.person,
+                    foodItem.level,
+                    foodItem.hastags,
+                    foodItem.specific
+                )
+            }
+        } ?: println("Yemek listesi boş.")
+    }
+
+    init {
+        getCardList()
+        deneme = frepo.foodsPostViewModel()
+    }
+
+    private fun getCardList() {
+        frepo.getAllFoods()
+    }
+
+    fun deneme() {
+        println("GELDİ:" + (deneme.value?.size ?: println("Bomboş")))
     }
 
     fun getFoods() {
@@ -62,7 +103,6 @@ class HelloViewModel(application: Application) : BaseViewModel(application) {
     fun listReturn(): ArrayList<FoodCategory> {
         return categories
     }
-
 
     fun selectedCategories(category: String) {
         selectedCategory.value = category

@@ -1,10 +1,9 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'androidx.navigation.safeargs'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     namespace 'com.furkanmulayim.tarifce'
@@ -50,25 +49,38 @@ dependencies {
     def navVersion = '2.3.0'
     def fragmentVersion = '1.6.0'
     def retrofitVersion = '2.8.1'
+    def roomVersion = '2.5.0'
     def rxJavaVersion = '2.1.1'
+
+    //HİLT
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    //RETROFİT
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // ROOM //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-rxjava2:2.3.0"
+
+    //COROUTİNE //noinspection GradleDependency
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+
+    //GLİDE
+    implementation "com.github.bumptech.glide:glide:4.11.0"
 
     //NAVİGATİON
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
-    //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-
-    //RxJava //noinspection GradleDependency
+    //RXJAVA //noinspection GradleDependency
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
-
-    //Glide
-    implementation "com.github.bumptech.glide:glide:4.11.0"
-
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
