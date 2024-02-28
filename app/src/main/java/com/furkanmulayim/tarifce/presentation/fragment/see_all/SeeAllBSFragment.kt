@@ -18,6 +18,12 @@ class SeeAllBSFragment : BottomSheetDialogFragment() {
     private lateinit var viewModel: SeeAllBViewModel
     private lateinit var binding: FragmentSeeAllBSBinding
     private lateinit var foodAdapter: AllFoodAdapter
+    private lateinit var bundleData: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        bundleData = arguments?.getString("category").toString()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,7 +40,8 @@ class SeeAllBSFragment : BottomSheetDialogFragment() {
     }
 
     private fun setFoods() {
-        foodAdapter = AllFoodAdapter(viewModel.foodReturn())
+        binding.categoryName.text = bundleData
+        foodAdapter = AllFoodAdapter(viewModel.foodReturn(bundleData))
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
     }

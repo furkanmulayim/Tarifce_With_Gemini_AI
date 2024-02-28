@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,6 +31,8 @@
                 android:background="@drawable/svg_dene"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="3:2.5" />
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +59,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
-                            android:text="Yemek Adı Gelecek"
+                            android:text="@{viewModel.food.name}"
                             android:textColor="@color/main_text_color"
                             android:textSize="20sp" />
 
@@ -66,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="-3dp"
                             android:fontFamily="@font/inter_semibold"
-                            android:text="Kategorisi"
+                            android:text="@{viewModel.food.category}"
                             android:textColor="@color/main_text_color2"
                             android:textSize="17sp" />
                     </LinearLayout>
@@ -87,7 +90,7 @@
                         android:gravity="center"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:text="4.6"
+                        android:text="@{viewModel.food.stars}"
                         android:textColor="@color/main_text_color0"
                         android:textSize="15sp"
                         app:drawableLeftCompat="@drawable/svg_stars" />
@@ -132,6 +135,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="7dp"
+                                android:text="@{viewModel.food.duration}"
                                 android:fontFamily="@font/inter_semibold"
                                 android:textColor="@color/main_text_color"
                                 android:textSize="16sp" />
@@ -186,6 +190,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="7dp"
+                                android:text="@{viewModel.food.calorie}"
                                 android:fontFamily="@font/inter_semibold"
                                 android:textColor="@color/main_text_color"
                                 android:textSize="16sp" />
@@ -240,6 +245,7 @@
 
                             <TextView
                                 android:id="@+id/itemPerson"
+                                android:text="@{viewModel.food.person}"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="7dp"
@@ -297,6 +303,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="7dp"
+                                android:text="@{viewModel.food.level}"
                                 android:fontFamily="@font/inter_semibold"
                                 android:textColor="@color/main_text_color"
                                 android:textSize="16sp" />

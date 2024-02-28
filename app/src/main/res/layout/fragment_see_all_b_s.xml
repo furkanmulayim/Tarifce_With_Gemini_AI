@@ -40,6 +40,7 @@
                     android:background="@drawable/icon_trend"/>
 
                 <TextView
+                    android:id="@+id/categoryName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_bold"

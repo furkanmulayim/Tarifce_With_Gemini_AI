@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
-import com.furkanmulayim.tarifce.presentation.fragment.see_all.SeeAllBSFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +21,7 @@ class HelloFragment : Fragment() {
     private lateinit var viewModel: HelloViewModel
     private lateinit var binding: FragmentHelloBinding
     private lateinit var itemAdapter: FoodCategoryAdapter
+    private var category: String = "Trend"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,15 +34,21 @@ class HelloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        //adapter init
+
+        /**adapter init*/
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
+
+        /** get data from apı or sqlite (situation!)*/
         viewModel.getData()
+
+
         observeLiveData()
         setItems()
         clickListener()
     }
 
+    /** onclick listeners*/
     private fun clickListener() {
         binding.savedButton.setOnClickListener {
             nav(R.id.action_helloFragment_to_savedFragment)
@@ -52,26 +58,27 @@ class HelloFragment : Fragment() {
             nav(R.id.action_helloFragment_to_chooseFragment)
         }
 
+        /**send bundle all foods to bottom sheet dialog with nav graph*/
         binding.seeAllButton.setOnClickListener {
-            SeeAllBSFragment().show(childFragmentManager, "")
+            val act = HelloFragmentDirections.actionHelloFragmentToSeeAllBSFragment(category)
+            Navigation.findNavController(it).navigate(act)
         }
     }
 
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
-    }
-
+    /** Show category names in recycler view*/
     private fun setItems() {
         itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { it ->
             viewModel.selectedCategories(it)
-            viewModel.selectedCategory.observe(viewLifecycleOwner, Observer { categ ->
-                binding.itemName.text = categ
-            })
+            viewModel.selectedCategory.observe(viewLifecycleOwner) { categ ->
+                category = categ
+                binding.itemName.text = category
+            }
         }
         binding.itemFoodCategoryRcyc.adapter = itemAdapter
         binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
+    /** food list observe*/
     private fun observeLiveData() {
         viewModel.food.observe(viewLifecycleOwner, Observer {
             it.let {
@@ -79,4 +86,10 @@ class HelloFragment : Fragment() {
             }
         })
     }
+
+    /** navigaation transactions*/
+    private fun nav(id: Int) {
+        Navigation.findNavController(requireView()).navigate(id)
+    }
+
 }

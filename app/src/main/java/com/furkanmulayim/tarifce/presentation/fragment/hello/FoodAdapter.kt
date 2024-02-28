@@ -46,7 +46,7 @@ class FoodAdapter(
 
 
         holder.itemView.setOnClickListener {
-            val act = HelloFragmentDirections.actionHelloFragmentToDetailFragment(item.id)
+            val act = HelloFragmentDirections.actionHelloFragmentToDetailFragment(item.name)
             Navigation.findNavController(it).navigate(act)
         }
     }

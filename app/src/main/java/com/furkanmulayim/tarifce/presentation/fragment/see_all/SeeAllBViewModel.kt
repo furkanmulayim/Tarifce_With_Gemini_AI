@@ -23,7 +23,7 @@ class SeeAllBViewModel : ViewModel() {
     )
 
 
-    fun foodReturn(): ArrayList<Food> {
+    fun foodReturn(bundleCategoryName:String): ArrayList<Food> {
         return food
     }
 }

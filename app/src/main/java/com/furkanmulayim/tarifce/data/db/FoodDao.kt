@@ -9,7 +9,7 @@ import com.furkanmulayim.tarifce.data.model.Food
 @Dao
 interface FoodDao {
     @Query("SELECT * FROM food")
-    suspend fun allFoods() :List<Food>
+    suspend fun allFoods(): List<Food>
 
     @Insert
     suspend fun addFood(food: Food)
@@ -17,6 +17,6 @@ interface FoodDao {
     @Delete
     suspend fun deleteFood(food: Food)
 
-    @Query("SELECT * FROM food WHERE id = :id")
-    suspend fun foodGet(id:Int):List<Food>
+    @Query("SELECT * FROM food WHERE name = :name")
+    suspend fun foodGet(name: String): Food
 }
