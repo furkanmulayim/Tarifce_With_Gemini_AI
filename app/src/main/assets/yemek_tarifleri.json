@@ -2,7 +2,7 @@
   {
     "image": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/humus.png",
     "name": "Humus",
-    "category": "vegan",
+    "category": "klasik",
     "stars": "4.3",
     "trend": "1",
     "duration": "45",
@@ -50,7 +50,7 @@
   },{
     "image": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/humus.png",
     "name": "Peynir",
-    "category": "vegan",
+    "category": "trend",
     "stars": "4.3",
     "trend": "1",
     "duration": "45",
@@ -62,7 +62,7 @@
   },{
     "image": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/humus.png",
     "name": "Denemek",
-    "category": "vegan",
+    "category": "trend",
     "stars": "4.3",
     "trend": "0",
     "duration": "45",
