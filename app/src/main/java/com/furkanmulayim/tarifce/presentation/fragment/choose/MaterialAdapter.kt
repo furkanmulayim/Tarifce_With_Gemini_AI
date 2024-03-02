@@ -1,15 +1,16 @@
 package com.furkanmulayim.tarifce.presentation.fragment.choose
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Material
+import com.furkanmulayim.tarifce.data.model.MaterialItem
 
 
 class MaterialAdapter( private val categories: List<Material>
@@ -43,12 +44,14 @@ class MaterialAdapter( private val categories: List<Material>
     }
 
     // SubAdapter'ı buraya yerleştirin
-    inner class SubAdapter(private val items: List<String>) :
+    inner class SubAdapter(private val items: List<MaterialItem>) :
         RecyclerView.Adapter<SubAdapter.SubViewHolder>() {
 
         inner class SubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             val categ: TextView = itemView.findViewById(R.id.food_ingr)
+            val image: ImageView = itemView.findViewById(R.id.itemImage)
+
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubViewHolder {
@@ -59,7 +62,8 @@ class MaterialAdapter( private val categories: List<Material>
 
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
-            holder.categ.text = item
+            holder.categ.text = item.itemName
+            holder.image.setBackgroundResource(item.itemImageResId)
         }
 
         override fun getItemCount(): Int {
