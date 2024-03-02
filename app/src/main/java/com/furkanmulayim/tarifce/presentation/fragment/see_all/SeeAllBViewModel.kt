@@ -1,29 +1,36 @@
 package com.furkanmulayim.tarifce.presentation.fragment.see_all
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.data.model.Food
+import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
+import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SeeAllBViewModel : ViewModel() {
+@HiltViewModel
+class SeeAllBViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
+    BaseViewModel(application) {
 
-    private val food = arrayListOf(
-        Food(
-            id = 1,
-            image = "R.drawable.svg_dene",
-            name = "Köri Soslu Tavuk",
-            category = "Trend",
-            stars = "4.6",
-            trend = "0",
-            duration = "35-45",
-            calorie = "365",
-            person = "2-3",
-            level = "orta",
-            hastags = "domates/biber/sogan",
-            specific = "bla bla bla"
-        )
-    )
+    private var temp = MutableLiveData<List<Food>>()
+    var foods = MutableLiveData<List<Food>>()
 
-
-    fun foodReturn(bundleCategoryName:String): ArrayList<Food> {
-        return food
+    fun commonData(name: String) {
+        getData(name)
     }
+
+    private fun getData(categoryName: String) {
+        frepo.getAllFoods()
+        temp.value = frepo.foodsPostViewModel().value
+        temp.value?.let { foodsList ->
+            println("--" + foodsList.size)
+            println("gelen category: " + foodsList[1].category)
+            foods.postValue(foodsList.filter {
+                it.category.equals(
+                    categoryName, ignoreCase = true
+                )
+            })
+        }
+    }
+
 }

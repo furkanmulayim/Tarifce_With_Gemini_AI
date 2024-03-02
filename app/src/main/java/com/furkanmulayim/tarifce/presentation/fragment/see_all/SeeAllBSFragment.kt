@@ -9,15 +9,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentSeeAllBSBinding
-import com.furkanmulayim.tarifce.presentation.fragment.hello.FoodAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SeeAllBSFragment : BottomSheetDialogFragment() {
 
 
     private lateinit var viewModel: SeeAllBViewModel
     private lateinit var binding: FragmentSeeAllBSBinding
-    private lateinit var foodAdapter: AllFoodAdapter
+    private var foodAdapter = AllFoodAdapter(arrayListOf())
     private lateinit var bundleData: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,14 +37,26 @@ class SeeAllBSFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setAdapter()
         setFoods()
     }
 
+    private fun setAdapter() {
+        binding.foodsRcyc.adapter = foodAdapter
+        binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
+    }
+
+
     private fun setFoods() {
         binding.categoryName.text = bundleData
-        foodAdapter = AllFoodAdapter(viewModel.foodReturn(bundleData))
-        binding.foodsRcyc.adapter = foodAdapter
-        binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
+        viewModel.commonData(bundleData)
+        viewModel.foods.observe(viewLifecycleOwner) { f ->
+            f?.let {
+                println("Fragment" + it.size)
+                foodAdapter.updateList(it)
+            }
+
+        }
     }
 
 }

@@ -14,6 +14,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,20 +26,20 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
 
     private var sharedPrefs = SharedPrefs(getApplication())
 
-    val selectedCategory = MutableLiveData<String>()
     var food = MutableLiveData<List<Food>>()
+
+    var deneme = MutableLiveData<Food>()
+
+    val selectedCategory = MutableLiveData<String>()
+    var seciliUrunler = MutableLiveData<List<Food>>()
 
     private val foodAPIService = FoodAPIService()
     private val disposable = CompositeDisposable()
 
-    /**
-    init {
-    getFoodList()
-    food = frepo.foodsPostViewModel()
-    }
-     */
     private fun getFoodList() {
         frepo.getAllFoods()
+        food = frepo.foodsPostViewModel()
+        comeFirstDataFoodsByCategory()
     }
 
 
@@ -58,11 +62,8 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
         val updateTime = sharedPrefs.getTime()
 
         if (updateTime != null && updateTime != 0L) {
-            println("GELDİ SQLİTE")
             getFoodList()
-            food = frepo.foodsPostViewModel()
         } else {
-            println("GELDİ API")
             getFoodFromApi()
         }
     }
@@ -78,42 +79,48 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
                 .subscribeWith(object : DisposableSingleObserver<List<Food>>() {
                     override fun onSuccess(t: List<Food>) {
                         food.postValue(t)
-                        println("Sayı " + t.size)
+                        comeFirstDataFoodsByCategory()
                         saveDatabase(t)
                     }
 
                     override fun onError(e: Throwable) {
-                        println(e.localizedMessage)
                     }
                 })
         )
     }
 
-    // save the data downloaded from API in SQLite
+    fun comeFirstDataFoodsByCategory() {
+        seciliUrunler.postValue(food.value?.filter {
+            it.category.equals(
+                selectedCategory.value, ignoreCase = true
+            )
+        })
+    }
+
+
+    /** save the data downloaded from API in SQLite */
     fun saveDatabase(list: List<Food>) {
 
         if (list.isNotEmpty()) {
             for (foodItem in list) {
                 frepo.saveFoods(
-                    id = 0,
-                    image = foodItem.image,
-                    name = foodItem.name,
-                    category = foodItem.category,
-                    stars = foodItem.stars,
-                    trend = foodItem.trend,
-                    duration = foodItem.duration,
-                    calorie = foodItem.calorie,
-                    person = foodItem.person,
-                    level = foodItem.level,
-                    hastags = foodItem.hastags,
-                    specific = foodItem.specific
+                    0,
+                    foodItem.image,
+                    foodItem.name,
+                    foodItem.category,
+                    foodItem.stars,
+                    foodItem.trend,
+                    foodItem.duration,
+                    foodItem.calorie,
+                    foodItem.person,
+                    foodItem.level,
+                    foodItem.hastags,
+                    foodItem.specific
                 )
             }
 
             //take the saved time
             sharedPrefs.saveTime(System.nanoTime())
-        } else {
-            println("Liste Boş")
         }
     }
 
@@ -124,5 +131,6 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
 
     fun selectedCategories(category: String) {
         selectedCategory.value = category
+        comeFirstDataFoodsByCategory()
     }
 }

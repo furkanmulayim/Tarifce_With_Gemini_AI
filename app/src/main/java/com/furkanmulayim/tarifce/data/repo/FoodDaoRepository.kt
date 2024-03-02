@@ -16,7 +16,8 @@ class FoodDaoRepository(var fdao: FoodDao) {
     fun foodsPostViewModel(): MutableLiveData<List<Food>> {
         return foodList
     }
-    fun foodPostViewModel(): MutableLiveData<Food>{
+
+    fun foodPostViewModel(): MutableLiveData<Food> {
         return food
     }
 
@@ -26,7 +27,7 @@ class FoodDaoRepository(var fdao: FoodDao) {
         }
     }
 
-    fun getFood(name:String){
+    fun getFood(name: String) {
         val job = CoroutineScope(Dispatchers.Main).launch {
             food.value = fdao.foodGet(name)
         }
@@ -64,41 +65,6 @@ class FoodDaoRepository(var fdao: FoodDao) {
                 specific = specific
             )
             fdao.addFood(newFood)
-        }
-
-    }
-
-    fun deleteFood(
-        id: Int,
-        image: String,
-        name: String,
-        category: String,
-        stars: String,
-        trend: String,
-        duration: String,
-        calorie: String,
-        person: String,
-        level: String,
-        hastags: String,
-        specific: String
-    ) {
-
-        val job = CoroutineScope(Dispatchers.Main).launch {
-            val deleteFood = Food(
-                id = id,
-                image = image,
-                name = name,
-                category = category,
-                stars = stars,
-                trend = trend,
-                duration = duration,
-                calorie = calorie,
-                person = person,
-                level = level,
-                hastags = hastags,
-                specific = specific
-            )
-            fdao.deleteFood(deleteFood)
         }
 
     }

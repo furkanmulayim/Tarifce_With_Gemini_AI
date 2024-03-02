@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
@@ -41,10 +40,10 @@ class HelloFragment : Fragment() {
 
         /** get data from apı or sqlite (situation!)*/
         viewModel.getData()
-
-
-        observeLiveData()
         setItems()
+        observeLiveData()
+
+        setAdapter()
         clickListener()
     }
 
@@ -67,24 +66,38 @@ class HelloFragment : Fragment() {
 
     /** Show category names in recycler view*/
     private fun setItems() {
-        itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { it ->
-            viewModel.selectedCategories(it)
+        viewModel.selectedCategories(category)
+        itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { categoryName ->
+            viewModel.selectedCategories(categoryName)
             viewModel.selectedCategory.observe(viewLifecycleOwner) { categ ->
-                category = categ
-                binding.itemName.text = category
+                categ?.let {
+                    category = categ
+                    binding.itemName.text = category
+                }
             }
         }
+        observeLiveData()
+    }
+
+    /** adapter ayarlama*/
+    private fun setAdapter() {
         binding.itemFoodCategoryRcyc.adapter = itemAdapter
         binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
+
     /** food list observe*/
     private fun observeLiveData() {
-        viewModel.food.observe(viewLifecycleOwner, Observer {
-            it.let {
-                foodAdapter.updateList(it)
+        viewModel.food.observe(viewLifecycleOwner) { foods ->
+            foods?.let {
+                viewModel.comeFirstDataFoodsByCategory()
+                viewModel.seciliUrunler.observe(viewLifecycleOwner){
+                    it?.let {
+                        foodAdapter.updateList(it)
+                    }
+                }
             }
-        })
+        }
     }
 
     /** navigaation transactions*/

@@ -6,13 +6,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
+        android:background="@color/white"
         tools:context=".presentation.fragment.see_all.SeeAllBSFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/back_detail"
             android:orientation="vertical"
             android:paddingStart="10dp"
             android:paddingEnd="10dp">
@@ -37,7 +36,7 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="10dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/icon_trend"/>
+                    android:background="@drawable/finger"/>
 
                 <TextView
                     android:id="@+id/categoryName"
@@ -58,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:foregroundTintMode="screen" />
         </LinearLayout>
 
