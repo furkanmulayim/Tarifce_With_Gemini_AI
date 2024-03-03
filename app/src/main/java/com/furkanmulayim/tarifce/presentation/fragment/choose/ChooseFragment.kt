@@ -1,5 +1,6 @@
 package com.furkanmulayim.tarifce.presentation.fragment.choose
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
+import com.furkanmulayim.tarifce.data.model.Category
 
 class ChooseFragment : Fragment() {
 
@@ -22,14 +24,14 @@ class ChooseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choose, container, false)
-        viewModel = ViewModelProvider(this)[ChooseViewModel::class.java]
+        viewModel = ViewModelProvider(this).get(ChooseViewModel::class.java)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        viewModel.getFoodFromApi()
+        viewModel.getData()
         clickListener()
         setAdapter()
     }
@@ -40,10 +42,18 @@ class ChooseFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
-        val adapter = MaterialAdapter(viewModel.listMaterial())
+        adapter = MaterialAdapter(emptyList()) // Başlangıçta boş bir liste ile başlat
+
         binding.materialRcyc.adapter = adapter
+
+        viewModel.categoriesLiveData.observe(viewLifecycleOwner) { categories ->
+            adapter.categories = categories
+            // Değişiklikleri RecyclerView'a bildir
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun nav(id: Int) {

@@ -12,7 +12,7 @@ import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
 
 
-class MaterialAdapter( private val categories: List<Category>
+class MaterialAdapter(var categories: List<Category>
 ) : RecyclerView.Adapter<MaterialAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -62,6 +62,7 @@ class MaterialAdapter( private val categories: List<Category>
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
             holder.categ.text = item.name
+            item.imageUrl
            // holder.image.setBackgroundResource(item.)
         }
 
