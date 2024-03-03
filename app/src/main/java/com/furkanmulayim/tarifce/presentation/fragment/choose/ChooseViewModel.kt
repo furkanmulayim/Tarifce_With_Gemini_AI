@@ -61,13 +61,15 @@ class ChooseViewModel : ViewModel() {
                 .subscribeOn(Schedulers.newThread())
                 //show main Thread
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<CategoryData>() {
+                .subscribeWith(object : DisposableSingleObserver<List<CategoryData>>() {
 
-                    override fun onSuccess(categoryData: CategoryData) {
+                    override fun onSuccess(categoryDataList: List<CategoryData>) {
                         val allCategories = mutableListOf<Category>()
-                        categoryData.categories.forEach { category ->
-                            category.materials.forEach { material ->
-                                allCategories.add(Category(category.name, listOf(Material(material.name, material.imageUrl))))
+                        categoryDataList.forEach { categoryData ->
+                            categoryData.categories.forEach { category ->
+                                category.materials.forEach { material ->
+                                    allCategories.add(Category(category.name, listOf(Material(material.name, material.imageUrl))))
+                                }
                             }
                         }
                         categoriesLiveData.value = allCategories
@@ -79,6 +81,7 @@ class ChooseViewModel : ViewModel() {
                 })
         )
     }
+
 
 
     fun listMaterial(): List<Category> {
