@@ -62,8 +62,6 @@ class MaterialAdapter(var categories: List<Category>
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
             holder.categ.text = item.name
-            item.imageUrl
-           // holder.image.setBackgroundResource(item.)
         }
 
         override fun getItemCount(): Int {

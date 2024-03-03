@@ -38,16 +38,16 @@ class ChooseViewModel : ViewModel() {
                         categoryDataList.forEach { categoryData ->
                             categoryData.categories.forEach { category ->
                                 val materials = category.materials.map {
-                                    // Veriler null değilse Material objesini oluştur
-                                    Material(it.name, it.imageUrl)
+                                    it?.imageUrl?.let { it1 -> Material(it.name, it1) }
                                 }
-                                // Kategori ve materyalleri ekle
-                                allCategories.add(Category(category.name, materials))
+                                allCategories.add(Category(category.name,
+                                    materials as List<Material>
+                                ))
                             }
                         }
-                        // LiveData'ya verileri aktar
                         categoriesLiveData.value = allCategories
                     }
+
 
                     override fun onError(e: Throwable) {
                         println("hata: ${e.localizedMessage}")
