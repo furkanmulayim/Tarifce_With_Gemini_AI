@@ -16,7 +16,7 @@ class MaterialsAPIService {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
             .create(MaterialsAPI::class.java)
 
-    fun getMaterials(): Single<List<CategoryData>> {
+    fun getMaterials(): Single<CategoryData> {
         return api.getMaterials()
     }
 

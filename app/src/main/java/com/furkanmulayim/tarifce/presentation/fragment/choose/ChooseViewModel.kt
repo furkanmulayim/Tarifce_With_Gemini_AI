@@ -53,7 +53,7 @@ class ChooseViewModel : ViewModel() {
     ) */
 
     // download data from API
-     fun getFoodFromApi() {
+    fun getFoodFromApi() {
         println("1.")
         disposable.add(
             materialAPIService.getMaterials()
@@ -61,27 +61,25 @@ class ChooseViewModel : ViewModel() {
                 .subscribeOn(Schedulers.newThread())
                 //show main Thread
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<List<CategoryData>>() {
+                .subscribeWith(object : DisposableSingleObserver<CategoryData>() {
 
-                    override fun onSuccess(t: List<CategoryData>) {
+                    override fun onSuccess(categoryData: CategoryData) {
                         val allCategories = mutableListOf<Category>()
-                        t.forEach { categoryData ->
-                            categoryData.categories.forEach { category ->
-                                category.materials.forEach { material ->
-                                    allCategories.add(Category(category.name, listOf(Material(material.name, material.imageUrl))))
-                                }
+                        categoryData.categories.forEach { category ->
+                            category.materials.forEach { material ->
+                                allCategories.add(Category(category.name, listOf(Material(material.name, material.imageUrl))))
                             }
                         }
                         categoriesLiveData.value = allCategories
                     }
 
                     override fun onError(e: Throwable) {
-
-                        println("hata."+ e.localizedMessage)
+                        println("hata: ${e.localizedMessage}")
                     }
                 })
         )
     }
+
 
     fun listMaterial(): List<Category> {
         getFoodFromApi().let {
