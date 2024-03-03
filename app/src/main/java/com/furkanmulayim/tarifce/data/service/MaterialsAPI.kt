@@ -5,6 +5,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface MaterialsAPI {
-    @GET("furkanmulayim/Tarifce/master/app/src/main/assets/yemek_tarifleri.json")
+    @GET("furkanmulayim/Tarifce/master/app/src/main/assets/malzemeler.json")
     fun getMaterials(): Single<List<CategoryData>>
 }

@@ -77,19 +77,6 @@
           "image_url": "https://example.com/kalamar.jpg"
         }
       ]
-    },
-    {
-      "name": "Deniz Ürünleri",
-      "materials": [
-        {
-          "name": "Balık",
-          "image_url": "https://example.com/balik.jpg"
-        },
-        {
-          "name": "Kalamar",
-          "image_url": "https://example.com/kalamar.jpg"
-        }
-      ]
     }
   ]
 }

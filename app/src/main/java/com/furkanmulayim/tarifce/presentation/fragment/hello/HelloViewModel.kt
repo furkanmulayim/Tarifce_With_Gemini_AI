@@ -28,8 +28,6 @@ class HelloViewModel @Inject constructor(application: Application, var frepo: Fo
 
     var food = MutableLiveData<List<Food>>()
 
-    var deneme = MutableLiveData<Food>()
-
     val selectedCategory = MutableLiveData<String>()
     var seciliUrunler = MutableLiveData<List<Food>>()
 
