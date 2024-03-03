@@ -27,12 +27,9 @@ class ChooseViewModel : ViewModel() {
 
     // download data from API
     private fun getFoodFromApi() {
-        println("1.")
         disposable.add(
             materialAPIService.getMaterials()
-                //async new thread
                 .subscribeOn(Schedulers.newThread())
-                //show main Thread
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<List<CategoryData>>() {
 
@@ -41,15 +38,16 @@ class ChooseViewModel : ViewModel() {
                         categoryDataList.forEach { categoryData ->
                             categoryData.categories.forEach { category ->
                                 val materials = category.materials.map {
+                                    // Veriler null değilse Material objesini oluştur
                                     Material(it.name, it.imageUrl)
                                 }
+                                // Kategori ve materyalleri ekle
                                 allCategories.add(Category(category.name, materials))
                             }
                         }
+                        // LiveData'ya verileri aktar
                         categoriesLiveData.value = allCategories
                     }
-
-
 
                     override fun onError(e: Throwable) {
                         println("hata: ${e.localizedMessage}")
@@ -57,5 +55,6 @@ class ChooseViewModel : ViewModel() {
                 })
         )
     }
+
 
 }

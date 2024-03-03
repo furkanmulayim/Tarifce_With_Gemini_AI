@@ -5,44 +5,16 @@
         "name": "Et Ürünleri",
         "materials": [
           {
-            "name": "Süt",
-            "image_url": "https://example.com/sut.jpg"
+            "name": "Koyun Eti",
+            "image_url": ""
           },
           {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
+            "name": "Dana Eti",
+            "image_url": ""
           },
           {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
+            "name": "Tavuk Eti",
+            "image_url": ""
           }
         ]
       },
@@ -51,19 +23,31 @@
         "materials": [
           {
             "name": "Balık",
-            "image_url": "https://example.com/balik.jpg"
+            "image_url": ""
           },
           {
             "name": "Kalamar",
-            "image_url": "https://example.com/kalamar.jpg"
+            "image_url": ""
           },
           {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
+            "name": "Istakoz",
+            "image_url": ""
           },
           {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
+            "name": "Karides",
+            "image_url": ""
+          },
+          {
+            "name": "Yengeç",
+            "image_url": ""
+          },
+          {
+            "name": "Ahtapot",
+            "image_url": ""
+          },
+          {
+            "name": "Midye",
+            "image_url": ""
           }
         ]
       },
@@ -71,24 +55,316 @@
         "name": "Sebzeler",
         "materials": [
           {
-            "name": "Dene",
-            "image_url": "https://example.com/dene.jpg"
+            "name": "Yeşil Biber",
+            "image_url": ""
           },
           {
-            "name": "Yap",
-            "image_url": "https://example.com/yap.jpg"
+            "name": "Kırmızı Biber",
+            "image_url": ""
+          },
+          {
+            "name": "Domates",
+            "image_url": ""
+          },
+          {
+            "name": "Patates",
+            "image_url": ""
+          },
+          {
+            "name": "Soğan",
+            "image_url": ""
+          },
+          {
+            "name": "Salatalık",
+            "image_url": ""
+          },
+          {
+            "name": "Havuç",
+            "image_url": ""
+          },
+          {
+            "name": "Sarımsak",
+            "image_url": ""
+          },
+          {
+            "name": "Brokoli",
+            "image_url": ""
+          },
+          {
+            "name": "Karnabahar",
+            "image_url": ""
+          },
+          {
+            "name": "Ispanak",
+            "image_url": ""
+          },
+          {
+            "name": "Marul",
+            "image_url": ""
+          },
+          {
+            "name": "Lahana",
+            "image_url": ""
+          },
+          {
+            "name": "Kereviz",
+            "image_url": ""
+          },
+          {
+            "name": "Pırasa",
+            "image_url": ""
+          },
+          {
+            "name": "Bezelye",
+            "image_url": ""
+          },
+          {
+            "name": "Fasulye",
+            "image_url": ""
+          },
+          {
+            "name": "Mantar",
+            "image_url": ""
+          },
+          {
+            "name": "Turp",
+            "image_url": ""
+          },
+          {
+            "name": "Kabak",
+            "image_url": ""
+          },
+          {
+            "name": "Pancar",
+            "image_url": ""
+          },
+          {
+            "name": "Maydonoz",
+            "image_url": ""
+          },
+          {
+            "name": "Nane",
+            "image_url": ""
+          },
+          {
+            "name": "Patlıcan",
+            "image_url": ""
+          }
+        ]
+      },
+      {
+        "name": "Kuru Baklagiller",
+        "materials": [
+          {
+            "name": "Nohut",
+            "image_url": ""
+          },
+          {
+            "name": "Mercimek",
+            "image_url": ""
+          },
+          {
+            "name": "Kuru Fasulye",
+            "image_url": ""
+          },
+          {
+            "name": "Barbunya",
+            "image_url": ""
+          },
+          {
+            "name": "Yeşil Mercimek",
+            "image_url": ""
+          },
+          {
+            "name": "Kırmızı Mercimek",
+            "image_url": ""
+          },
+          {
+            "name": "Siyah Fasulye",
+            "image_url": ""
+          },
+          {
+            "name": "Börülce",
+            "image_url": ""
+          },
+          {
+            "name": "Mısır",
+            "image_url": ""
+          },
+          {
+            "name": "Bezelye",
+            "image_url": ""
+          },
+          {
+            "name": "Kuru Nohut",
+            "image_url": ""
+          },
+          {
+            "name": "Kuru Barbunya",
+            "image_url": ""
+          },
+          {
+            "name": "Kırmızı Fasulye",
+            "image_url": ""
+          },
+          {
+            "name": "Kuru Bezelye",
+            "image_url": ""
+          },
+          {
+            "name": "Kırmızı Mercimek",
+            "image_url": ""
+          },
+          {
+            "name": "Kuru Mısır",
+            "image_url": ""
+          }
+        ]
+      },
+      {
+        "name": "Tahıl Ürünleri",
+        "materials": [
+          {
+            "name": "Buğday",
+            "image_url": ""
+          },
+          {
+            "name": "Arpa",
+            "image_url": ""
+          },
+          {
+            "name": "Yulaf",
+            "image_url": ""
+          },
+          {
+            "name": "Pirinç",
+            "image_url": ""
+          },
+          {
+            "name": "Mısır",
+            "image_url": ""
+          },
+          {
+            "name": "Ceviz",
+            "image_url": ""
+          },
+          {
+            "name": "Çavdar",
+            "image_url": ""
+          },
+          {
+            "name": "Çeltik",
+            "image_url": ""
+          },
+          {
+            "name": "Arpa",
+            "image_url": ""
+          },
+          {
+            "name": "Yulaf",
+            "image_url": ""
+          },
+          {
+            "name": "Kuşkonmaz",
+            "image_url": ""
+          },
+          {
+            "name": "Çavdar",
+            "image_url": ""
+          }
+        ]
+      },
+      {
+        "name": "Baharatlar",
+        "materials": [
+          {
+            "name": "Kırmızı Biber Tozu",
+            "image_url": ""
+          },
+          {
+            "name": "Kekik",
+            "image_url": ""
+          },
+          {
+            "name": "Kimyon",
+            "image_url": ""
+          },
+          {
+            "name": "Karabiber",
+            "image_url": ""
+          },
+          {
+            "name": "Tane Karabiber",
+            "image_url": ""
+          },
+          {
+            "name": "Tarçın",
+            "image_url": ""
+          },
+          {
+            "name": "Zencefil",
+            "image_url": ""
+          },
+          {
+            "name": "Karanfil",
+            "image_url": ""
+          },
+          {
+            "name": "Hardal Tohumu",
+            "image_url": ""
+          },
+          {
+            "name": "Köri",
+            "image_url": ""
+          },
+          {
+            "name": "Nane",
+            "image_url": ""
+          },
+          {
+            "name": "Kişniş",
+            "image_url": ""
+          }
+        ]
+      },
+      {
+        "name": "Temel Gıdalar",
+        "materials": [
+          {
+            "name": "Un",
+            "image_url": ""
+          },
+          {
+            "name": "Şeker",
+            "image_url": ""
+          },
+          {
+            "name": "Yağ",
+            "image_url": ""
+          },
+          {
+            "name": "Tuz",
+            "image_url": ""
+          },
+          {
+            "name": "Süt",
+            "image_url": ""
+          },
+          {
+            "name": "Yumurta",
+            "image_url": ""
+          },
+          {
+            "name": "Makarna",
+            "image_url": ""
+          },
+          {
+            "name": "Ekmek",
+            "image_url": ""
           },
           {
             "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
-          },
-          {
-            "name": "Yoğurt",
-            "image_url": "https://example.com/yogurt.jpg"
+            "image_url": ""
           }
         ]
       }
