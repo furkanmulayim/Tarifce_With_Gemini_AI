@@ -1,3 +1,7 @@
 package com.furkanmulayim.tarifce.data.model
 
-data class CategoryData(val categories: List<Material>)
+import com.google.gson.annotations.SerializedName
+
+data class CategoryData(
+    @SerializedName("categories") val categories: List<Category>
+)

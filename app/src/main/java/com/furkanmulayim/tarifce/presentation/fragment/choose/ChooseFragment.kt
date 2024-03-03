@@ -31,7 +31,7 @@ class ChooseFragment : Fragment() {
         binding.viewModel = viewModel
         viewModel.getFoodFromApi()
         clickListener()
-        setAdapter()
+        //setAdapter()
     }
 
     private fun clickListener() {

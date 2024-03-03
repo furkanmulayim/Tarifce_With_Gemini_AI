@@ -2,7 +2,7 @@ package com.furkanmulayim.tarifce.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Material(
+data class Category(
     @SerializedName("name") val name: String,
-    @SerializedName("image_url") val imageUrl: String
+    @SerializedName("materials") val materials: List<Material>
 )

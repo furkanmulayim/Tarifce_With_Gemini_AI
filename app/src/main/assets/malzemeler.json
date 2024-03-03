@@ -1,82 +1,41 @@
-{
-  "categories": [
-    {
-      "name": "Et Ürünleri",
-      "materials": [
-        {
-          "name": "Süt",
-          "image_url": "https://example.com/sut.jpg"
-        },
-        {
-          "name": "Yoğurt",
-          "image_url": "https://example.com/yogurt.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Deniz Ürünleri",
-      "materials": [
-        {
-          "name": "Balık",
-          "image_url": "https://example.com/balik.jpg"
-        },
-        {
-          "name": "Kalamar",
-          "image_url": "https://example.com/kalamar.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Sebzeler",
-      "materials": [
-        {
-          "name": "Dene",
-          "image_url": "https://example.com/dene.jpg"
-        },
-        {
-          "name": "Yap",
-          "image_url": "https://example.com/yap.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Kuru Bakliyat",
-      "materials": [
-        {
-          "name": "Balık",
-          "image_url": "https://example.com/balik.jpg"
-        },
-        {
-          "name": "Kalamar",
-          "image_url": "https://example.com/kalamar.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Tahıl Ürünleri",
-      "materials": [
-        {
-          "name": "Balık",
-          "image_url": "https://example.com/balik.jpg"
-        },
-        {
-          "name": "Kalamar",
-          "image_url": "https://example.com/kalamar.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Temel Ürünler",
-      "materials": [
-        {
-          "name": "Balık",
-          "image_url": "https://example.com/balik.jpg"
-        },
-        {
-          "name": "Kalamar",
-          "image_url": "https://example.com/kalamar.jpg"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "name": "Et Ürünleri",
+    "materials": [
+      {
+        "name": "Süt",
+        "image_url": "https://example.com/sut.jpg"
+      },
+      {
+        "name": "Yoğurt",
+        "image_url": "https://example.com/yogurt.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Deniz Ürünleri",
+    "materials": [
+      {
+        "name": "Balık",
+        "image_url": "https://example.com/balik.jpg"
+      },
+      {
+        "name": "Kalamar",
+        "image_url": "https://example.com/kalamar.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Sebzeler",
+    "materials": [
+      {
+        "name": "Dene",
+        "image_url": "https://example.com/dene.jpg"
+      },
+      {
+        "name": "Yap",
+        "image_url": "https://example.com/yap.jpg"
+      }
+    ]
+  }
+]

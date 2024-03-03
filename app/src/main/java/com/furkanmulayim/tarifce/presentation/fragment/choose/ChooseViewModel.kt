@@ -3,8 +3,9 @@ package com.furkanmulayim.tarifce.presentation.fragment.choose
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.furkanmulayim.tarifce.data.model.CategoryData
-import com.furkanmulayim.tarifce.data.model.Food
+import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
+import com.furkanmulayim.tarifce.data.model.MaterialItem
 import com.furkanmulayim.tarifce.data.service.MaterialsAPIService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -14,39 +15,39 @@ import io.reactivex.schedulers.Schedulers
 class ChooseViewModel : ViewModel() {
 
 
-    val categoriesLiveData = MutableLiveData<List<Material>>()
-    private val categories = mutableListOf<Material>()
+    val categoriesLiveData = MutableLiveData<List<Category>>()
+    private val categories = mutableListOf<Category>()
 
     private val materialAPIService = MaterialsAPIService()
     private val disposable = CompositeDisposable()
 
     /**
     private val categories = mutableListOf(
-    Material(
+    Category(
     "Süt ürünleri", listOf(
-    MaterialItem("Süt", R.drawable.finger),
-    MaterialItem("Yoğurt", R.drawable.finger),
-    MaterialItem("Peynir", R.drawable.finger),
-    MaterialItem("Fasulye", R.drawable.finger),
-    MaterialItem("Nohut", R.drawable.finger)
+    Material("Süt", R.drawable.finger),
+    Material("Yoğurt", R.drawable.finger),
+    Material("Peynir", R.drawable.finger),
+    Material("Fasulye", R.drawable.finger),
+    Material("Nohut", R.drawable.finger)
     )
-    ), Material(
+    ), Category(
     "Deniz Ürünleri", listOf(
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Kalamar", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger)
+    Material("Balık", R.drawable.finger),
+    Material("Kalamar", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Balık", R.drawable.finger)
     )
-    ), Material(
+    ), Category(
     "Deneme", listOf(
-    MaterialItem("Dene", R.drawable.finger),
-    MaterialItem("Yap", R.drawable.finger),
-    MaterialItem("Balık", R.drawable.finger),
-    MaterialItem("Kalamar", R.drawable.finger)
+    Material("Dene", R.drawable.finger),
+    Material("Yap", R.drawable.finger),
+    Material("Balık", R.drawable.finger),
+    Material("Kalamar", R.drawable.finger)
     )
     )
     ) */
@@ -63,15 +64,15 @@ class ChooseViewModel : ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<List<CategoryData>>() {
 
                     override fun onSuccess(t: List<CategoryData>) {
-                        var i = 0
+                        val allCategories = mutableListOf<Category>()
                         t.forEach { categoryData ->
-                            println(categoryData.categories[i].items.forEach {
-                                println(it.itemName)
-                            })
-                            categories.addAll(categoryData.categories)
-                            i++
+                            categoryData.categories.forEach { category ->
+                                category.materials.forEach { material ->
+                                    allCategories.add(Category(category.name, listOf(Material(material.name, material.imageUrl))))
+                                }
+                            }
                         }
-                        categoriesLiveData.value = categories
+                        categoriesLiveData.value = allCategories
                     }
 
                     override fun onError(e: Throwable) {
@@ -82,7 +83,7 @@ class ChooseViewModel : ViewModel() {
         )
     }
 
-    fun listMaterial(): List<Material> {
+    fun listMaterial(): List<Category> {
         getFoodFromApi().let {
             return categories
         }

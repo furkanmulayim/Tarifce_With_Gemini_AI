@@ -5,15 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
-import com.furkanmulayim.tarifce.data.model.MaterialItem
 
 
-class MaterialAdapter( private val categories: List<Material>
+class MaterialAdapter( private val categories: List<Category>
 ) : RecyclerView.Adapter<MaterialAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,11 +29,11 @@ class MaterialAdapter( private val categories: List<Material>
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = categories[position]
-        holder.text.text = item.categoryName
+        holder.text.text = item.name
 
         val subLayoutManager = GridLayoutManager(holder.itemView.context, 3)
         holder.subRecyc.layoutManager = subLayoutManager
-        val subAdapter = SubAdapter(categories[position].items)
+        val subAdapter = SubAdapter(categories[position].materials)
         holder.subRecyc.adapter = subAdapter
     }
 
@@ -44,7 +43,7 @@ class MaterialAdapter( private val categories: List<Material>
     }
 
     // SubAdapter'ı buraya yerleştirin
-    inner class SubAdapter(private val items: List<MaterialItem>) :
+    inner class SubAdapter(private val items: List<Material>) :
         RecyclerView.Adapter<SubAdapter.SubViewHolder>() {
 
         inner class SubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -62,8 +61,8 @@ class MaterialAdapter( private val categories: List<Material>
 
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
-            holder.categ.text = item.itemName
-            holder.image.setBackgroundResource(item.itemImageResId)
+            holder.categ.text = item.name
+           // holder.image.setBackgroundResource(item.)
         }
 
         override fun getItemCount(): Int {
