@@ -42,10 +42,6 @@
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yengec.png"
           },
           {
-            "name": "Ahtapot",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/ahtapot.png"
-          },
-          {
             "name": "Midye",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/midye.png"
           }
@@ -186,10 +182,6 @@
           {
             "name": "Börülce",
             "image_url": " "
-          },
-          {
-            "name": "Mısır",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/misir.png"
           },
           {
             "name": "Bezelye",
