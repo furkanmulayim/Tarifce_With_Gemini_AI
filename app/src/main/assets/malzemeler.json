@@ -56,35 +56,35 @@
         "materials": [
           {
             "name": "Yeşil Biber",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yesil_biber.png"
           },
           {
             "name": "Kırmızı Biber",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kirmizi_biber.png"
           },
           {
             "name": "Domates",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/domates.png"
           },
           {
             "name": "Patates",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/patates.png"
           },
           {
             "name": "Soğan",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/sogan.png"
           },
           {
             "name": "Salatalık",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/salatalik.png"
           },
           {
             "name": "Havuç",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/havuc.png"
           },
           {
             "name": "Sarımsak",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/sarimsak.png"
           },
           {
             "name": "Brokoli",
@@ -100,7 +100,7 @@
           },
           {
             "name": "Marul",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/marul.png"
           },
           {
             "name": "Lahana",

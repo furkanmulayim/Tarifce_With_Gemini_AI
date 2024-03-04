@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
+import com.furkanmulayim.tarifce.util.loadImage
 
 
 class MaterialAdapter(
@@ -41,8 +42,6 @@ class MaterialAdapter(
         holder.subRecyc.layoutManager = subLayoutManager
         val subAdapter = SubAdapter(categories[position].materials)
         holder.subRecyc.adapter = subAdapter
-
-
     }
 
 
@@ -71,17 +70,19 @@ class MaterialAdapter(
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
             holder.categ.text = item.name
+            holder.image.loadImage(item.imageUrl)
 
             holder.itemView.setOnClickListener {
                 if (selectedItems.contains(item.name)) {
                     // Öğeyi seçmekten vazgeç
                     holder.background.setBackgroundResource(R.drawable.button_materials_back3)
-                    holder.image.setBackgroundResource(R.drawable.detailed_icon_calori)
+                    holder.image.loadImage(item.imageUrl)
                     selectedItems.remove(item.name)
                 } else {
                     // Öğeyi seç
                     holder.background.setBackgroundResource(R.drawable.button_materials_back4)
-                    holder.image.setBackgroundResource(R.drawable.check_circle_2_1)
+                    val checkedUrl: String = it.context.getString(R.string.checked_link)
+                    holder.image.loadImage(checkedUrl)
                     selectedItems.add(item.name)
                 }
                 onClick(selectedItems)
