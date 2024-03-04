@@ -120,11 +120,11 @@
           },
           {
             "name": "Fasulye",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
           },
           {
             "name": "Mantar",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/mantar.png"
           },
           {
             "name": "Turp",
@@ -148,7 +148,7 @@
           },
           {
             "name": "Patlıcan",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/patlican.png"
           }
         ]
       },
@@ -165,11 +165,11 @@
           },
           {
             "name": "Kuru Fasulye",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
           },
           {
             "name": "Barbunya",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
           },
           {
             "name": "Yeşil Mercimek",
@@ -181,7 +181,7 @@
           },
           {
             "name": "Siyah Fasulye",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
           },
           {
             "name": "Börülce",
@@ -189,7 +189,7 @@
           },
           {
             "name": "Mısır",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/misir.png"
           },
           {
             "name": "Bezelye",
@@ -217,7 +217,7 @@
           },
           {
             "name": "Kuru Mısır",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/misir.png"
           }
         ]
       },
@@ -226,15 +226,7 @@
         "materials": [
           {
             "name": "Buğday",
-            "image_url": " "
-          },
-          {
-            "name": "Arpa",
-            "image_url": " "
-          },
-          {
-            "name": "Yulaf",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/bugday.png"
           },
           {
             "name": "Pirinç",
@@ -242,14 +234,10 @@
           },
           {
             "name": "Mısır",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/misir.png"
           },
           {
             "name": "Ceviz",
-            "image_url": " "
-          },
-          {
-            "name": "Çavdar",
             "image_url": " "
           },
           {
@@ -332,35 +320,35 @@
         "materials": [
           {
             "name": "Un",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/un.png"
           },
           {
             "name": "Şeker",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/tuz.png"
           },
           {
             "name": "Yağ",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yag.png"
           },
           {
             "name": "Tuz",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/tuz.png"
           },
           {
             "name": "Süt",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/sut.png"
           },
           {
             "name": "Yumurta",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yumurta.png"
           },
           {
             "name": "Makarna",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/makarna.png"
           },
           {
             "name": "Ekmek",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/ekmek.png"
           },
           {
             "name": "Yoğurt",
