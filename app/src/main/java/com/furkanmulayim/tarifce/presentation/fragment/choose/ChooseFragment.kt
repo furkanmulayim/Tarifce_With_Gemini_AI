@@ -45,8 +45,12 @@ class ChooseFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
-        adapter = MaterialAdapter(emptyList()) // Başlangıçta boş bir liste ile başlat
-
+        adapter = MaterialAdapter(emptyList()){
+            println("****************************************")
+            for (element in it){
+                println("Basıldı" +element)
+            }
+        }
         binding.materialRcyc.adapter = adapter
 
         viewModel.categoriesLiveData.observe(viewLifecycleOwner) { categories ->
@@ -55,6 +59,7 @@ class ChooseFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
     }
+
 
     private fun nav(id: Int) {
         Navigation.findNavController(requireView()).navigate(id)

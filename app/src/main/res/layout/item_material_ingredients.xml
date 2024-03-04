@@ -7,29 +7,34 @@
     android:layout_margin="5dp"
     android:background="@drawable/button_materials_back3"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/itemImage"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/detailed_icon_calori"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
-        android:id="@+id/food_ingr"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/desc_icon"
-        android:fontFamily="@font/inter_medium"
-        android:gravity="center"
-        android:maxLines="1"
-        android:paddingStart="7dp"
-        android:paddingTop="3dp"
-        android:paddingEnd="7dp"
-        android:paddingBottom="3dp"
-        android:textColor="@color/main_text_color0"
-        android:textSize="12sp" />
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/detailed_icon_calori"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/food_ingr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/desc_icon"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color0"
+            android:textSize="12sp" />
+    </LinearLayout>
 </LinearLayout>

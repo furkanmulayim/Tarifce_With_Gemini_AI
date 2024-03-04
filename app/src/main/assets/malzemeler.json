@@ -6,15 +6,15 @@
         "materials": [
           {
             "name": "Koyun Eti",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kuzu.png"
           },
           {
             "name": "Dana Eti",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/inek.png"
           },
           {
             "name": "Tavuk Eti",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/tavuk.png"
           }
         ]
       },
@@ -23,31 +23,31 @@
         "materials": [
           {
             "name": "Balık",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/balik.png"
           },
           {
             "name": "Kalamar",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kalamar.png"
           },
           {
             "name": "Istakoz",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/istakoz.png"
           },
           {
             "name": "Karides",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/karides.png"
           },
           {
             "name": "Yengeç",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yengec.png"
           },
           {
             "name": "Ahtapot",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/ahtapot.png"
           },
           {
             "name": "Midye",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/midye.png"
           }
         ]
       },

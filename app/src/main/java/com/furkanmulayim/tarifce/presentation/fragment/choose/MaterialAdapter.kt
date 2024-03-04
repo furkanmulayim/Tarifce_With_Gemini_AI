@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +13,13 @@ import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
 
 
-class MaterialAdapter(var categories: List<Category>
+class MaterialAdapter(
+    var categories: List<Category>, private val onClick: (MutableSet<String>) -> Unit
 ) : RecyclerView.Adapter<MaterialAdapter.ViewHolder>() {
+
+
+    private val selectedItems = mutableSetOf<String>()
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -35,6 +41,8 @@ class MaterialAdapter(var categories: List<Category>
         holder.subRecyc.layoutManager = subLayoutManager
         val subAdapter = SubAdapter(categories[position].materials)
         holder.subRecyc.adapter = subAdapter
+
+
     }
 
 
@@ -50,6 +58,7 @@ class MaterialAdapter(var categories: List<Category>
 
             val categ: TextView = itemView.findViewById(R.id.food_ingr)
             val image: ImageView = itemView.findViewById(R.id.itemImage)
+            val background: LinearLayout = itemView.findViewById(R.id.item_food_category_back)
 
         }
 
@@ -62,6 +71,21 @@ class MaterialAdapter(var categories: List<Category>
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
             val item = items[position]
             holder.categ.text = item.name
+
+            holder.itemView.setOnClickListener {
+                if (selectedItems.contains(item.name)) {
+                    // Öğeyi seçmekten vazgeç
+                    holder.background.setBackgroundResource(R.drawable.button_materials_back3)
+                    holder.image.setBackgroundResource(R.drawable.detailed_icon_calori)
+                    selectedItems.remove(item.name)
+                } else {
+                    // Öğeyi seç
+                    holder.background.setBackgroundResource(R.drawable.button_materials_back4)
+                    holder.image.setBackgroundResource(R.drawable.check_circle_2_1)
+                    selectedItems.add(item.name)
+                }
+                onClick(selectedItems)
+            }
         }
 
         override fun getItemCount(): Int {
