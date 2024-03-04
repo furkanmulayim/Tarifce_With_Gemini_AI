@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
@@ -57,7 +57,7 @@ class MaterialAdapter(
 
             val categ: TextView = itemView.findViewById(R.id.food_ingr)
             val image: ImageView = itemView.findViewById(R.id.itemImage)
-            val background: LinearLayout = itemView.findViewById(R.id.item_food_category_back)
+            val background: ConstraintLayout = itemView.findViewById(R.id.constraintLayout2)
 
         }
 

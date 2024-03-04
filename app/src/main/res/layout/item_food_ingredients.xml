@@ -21,7 +21,6 @@
         android:gravity="center"
         android:paddingStart="7dp"
         android:paddingEnd="7dp"
-        android:text="200 Gr Köri"
         android:textColor="@color/main_text_color2"
         android:textSize="12sp" />
 </LinearLayout>

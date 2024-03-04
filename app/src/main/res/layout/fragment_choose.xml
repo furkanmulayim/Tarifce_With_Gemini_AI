@@ -65,8 +65,24 @@
 
         </LinearLayout>
 
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fakeRcyc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/materialRcyc"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
@@ -74,6 +90,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:text="Yapay Zekaya Sor"
+            android:textAllCaps="true"
+            android:textColor="@color/main_text_color0"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp" />

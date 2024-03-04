@@ -15,334 +15,350 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/svg_dene"
-                android:scaleType="centerCrop"
-                app:layout_constraintDimensionRatio="3:2.5" />
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="-25dp"
-                android:background="@drawable/back_detail"
                 android:orientation="vertical"
-                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shapeableImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="3:3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-25dp"
+                    android:background="@drawable/back_detail"
+                    android:orientation="vertical"
+                    android:paddingStart="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="15dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginTop="10dp">
 
-                        <TextView
-                            android:id="@+id/itemName"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/inter_semibold"
-                            android:text="@{viewModel.food.name}"
-                            android:textColor="@color/main_text_color"
-                            android:textSize="20sp" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/itemName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_semibold"
+                                android:text="@{viewModel.food.name}"
+                                android:textColor="@color/main_text_color"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/itemCategory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-3dp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:text="@{viewModel.food.category}"
+                                android:textColor="@color/main_text_color2"
+                                android:textSize="17sp" />
+                        </LinearLayout>
 
                         <TextView
-                            android:id="@+id/itemCategory"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="-3dp"
-                            android:fontFamily="@font/inter_semibold"
-                            android:text="@{viewModel.food.category}"
-                            android:textColor="@color/main_text_color2"
-                            android:textSize="17sp" />
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/stars"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:background="@drawable/ai_background"
+                            android:contentDescription="@string/desc_save"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/inter_bold"
+                            android:gravity="center"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="@{viewModel.food.stars}"
+                            android:textColor="@color/main_text_color0"
+                            android:textSize="15sp"
+                            app:drawableLeftCompat="@drawable/svg_stars" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/feature_detail"
+                            tools:ignore="TextSizeCheck">
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="-3dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/detailed_icon_watch"
+                                android:contentDescription="@string/app_name"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/itemMinute"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:fontFamily="@font/inter_semibold"
+                                    android:text="@{viewModel.food.duration}"
+                                    android:textColor="@color/main_text_color"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:fontFamily="@font/inter"
+                                    android:text="@string/time"
+                                    android:textColor="@color/whisper_text_color"
+                                    android:textSize="14sp"
+                                    tools:ignore="TextContrastCheck" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/feature_detail"
+                            tools:ignore="TextSizeCheck">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="-3dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/detailed_icon_calori"
+                                android:contentDescription="@string/app_name"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ImageContrastCheck" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/itemCalorie"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:fontFamily="@font/inter_semibold"
+                                    android:text="@{viewModel.food.calorie}"
+                                    android:textColor="@color/main_text_color"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:fontFamily="@font/inter"
+                                    android:text="@string/calories"
+                                    android:textColor="@color/whisper_text_color"
+                                    android:textSize="14sp"
+                                    tools:ignore="TextContrastCheck" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/feature_detail"
+                            tools:ignore="TextSizeCheck">
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="-3dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/detailed_icon_person"
+                                android:contentDescription="@string/app_name"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/itemPerson"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:fontFamily="@font/inter_semibold"
+                                    android:text="@{viewModel.food.person}"
+                                    android:textColor="@color/main_text_color"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:fontFamily="@font/inter"
+                                    android:text="@string/how_many"
+                                    android:textColor="@color/whisper_text_color"
+                                    android:textSize="14sp"
+                                    tools:ignore="TextContrastCheck" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/feature_detail"
+                            tools:ignore="TextSizeCheck,TextSizeCheck">
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="-3dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/detailed_icon_level"
+                                android:contentDescription="@string/app_name"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ImageContrastCheck" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/itemLevel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:fontFamily="@font/inter_semibold"
+                                    android:text="@{viewModel.food.level}"
+                                    android:textColor="@color/main_text_color"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="7dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:fontFamily="@font/inter"
+                                    android:text="@string/levels"
+                                    android:textColor="@color/whisper_text_color"
+                                    android:textSize="14sp"
+                                    tools:ignore="TextContrastCheck" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/stars"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:background="@drawable/ai_background"
-                        android:contentDescription="@string/desc_save"
-                        android:drawablePadding="5dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/inter_bold"
-                        android:gravity="center"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="@{viewModel.food.stars}"
-                        android:textColor="@color/main_text_color0"
-                        android:textSize="15sp"
-                        app:drawableLeftCompat="@drawable/svg_stars" />
+                        android:text="@string/ingred"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ingrRcyc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingBottom="90dp" />
                 </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/feature_detail"
-                        tools:ignore="TextSizeCheck">
-
-                        <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="-3dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/detailed_icon_watch"
-                            android:contentDescription="@string/app_name"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/itemMinute"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:text="@{viewModel.food.duration}"
-                                android:fontFamily="@font/inter_semibold"
-                                android:textColor="@color/main_text_color"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:layout_marginTop="-5dp"
-                                android:fontFamily="@font/inter"
-                                android:text="@string/time"
-                                android:textColor="@color/whisper_text_color"
-                                android:textSize="14sp"
-                                tools:ignore="TextContrastCheck" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/feature_detail"
-                        tools:ignore="TextSizeCheck">
-
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="-3dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/detailed_icon_calori"
-                            android:contentDescription="@string/app_name"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ImageContrastCheck" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView2"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/itemCalorie"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:text="@{viewModel.food.calorie}"
-                                android:fontFamily="@font/inter_semibold"
-                                android:textColor="@color/main_text_color"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:layout_marginTop="-5dp"
-                                android:fontFamily="@font/inter"
-                                android:text="@string/calories"
-                                android:textColor="@color/whisper_text_color"
-                                android:textSize="14sp"
-                                tools:ignore="TextContrastCheck" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/feature_detail"
-                        tools:ignore="TextSizeCheck">
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="-3dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/detailed_icon_person"
-                            android:contentDescription="@string/app_name"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView3"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/itemPerson"
-                                android:text="@{viewModel.food.person}"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:fontFamily="@font/inter_semibold"
-                                android:textColor="@color/main_text_color"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:layout_marginTop="-5dp"
-                                android:fontFamily="@font/inter"
-                                android:text="@string/how_many"
-                                android:textColor="@color/whisper_text_color"
-                                android:textSize="14sp"
-                                tools:ignore="TextContrastCheck" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/feature_detail"
-                        tools:ignore="TextSizeCheck,TextSizeCheck">
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="-3dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/detailed_icon_level"
-                            android:contentDescription="@string/app_name"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ImageContrastCheck" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/itemLevel"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:text="@{viewModel.food.level}"
-                                android:fontFamily="@font/inter_semibold"
-                                android:textColor="@color/main_text_color"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="7dp"
-                                android:layout_marginTop="-5dp"
-                                android:fontFamily="@font/inter"
-                                android:text="@string/levels"
-                                android:textColor="@color/whisper_text_color"
-                                android:textSize="14sp"
-                                tools:ignore="TextContrastCheck" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/ingred"
-                    android:textColor="@color/main_text_color"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/ingrRcyc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:paddingBottom="90dp" />
             </LinearLayout>
-        </LinearLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayout2"

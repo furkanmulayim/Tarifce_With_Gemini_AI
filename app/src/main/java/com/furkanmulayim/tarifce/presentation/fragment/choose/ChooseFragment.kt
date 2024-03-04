@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
-import com.furkanmulayim.tarifce.data.model.Category
 
 class ChooseFragment : Fragment() {
 
@@ -31,9 +30,11 @@ class ChooseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        binding.shimmerFrameLayout.startShimmer()
         viewModel.getData()
         clickListener()
         setAdapter()
+
     }
 
     private fun clickListener() {
@@ -45,19 +46,26 @@ class ChooseFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
-        adapter = MaterialAdapter(emptyList()){
+        adapter = MaterialAdapter(emptyList()) {
             println("****************************************")
-            for (element in it){
-                println("Basıldı" +element)
+            for (element in it) {
+                println("Basıldı" + element)
             }
         }
         binding.materialRcyc.adapter = adapter
 
         viewModel.categoriesLiveData.observe(viewLifecycleOwner) { categories ->
             adapter.categories = categories
+            shimmerKapat()
             // Değişiklikleri RecyclerView'a bildir
             adapter.notifyDataSetChanged()
         }
+    }
+
+    fun shimmerKapat() {
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.materialRcyc.visibility = View.VISIBLE
+        binding.shimmerFrameLayout.stopShimmer()
     }
 
 
