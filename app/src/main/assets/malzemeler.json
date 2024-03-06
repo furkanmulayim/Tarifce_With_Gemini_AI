@@ -89,12 +89,61 @@
         ]
       },
       {
-        "name": "Sebzeler",
+        "name": "Yeşillikler",
         "materials": [
           {
             "name": "Yeşil Biber",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yesil_biber.png"
           },
+          {
+            "name": "Salatalık",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/salatalik.png"
+          },
+          {
+            "name": "Brokoli",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/brokoli.png"
+          },
+          {
+            "name": "Ispanak",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/ispanak.png"
+          },
+          {
+            "name": "Marul",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/marul.png"
+          },
+          {
+            "name": "Lahana",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/lahana.png"
+          },
+          {
+            "name": "Karnabahar",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/karnabahar.png"
+          },
+          {
+            "name": "Kereviz",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kereviz.png"
+          },
+          {
+            "name": "Pırasa",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/pirasa.png"
+          },
+          {
+            "name": "Bezelye",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/bezelye.png"
+          },
+          {
+            "name": "Maydonoz",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/maydanoz.png"
+          },
+          {
+            "name": "Nane",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/nane.png"
+          }
+        ]
+      },
+      {
+        "name": "Sebzeler",
+        "materials": [
           {
             "name": "Kırmızı Biber",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kirmizi_biber.png"
@@ -112,10 +161,6 @@
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/sogan.png"
           },
           {
-            "name": "Salatalık",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/salatalik.png"
-          },
-          {
             "name": "Havuç",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/havuc.png"
           },
@@ -124,64 +169,12 @@
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/sarimsak.png"
           },
           {
-            "name": "Brokoli",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/brokoli.png"
-          },
-          {
-            "name": "Karnabahar",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/karnabahar.png"
-          },
-          {
-            "name": "Ispanak",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/ispanak.png"
-          },
-          {
-            "name": "Marul",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/marul.png"
-          },
-          {
-            "name": "Lahana",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/lahana.png"
-          },
-          {
-            "name": "Kereviz",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kereviz.png"
-          },
-          {
-            "name": "Pırasa",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/pirasa.png"
-          },
-          {
-            "name": "Bezelye",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/bezelye.png"
-          },
-          {
-            "name": "Fasulye",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
-          },
-          {
             "name": "Mantar",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/mantar.png"
           },
           {
-            "name": "Turp",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/turp.png"
-          },
-          {
             "name": "Kabak",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kabak.png"
-          },
-          {
-            "name": "Pancar",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/pancar.png"
-          },
-          {
-            "name": "Maydonoz",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/maydanoz.png"
-          },
-          {
-            "name": "Nane",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/nane.png"
           },
           {
             "name": "Patlıcan",
@@ -194,15 +187,11 @@
         "materials": [
           {
             "name": "Nohut",
-            "image_url": " "
-          },
-          {
-            "name": "Mercimek",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/nohut.png"
           },
           {
             "name": "Kuru Fasulye",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/k_fasulye.png"
           },
           {
             "name": "Barbunya",
@@ -210,43 +199,23 @@
           },
           {
             "name": "Yeşil Mercimek",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/y_mercimek.png"
           },
           {
             "name": "Kırmızı Mercimek",
-            "image_url": " "
-          },
-          {
-            "name": "Siyah Fasulye",
-            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/k_mercimek.png"
           },
           {
             "name": "Börülce",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/borulce.png"
           },
           {
             "name": "Bezelye",
-            "image_url": " "
-          },
-          {
-            "name": "Kuru Nohut",
-            "image_url": " "
-          },
-          {
-            "name": "Kuru Barbunya",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/bezelye.png"
           },
           {
             "name": "Kırmızı Fasulye",
-            "image_url": " "
-          },
-          {
-            "name": "Kuru Bezelye",
-            "image_url": " "
-          },
-          {
-            "name": "Kırmızı Mercimek",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/fasulye.png"
           },
           {
             "name": "Kuru Mısır",
