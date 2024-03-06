@@ -6,7 +6,7 @@ import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.model.FoodCategory
 import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
-import com.furkanmulayim.tarifce.data.service.FoodAPIService
+import com.furkanmulayim.tarifce.data.service.food.FoodAPIService
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
 import com.furkanmulayim.tarifce.util.SharedPrefs
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,10 +14,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel

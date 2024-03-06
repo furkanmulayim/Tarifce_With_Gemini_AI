@@ -183,8 +183,24 @@
         </LinearLayout>
 
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+
+            <include
+                android:id="@+id/homeSB"
+                layout="@layout/fake_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/foodsRcyc"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp" />

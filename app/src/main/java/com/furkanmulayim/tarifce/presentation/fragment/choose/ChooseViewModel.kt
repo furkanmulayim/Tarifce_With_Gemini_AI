@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.furkanmulayim.tarifce.data.model.CategoryData
 import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
-import com.furkanmulayim.tarifce.data.service.MaterialsAPIService
+import com.furkanmulayim.tarifce.data.service.materials.MaterialsAPIService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

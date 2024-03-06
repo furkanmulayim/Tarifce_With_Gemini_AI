@@ -34,6 +34,8 @@ class HelloFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
 
+        binding.shimmerFrameLayout.startShimmer()
+
         /**adapter init*/
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
@@ -93,12 +95,20 @@ class HelloFragment : Fragment() {
                 viewModel.comeFirstDataFoodsByCategory()
                 viewModel.seciliUrunler.observe(viewLifecycleOwner){
                     it?.let {
+                        shimmerKapat()
                         foodAdapter.updateList(it)
                     }
                 }
             }
         }
     }
+
+    fun shimmerKapat() {
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.foodsRcyc.visibility = View.VISIBLE
+        binding.shimmerFrameLayout.stopShimmer()
+    }
+
 
     /** navigaation transactions*/
     private fun nav(id: Int) {

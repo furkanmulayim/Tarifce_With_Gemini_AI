@@ -7,7 +7,7 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     namespace 'com.furkanmulayim.tarifce'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.furkanmulayim.tarifce"
@@ -85,6 +85,12 @@ dependencies {
 
     //SHIMMER EFFECT
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //OkHTTP
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    //Google AI client SDK for Android
+    implementation("com.google.ai.client.generativeai:generativeai:0.2.1")
 
     implementation 'com.google.code.gson:gson:2.9.0'
 

@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.data.service
+package com.furkanmulayim.tarifce.data.service.materials
 
 import com.furkanmulayim.tarifce.data.model.CategoryData
 import io.reactivex.Single

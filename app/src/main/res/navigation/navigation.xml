@@ -9,8 +9,7 @@
         android:id="@+id/helloFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.hello.HelloFragment"
         android:label="HelloFragment"
-        tools:layout="@layout/fragment_hello"
-        >
+        tools:layout="@layout/fragment_hello">
         <action
             android:id="@+id/action_helloFragment_to_detailFragment"
             app:destination="@id/detailFragment"
@@ -54,7 +53,7 @@
         <argument
             android:name="id"
             app:argType="string"
-            app:nullable="false"/>
+            app:nullable="false" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
@@ -73,8 +72,7 @@
         android:id="@+id/chooseFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.choose.ChooseFragment"
         android:label="ChooseFragment"
-        tools:layout="@layout/fragment_choose"
-        >
+        tools:layout="@layout/fragment_choose">
         <action
             android:id="@+id/action_chooseFragment_to_helloFragment"
             app:destination="@id/helloFragment"
@@ -82,16 +80,19 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_chooseFragment_to_askAiFragment"
+            app:destination="@id/askAiFragment" />
     </fragment>
     <dialog
         android:id="@+id/prepareBSFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.prepare.PrepareBSFragment"
         android:label="fragment_prepare_b_s"
-        tools:layout="@layout/fragment_prepare_b_s" >
+        tools:layout="@layout/fragment_prepare_b_s">
         <argument
             android:name="prepare"
-            app:argType="string"
-            android:defaultValue="Beklenmedik bir hata ile karşılaşıldı" />
+            android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
+            app:argType="string" />
     </dialog>
     <dialog
         android:id="@+id/seeAllBSFragment"
@@ -100,7 +101,16 @@
         tools:layout="@layout/fragment_see_all_b_s">
         <argument
             android:name="category"
-            app:argType="string"
-            android:defaultValue="Trend" />
+            android:defaultValue="Trend"
+            app:argType="string" />
     </dialog>
+    <fragment
+        android:id="@+id/askAiFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiFragment"
+        android:label="AskAiFragment"
+        tools:layout="@layout/fragment_ask_ai">
+        <action
+            android:id="@+id/action_askAiFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
+    </fragment>
 </navigation>

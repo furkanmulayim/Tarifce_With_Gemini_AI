@@ -18,12 +18,13 @@ class ChooseFragment : Fragment() {
     private lateinit var viewModel: ChooseViewModel
     private lateinit var binding: FragmentChooseBinding
     private lateinit var adapter: MaterialAdapter
+    private val selectedMaterialList: MutableList<String> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choose, container, false)
-        viewModel = ViewModelProvider(this).get(ChooseViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ChooseViewModel::class.java]
         return binding.root
     }
 
@@ -34,22 +35,27 @@ class ChooseFragment : Fragment() {
         viewModel.getData()
         clickListener()
         setAdapter()
-
     }
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
             nav(R.id.action_chooseFragment_to_helloFragment)
         }
+
+        binding.sendButton.setOnClickListener {
+            controlListAndNavigate()
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
+
         adapter = MaterialAdapter(emptyList()) {
-            println("****************************************")
-            for (element in it) {
-                println("Basıldı" + element)
+            selectedMaterialList.clear()
+            for ((i, element) in it.withIndex()) {
+                println(element)
+                selectedMaterialList.add(element)
             }
         }
         binding.materialRcyc.adapter = adapter
@@ -57,17 +63,35 @@ class ChooseFragment : Fragment() {
         viewModel.categoriesLiveData.observe(viewLifecycleOwner) { categories ->
             adapter.categories = categories
             shimmerKapat()
-            // Değişiklikleri RecyclerView'a bildir
             adapter.notifyDataSetChanged()
         }
     }
 
-    fun shimmerKapat() {
+    private fun controlListAndNavigate() {
+        if (selectedMaterialList.isEmpty()) {
+            handleEmptyCategory()
+        } else {
+            val bundle = Bundle().apply {
+                putStringArray("material_list", selectedMaterialList.toTypedArray())
+            }
+            navigateToResultFragment(bundle)
+        }
+    }
+
+    private fun handleEmptyCategory() {
+        // burda malzeme seçilmemiş demektir. Kullanıcıyla iletisim !!!
+    }
+
+    private fun navigateToResultFragment(bundle: Bundle) {
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_chooseFragment_to_askAiFragment, bundle)
+    }
+
+    private fun shimmerKapat() {
         binding.shimmerFrameLayout.visibility = View.GONE
         binding.materialRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }
-
 
     private fun nav(id: Int) {
         Navigation.findNavController(requireView()).navigate(id)

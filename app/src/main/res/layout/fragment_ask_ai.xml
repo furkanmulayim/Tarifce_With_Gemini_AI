@@ -7,19 +7,17 @@
 
         <variable
             name="viewModel"
-            type="com.furkanmulayim.tarifce.presentation.fragment.choose.ChooseViewModel" />
+            type="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".presentation.fragment.choose.ChooseFragment">
-
+        android:background="@color/background"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -55,7 +53,6 @@
                 android:textColor="@color/main_text_color"
                 android:textSize="19sp" />
 
-
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -63,44 +60,55 @@
                 android:foregroundGravity="center"
                 tools:ignore="ImageContrastCheck" />
 
+
         </LinearLayout>
 
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerFrameLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
-
-            <include
-                android:id="@+id/homeSB"
-                layout="@layout/fake_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" />
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/materialRcyc"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Yapay Zekaya Sor"
-            android:textAllCaps="true"
-            android:textColor="@color/main_text_color0" />
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foodAiRcyc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Bu Yemeği Beğenmedim"
+                android:textAllCaps="true"
+                android:textColor="@color/bottom_sheet_back"
+                android:visibility="gone" />
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="YEMEĞİNİZ HAZIRLANIYOR..."
+                    android:textAllCaps="true"
+                    android:textColor="@color/bottom_sheet_back" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </LinearLayout>
 
     </LinearLayout>
-
-
 </layout>
