@@ -2,12 +2,9 @@ package com.furkanmulayim.tarifce.presentation.fragment.see_all
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.databinding.ItemAllFoodBinding
 import com.furkanmulayim.tarifce.util.loadImage
@@ -17,8 +14,7 @@ class AllFoodAdapter(
     private val dataList: ArrayList<Food>
 ) : RecyclerView.Adapter<AllFoodAdapter.ViewHolder>() {
 
-    inner class ViewHolder(binding: ItemAllFoodBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(binding: ItemAllFoodBinding) : RecyclerView.ViewHolder(binding.root) {
         val image: ShapeableImageView = binding.itemFoodCategoryBack
         val duration: TextView = binding.foodDuration
         val stars: TextView = binding.foodStars
@@ -40,7 +36,7 @@ class AllFoodAdapter(
         val item = dataList[position]
         holder.image.loadImage(item.image)
         holder.duration.text = item.duration
-        holder.stars.text = item.stars.toString()
+        holder.stars.text = item.stars
         holder.name.text = item.name
     }
 

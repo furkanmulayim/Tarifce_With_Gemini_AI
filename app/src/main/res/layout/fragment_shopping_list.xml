@@ -11,7 +11,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
-        tools:context=".presentation.fragment.ShoppingListFragment">
+        tools:context=".presentation.fragment.shopping.ShoppingListFragment">
 
         <!-- &&&&&&&&&& Header &&&&&&&&&&& -->
         <LinearLayout

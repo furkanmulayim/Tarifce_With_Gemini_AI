@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment
+package com.furkanmulayim.tarifce.presentation.fragment.shopping
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,7 +21,7 @@ class ShoppingListFragment : Fragment() {
     ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shopping_list, container, false)
-        viewModel = ViewModelProvider(this).get(ShoppingListViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ShoppingListViewModel::class.java]
         return binding.root
     }
 

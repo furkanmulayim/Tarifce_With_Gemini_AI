@@ -15,7 +15,6 @@ class ChooseViewModel : ViewModel() {
 
 
     val categoriesLiveData = MutableLiveData<List<Category>>()
-    private val categories = mutableListOf<Category>()
 
     private val materialAPIService = MaterialsAPIService()
     private val disposable = CompositeDisposable()
@@ -38,10 +37,10 @@ class ChooseViewModel : ViewModel() {
                         categoryDataList.forEach { categoryData ->
                             categoryData.categories.forEach { category ->
                                 val materials = category.materials.map {
-                                    it?.imageUrl?.let { it1 -> Material(it.name, it1) }
+                                    Material(it.name, it.imageUrl)
                                 }
                                 allCategories.add(Category(category.name,
-                                    materials as List<Material>
+                                    materials
                                 ))
                             }
                         }

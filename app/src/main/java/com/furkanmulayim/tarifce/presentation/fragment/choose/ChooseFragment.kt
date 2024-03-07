@@ -53,8 +53,7 @@ class ChooseFragment : Fragment() {
 
         adapter = MaterialAdapter(emptyList()) {
             selectedMaterialList.clear()
-            for ((i, element) in it.withIndex()) {
-                println(element)
+            for (element in it) {
                 selectedMaterialList.add(element)
             }
         }

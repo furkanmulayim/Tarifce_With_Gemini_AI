@@ -1,13 +1,11 @@
 package com.furkanmulayim.tarifce.presentation.fragment.detail
 
 import android.app.Application
-import android.os.Bundle
 import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
-import com.furkanmulayim.tarifce.presentation.fragment.prepare.PrepareBSFragment
 import com.furkanmulayim.tarifce.util.loadImage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

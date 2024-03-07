@@ -21,7 +21,7 @@ class StoryAdapter(
 ) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
     private var lastAddedItemPosition: Int = -1
 
-    inner class ViewHolder(private val binding: ItemMessageBinding) :
+    inner class ViewHolder(binding: ItemMessageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val userSpace: ImageView = binding.userSpace
         val aiSpace: ImageView = binding.aiSpace

@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 @HiltViewModel
-class HelloViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
+class HelloViewModel @Inject constructor(application: Application, private var frepo: FoodDaoRepository) :
     BaseViewModel(application) {
 
     private var sharedPrefs = SharedPrefs(getApplication())

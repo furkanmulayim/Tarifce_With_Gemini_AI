@@ -133,7 +133,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingListFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.ShoppingListFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingListFragment"
         android:label="ShoppingListFragment">
         <action
             android:id="@+id/action_shoppingListFragment_to_helloFragment"

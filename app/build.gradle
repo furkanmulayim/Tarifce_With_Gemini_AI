@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.furkanmulayim.tarifce"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -42,19 +42,23 @@ android {
 
 dependencies {
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-
     def navVersion = '2.4.1'
     def fragmentVersion = '1.6.0'
     def retrofitVersion = '2.8.1'
     def roomVersion = '2.5.0'
     def rxJavaVersion = '2.1.1'
 
+    //LİVE DATA
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
     //HİLT
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    //Google AI client SDK for Android
+    implementation("com.google.ai.client.generativeai:generativeai:0.2.1")
 
     //RETROFİT
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -71,7 +75,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
     //GLİDE
-    implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation "com.github.bumptech.glide:glide:4.15.1"
 
     //NAVİGATİON
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
@@ -82,17 +86,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
-
     //SHIMMER EFFECT
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    //OkHTTP
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-
-    //Google AI client SDK for Android
-    implementation("com.google.ai.client.generativeai:generativeai:0.2.1")
-
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

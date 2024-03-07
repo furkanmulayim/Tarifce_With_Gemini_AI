@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment
+package com.furkanmulayim.tarifce.presentation.fragment.shopping
 
 import androidx.lifecycle.ViewModel
 

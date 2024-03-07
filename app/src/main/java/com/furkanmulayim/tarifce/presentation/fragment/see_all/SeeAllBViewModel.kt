@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SeeAllBViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
+class SeeAllBViewModel @Inject constructor(application: Application, private var frepo: FoodDaoRepository) :
     BaseViewModel(application) {
 
     private var temp = MutableLiveData<List<Food>>()
