@@ -232,35 +232,23 @@
           },
           {
             "name": "Pirinç",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/pirinc.png"
           },
           {
             "name": "Mısır",
             "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/misir.png"
           },
           {
-            "name": "Ceviz",
-            "image_url": " "
-          },
-          {
-            "name": "Çeltik",
-            "image_url": " "
-          },
-          {
             "name": "Arpa",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/arpa.png"
           },
           {
             "name": "Yulaf",
-            "image_url": " "
-          },
-          {
-            "name": "Kuşkonmaz",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/yulaf.png"
           },
           {
             "name": "Çavdar",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/cavdar.png"
           }
         ]
       },
@@ -268,52 +256,40 @@
         "name": "Baharatlar",
         "materials": [
           {
-            "name": "Kırmızı Biber Tozu",
-            "image_url": " "
+            "name": "Pul Biber",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/pul_biber.png"
           },
           {
             "name": "Kekik",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kekik.png"
           },
           {
             "name": "Kimyon",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kimyon.png"
           },
           {
             "name": "Karabiber",
-            "image_url": " "
-          },
-          {
-            "name": "Tane Karabiber",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/karabiber.png"
           },
           {
             "name": "Tarçın",
-            "image_url": " "
-          },
-          {
-            "name": "Zencefil",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/tarcin.png"
           },
           {
             "name": "Karanfil",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/karanfil.png"
           },
           {
-            "name": "Hardal Tohumu",
-            "image_url": " "
+            "name": "Hardal",
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/hardal.png"
           },
           {
             "name": "Köri",
-            "image_url": " "
-          },
-          {
-            "name": "Nane",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kori.png"
           },
           {
             "name": "Kişniş",
-            "image_url": " "
+            "image_url": "https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/kisnis.png"
           }
         ]
       }
