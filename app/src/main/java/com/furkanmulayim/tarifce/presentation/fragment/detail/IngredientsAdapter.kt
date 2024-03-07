@@ -1,26 +1,23 @@
 package com.furkanmulayim.tarifce.presentation.fragment.detail
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.furkanmulayim.tarifce.R
-
+import com.furkanmulayim.tarifce.databinding.ItemFoodIngredientsBinding
 
 class IngredientsAdapter(
     private val dataList: List<String>
 ) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.food_ingr)
+    class ViewHolder(binding: ItemFoodIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
+        val name: TextView = binding.foodIngr
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_food_ingredients, parent, false)
-        return ViewHolder(view)
+        val binding =
+            ItemFoodIngredientsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -31,6 +28,4 @@ class IngredientsAdapter(
     override fun getItemCount(): Int {
         return dataList.size
     }
-
 }
-

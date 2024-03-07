@@ -36,11 +36,11 @@ class HelloFragment : Fragment() {
 
         binding.shimmerFrameLayout.startShimmer()
 
-        /**adapter init*/
+        // adapter init*/
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        /** get data from apı or sqlite (situation!)*/
+        //  get data from apı or sqlite (situation!)*/
         viewModel.getData()
         setItems()
         observeLiveData()
@@ -49,7 +49,7 @@ class HelloFragment : Fragment() {
         clickListener()
     }
 
-    /** onclick listeners*/
+    //  onclick listeners*/
     private fun clickListener() {
         binding.savedButton.setOnClickListener {
             nav(R.id.action_helloFragment_to_savedFragment)
@@ -59,14 +59,18 @@ class HelloFragment : Fragment() {
             nav(R.id.action_helloFragment_to_chooseFragment)
         }
 
-        /**send bundle all foods to bottom sheet dialog with nav graph*/
+        binding.shoppingListButton.setOnClickListener {
+            nav(R.id.action_helloFragment_to_shoppingListFragment)
+        }
+
+        // send bundle all foods to bottom sheet dialog with nav graph*/
         binding.seeAllButton.setOnClickListener {
             val act = HelloFragmentDirections.actionHelloFragmentToSeeAllBSFragment(category)
             Navigation.findNavController(it).navigate(act)
         }
     }
 
-    /** Show category names in recycler view*/
+    //  Show category names in recycler view*/
     private fun setItems() {
         viewModel.selectedCategories(category)
         itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { categoryName ->
@@ -81,21 +85,21 @@ class HelloFragment : Fragment() {
         observeLiveData()
     }
 
-    /** adapter ayarlama*/
+    //  adapter ayarlama*/
     private fun setAdapter() {
         binding.itemFoodCategoryRcyc.adapter = itemAdapter
         binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 
 
-    /** food list observe*/
+    ///  food list observe */
     private fun observeLiveData() {
         viewModel.food.observe(viewLifecycleOwner) { foods ->
             foods?.let {
                 viewModel.comeFirstDataFoodsByCategory()
-                viewModel.seciliUrunler.observe(viewLifecycleOwner){
+                viewModel.seciliUrunler.observe(viewLifecycleOwner) {
                     it?.let {
-                        shimmerKapat()
+                        stopShimmer()
                         foodAdapter.updateList(it)
                     }
                 }
@@ -103,14 +107,14 @@ class HelloFragment : Fragment() {
         }
     }
 
-    fun shimmerKapat() {
+    private fun stopShimmer() {
         binding.shimmerFrameLayout.visibility = View.GONE
         binding.foodsRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }
 
 
-    /** navigaation transactions*/
+    // navigaation transactions
     private fun nav(id: Int) {
         Navigation.findNavController(requireView()).navigate(id)
     }

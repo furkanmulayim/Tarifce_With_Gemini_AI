@@ -21,7 +21,8 @@ class StoryAdapter(
 ) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
     private var lastAddedItemPosition: Int = -1
 
-    inner class ViewHolder(private val binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemMessageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val userSpace: ImageView = binding.userSpace
         val aiSpace: ImageView = binding.aiSpace
         val sl: ImageView = binding.spaceLeft
@@ -29,10 +30,17 @@ class StoryAdapter(
         val message: TextView = binding.message
         val mBack: ConstraintLayout = binding.messageBack
         val lay: LinearLayout = binding.lay
+
+        init {
+            itemView.setOnClickListener {
+                //
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -64,7 +72,6 @@ class StoryAdapter(
             it.sr.visibility = View.GONE
             it.mBack.setBackgroundResource(R.drawable.message_back_me)
         }
-
     }
 
     private fun setAiMessageTemplate(holder: ViewHolder) {

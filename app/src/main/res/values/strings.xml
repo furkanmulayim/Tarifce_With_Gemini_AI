@@ -27,4 +27,9 @@
     <!-- &&&&&&&&&& CHOOSE FRAGMENT &&&&&&&&&&& -->
     <string name="header_ing">Malzeme Seç</string>
     <string name="checked_link">https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/check.png</string>
+
+
+    <!-- &&&&&&&&&& SHOPPING LIST FRAGMENT &&&&&&&&&&& -->
+    <string name="header_shop">Alışveriş Listem</string>
+    <string name="shopper_button">Yeni Liste Oluştur</string>
 </resources>

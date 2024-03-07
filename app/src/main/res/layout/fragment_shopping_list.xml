@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        tools:context=".presentation.fragment.ShoppingListFragment">
+
+        <!-- &&&&&&&&&& Header &&&&&&&&&&& -->
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_squircle_yellow"
+                android:contentDescription="@string/desc_save"
+                android:foreground="@drawable/svg_back"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/food_names"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/header_shop"
+                android:textAlignment="center"
+                android:textColor="@color/main_text_color"
+                android:textSize="19sp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+        </LinearLayout>
+
+        <!-- &&&&&&&&&& RECYCLER &&&&&&&&&&& -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/shoppingList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1" />
+
+        <!-- &&&&&&&&&& BOTTOM BUTTON &&&&&&&&&&& -->
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/shopper_button"
+            android:textAllCaps="true"
+            android:textColor="@color/bottom_sheet_back" />
+    </LinearLayout>
+</layout>

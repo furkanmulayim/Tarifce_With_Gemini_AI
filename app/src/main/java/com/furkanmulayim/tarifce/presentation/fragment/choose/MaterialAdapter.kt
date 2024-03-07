@@ -1,7 +1,6 @@
 package com.furkanmulayim.tarifce.presentation.fragment.choose
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,27 +10,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
+import com.furkanmulayim.tarifce.databinding.ItemMaterialGeneralBinding
+import com.furkanmulayim.tarifce.databinding.ItemMaterialIngredientsBinding
 import com.furkanmulayim.tarifce.util.loadImage
-
 
 class MaterialAdapter(
     var categories: List<Category>, private val onClick: (MutableSet<String>) -> Unit
 ) : RecyclerView.Adapter<MaterialAdapter.ViewHolder>() {
 
-
     private val selectedItems = mutableSetOf<String>()
 
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        val text: TextView = itemView.findViewById(R.id.food_name)
-        val subRecyc: RecyclerView = itemView.findViewById(R.id.subAdapter)
+    inner class ViewHolder(binding: ItemMaterialGeneralBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val text: TextView = binding.foodName
+        val subRecyc: RecyclerView = binding.subAdapter
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food2, parent, false)
-        return ViewHolder(view)
-
+        val binding =
+            ItemMaterialGeneralBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -44,27 +42,25 @@ class MaterialAdapter(
         holder.subRecyc.adapter = subAdapter
     }
 
-
     override fun getItemCount(): Int {
         return categories.size
     }
 
-    // SubAdapter'ı buraya yerleştirin
     inner class SubAdapter(private val items: List<Material>) :
         RecyclerView.Adapter<SubAdapter.SubViewHolder>() {
 
-        inner class SubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-            val categ: TextView = itemView.findViewById(R.id.food_ingr)
-            val image: ImageView = itemView.findViewById(R.id.itemImage)
-            val background: ConstraintLayout = itemView.findViewById(R.id.constraintLayout2)
-
+        inner class SubViewHolder(binding: ItemMaterialIngredientsBinding) :
+            RecyclerView.ViewHolder(binding.root) {
+            val categ: TextView = binding.foodIngr
+            val image: ImageView = binding.itemImage
+            val background: ConstraintLayout = binding.constraintLayout2
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubViewHolder {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_material_ingredients, parent, false)
-            return SubViewHolder(view)
+            val binding = ItemMaterialIngredientsBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+            return SubViewHolder(binding)
         }
 
         override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
@@ -74,12 +70,10 @@ class MaterialAdapter(
 
             holder.itemView.setOnClickListener {
                 if (selectedItems.contains(item.name)) {
-                    // Öğeyi seçmekten vazgeç
                     holder.background.setBackgroundResource(R.drawable.button_materials_back3)
                     holder.image.loadImage(item.imageUrl)
                     selectedItems.remove(item.name)
                 } else {
-                    // Öğeyi seç
                     holder.background.setBackgroundResource(R.drawable.button_materials_back4)
                     val checkedUrl: String = it.context.getString(R.string.checked_link)
                     holder.image.loadImage(checkedUrl)
@@ -93,6 +87,4 @@ class MaterialAdapter(
             return items.size
         }
     }
-
 }
-

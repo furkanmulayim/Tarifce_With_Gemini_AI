@@ -42,7 +42,7 @@ class DetailFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            nav(R.id.action_detailFragment_to_helloFragment)
+            //childFragmentManager.popBackStack()
         }
     }
 
@@ -64,15 +64,10 @@ class DetailFragment : Fragment() {
         }
     }
 
-
     private fun setIngredients(ingr: String) {
         ingredientsAdapter = IngredientsAdapter(viewModel.ingrList(ingr))
         binding.ingrRcyc.adapter = ingredientsAdapter
         val layoutManager = GridLayoutManager(requireContext(), 2)
         binding.ingrRcyc.layoutManager = layoutManager
-    }
-
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
     }
 }

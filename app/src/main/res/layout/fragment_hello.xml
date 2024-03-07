@@ -59,6 +59,18 @@
                 android:foregroundGravity="center"
                 tools:ignore="ImageContrastCheck" />
 
+            <ImageView
+                android:id="@+id/shoppingListButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_squircle_yellow"
+                android:contentDescription="@string/desc_save"
+                android:foreground="@drawable/svg_shopping"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+
         </LinearLayout>
 
         <TextView
