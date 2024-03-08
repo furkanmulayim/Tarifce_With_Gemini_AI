@@ -35,6 +35,7 @@ class AskAiFragment : Fragment() {
         setupAdapter()
         initializeUi()
         setClickListeners()
+        observMessageLoading()
     }
 
     private fun extractSelectedMaterials() {
@@ -46,9 +47,8 @@ class AskAiFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        val linearLayoutManager = LinearLayoutManager(requireContext())
-        storyAdapter = StoryAdapter(arrayListOf(), requireContext())
-        binding.foodAiRcyc.layoutManager = linearLayoutManager
+        storyAdapter = StoryAdapter(requireContext())
+        binding.foodAiRcyc.layoutManager = LinearLayoutManager(requireContext())
         binding.foodAiRcyc.adapter = storyAdapter
     }
 
@@ -72,25 +72,26 @@ class AskAiFragment : Fragment() {
     }
 
     private fun addMessageToConversation(messageText: String, message: Message) {
+        enterStandbyMode()
+        viewModel.messageList.postValue(listOf(message))
         viewModel.askGoogleAI(messageText)
-        viewModel.messageList.add(message)
-        storyAdapter.updateList(viewModel.messageList)
-        binding.foodAiRcyc.scrollToPosition((viewModel.messageList.size - 1))
-        observeResponse()
+        observeGoogleAiMessage()
     }
 
-    private fun observeResponse() {
-        viewModel.dataGeldiMi.observe(viewLifecycleOwner) {
-            it?.let {
-                if (it) {
-                    exitStandbyMode()
-                    storyAdapter.updateList(viewModel.messageList)
-                    binding.foodAiRcyc.scrollToPosition((viewModel.messageList.size - 1))
-                }
+
+    private fun observeGoogleAiMessage() {
+        viewModel.messageList.observe(viewLifecycleOwner) {
+            it.let {
+                storyAdapter.updateList(it)
             }
         }
     }
 
+    private fun observMessageLoading() {
+        viewModel.dataGeldiMi.observe(viewLifecycleOwner) {
+            exitStandbyMode()
+        }
+    }
 
     private fun exitStandbyMode() {
         binding.sendButton.visibility = View.VISIBLE
@@ -98,7 +99,6 @@ class AskAiFragment : Fragment() {
     }
 
     private fun enterStandbyMode() {
-        viewModel.dataGeldiMi.value = false
         binding.sendButton.visibility = View.GONE
         binding.shimmerFrameLayout.visibility = View.VISIBLE
     }

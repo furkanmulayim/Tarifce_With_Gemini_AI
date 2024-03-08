@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        tools:context=".presentation.fragment.see_all.SeeAllBSFragment">
+        tools:context=".presentation.fragment.all_foods_bs.SeeAllBSFragment">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -65,7 +65,7 @@
 
         <!-- &&&&&&&&&& BOTTOM BUTTON &&&&&&&&&&& -->
         <Button
-            android:id="@+id/sendButton"
+            android:id="@+id/createListButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="@string/shopper_button"

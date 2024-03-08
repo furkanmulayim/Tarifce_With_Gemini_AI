@@ -11,20 +11,30 @@ import kotlinx.coroutines.launch
 
 class AskAiViewModel(application: Application) : BaseViewModel(application) {
 
-    val messageList = mutableListOf<Message>()
     val dataGeldiMi = MutableLiveData<Boolean>()
+    val messageList = MutableLiveData<List<Message>>()
     fun askGoogleAI(text: String) {
         viewModelScope.launch {
             try {
                 val response = GoogleAI().generateResponse(text)
-                messageList.add(Message(response, false))
                 dataGeldiMi.value = true
+                messageList.postValue(
+                    listOf(
+                        (Message(
+                            mesaj = response, isuser = false
+                        ))
+                    )
+                )
             } catch (e: Exception) {
-                val errorMessage = "Google AI'dan yanıt alınamadı: ${e.message}"
-                messageList.add(Message(errorMessage, false))
+                val errorMessage =
+                    "Google AI'dan yanıt alınamadı. Galiba Yemeğinizi ocakta unuttu. Lütfen Daha Sonra Tekrar Deneyiniz."
                 dataGeldiMi.value = true
+                messageList.value = listOf(
+                    (Message(
+                        mesaj = errorMessage, isuser = false
+                    ))
+                )
             }
         }
     }
-
 }

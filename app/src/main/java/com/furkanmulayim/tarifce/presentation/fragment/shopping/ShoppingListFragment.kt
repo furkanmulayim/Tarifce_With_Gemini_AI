@@ -34,6 +34,9 @@ class ShoppingListFragment : Fragment() {
         binding.backButton.setOnClickListener {
             nav(R.id.action_shoppingListFragment_to_helloFragment)
         }
+        binding.createListButton.setOnClickListener {
+            nav(R.id.action_shoppingListFragment_to_addListFragment)
+        }
     }
 
     private fun nav(id: Int) {

@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.choose.ChooseFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseFragment"
         android:label="ChooseFragment"
         tools:layout="@layout/fragment_choose">
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <dialog
         android:id="@+id/prepareBSFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.prepare.PrepareBSFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.prepare_bs.PrepareBSFragment"
         android:label="fragment_prepare_b_s"
         tools:layout="@layout/fragment_prepare_b_s">
         <argument
@@ -107,7 +107,7 @@
     </dialog>
     <dialog
         android:id="@+id/seeAllBSFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.see_all.SeeAllBSFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.all_foods_bs.SeeAllBSFragment"
         android:label="SeeAllBSFragment"
         tools:layout="@layout/fragment_see_all_b_s">
         <argument
@@ -142,5 +142,24 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_shoppingListFragment_to_addListFragment"
+            app:destination="@id/addListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addListFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.AddListFragment"
+        android:label="AddListFragment" >
+        <action
+            android:id="@+id/action_addListFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 </navigation>

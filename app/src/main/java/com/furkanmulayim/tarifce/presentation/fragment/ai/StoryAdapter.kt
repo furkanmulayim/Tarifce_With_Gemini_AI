@@ -1,6 +1,5 @@
 package com.furkanmulayim.tarifce.presentation.fragment.ai
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +16,12 @@ import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.databinding.ItemMessageBinding
 
 class StoryAdapter(
-    private val dataList: ArrayList<Message>, val context: Context
+    val context: Context
 ) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
+    private var dataList: List<Message> = listOf()
     private var lastAddedItemPosition: Int = -1
 
-    inner class ViewHolder(binding: ItemMessageBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
         val userSpace: ImageView = binding.userSpace
         val aiSpace: ImageView = binding.aiSpace
         val sl: ImageView = binding.spaceLeft
@@ -39,8 +38,7 @@ class StoryAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding =
-            ItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -84,12 +82,9 @@ class StoryAdapter(
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun updateList(newList: List<Message>) {
-        dataList.clear()
-        dataList.addAll(newList)
-        lastAddedItemPosition = newList.size - 1
-        notifyItemInserted(newList.size - 1)
-        notifyDataSetChanged()
+    fun updateList(messages: List<Message>) {
+        dataList = messages
+        notifyItemRangeChanged(0, dataList.size)
     }
+
 }

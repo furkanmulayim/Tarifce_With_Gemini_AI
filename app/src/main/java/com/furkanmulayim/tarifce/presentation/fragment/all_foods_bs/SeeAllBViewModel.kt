@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment.see_all
+package com.furkanmulayim.tarifce.presentation.fragment.all_foods_bs
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData

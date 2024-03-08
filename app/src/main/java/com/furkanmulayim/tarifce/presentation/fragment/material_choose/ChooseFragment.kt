@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment.choose
+package com.furkanmulayim.tarifce.presentation.fragment.material_choose
 
 import android.annotation.SuppressLint
 import android.os.Bundle

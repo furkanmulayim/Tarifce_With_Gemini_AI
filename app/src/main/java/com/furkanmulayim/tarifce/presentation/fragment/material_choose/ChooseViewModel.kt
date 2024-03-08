@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment.choose
+package com.furkanmulayim.tarifce.presentation.fragment.material_choose
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.furkanmulayim.tarifce.presentation.fragment.choose.ChooseViewModel" />
+            type="com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".presentation.fragment.choose.ChooseFragment">
+        tools:context=".presentation.fragment.material_choose.ChooseFragment">
 
 
         <LinearLayout

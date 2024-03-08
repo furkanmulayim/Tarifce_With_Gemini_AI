@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment.prepare
+package com.furkanmulayim.tarifce.presentation.fragment.prepare_bs
 
 import android.os.Bundle
 import android.view.LayoutInflater
