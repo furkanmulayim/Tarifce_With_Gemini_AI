@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.databinding.FragmentAskAiBinding
+import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
 
 class AskAiFragment : Fragment() {
 
@@ -33,9 +35,8 @@ class AskAiFragment : Fragment() {
         binding.viewModel = viewModel
         extractSelectedMaterials()
         setupAdapter()
-        initializeUi()
+        addInitialMessage()
         setClickListeners()
-        observMessageLoading()
     }
 
     private fun extractSelectedMaterials() {
@@ -47,14 +48,11 @@ class AskAiFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        storyAdapter = StoryAdapter(requireContext())
+        storyAdapter = viewModel.messageList?.let { StoryAdapter(it,requireContext()) }!!
         binding.foodAiRcyc.layoutManager = LinearLayoutManager(requireContext())
         binding.foodAiRcyc.adapter = storyAdapter
     }
 
-    private fun initializeUi() {
-        addInitialMessage()
-    }
 
     private fun setClickListeners() {
         binding.sendButton.setOnClickListener {
@@ -73,33 +71,29 @@ class AskAiFragment : Fragment() {
 
     private fun addMessageToConversation(messageText: String, message: Message) {
         enterStandbyMode()
-        viewModel.messageList.postValue(listOf(message))
+        viewModel.messageList?.add(message)
         viewModel.askGoogleAI(messageText)
         observeGoogleAiMessage()
     }
 
 
     private fun observeGoogleAiMessage() {
-        viewModel.messageList.observe(viewLifecycleOwner) {
+        viewModel.dataGeldiMi.observe(viewLifecycleOwner) {
             it.let {
-                storyAdapter.updateList(it)
+                exitStandbyMode()
+                println("Observ Liste: " + viewModel.messageList?.size)
+                viewModel.messageList?.let { it1 -> storyAdapter.updateList(it1) }
             }
         }
     }
 
-    private fun observMessageLoading() {
-        viewModel.dataGeldiMi.observe(viewLifecycleOwner) {
-            exitStandbyMode()
-        }
-    }
-
     private fun exitStandbyMode() {
-        binding.sendButton.visibility = View.VISIBLE
-        binding.shimmerFrameLayout.visibility = View.GONE
+        viewVisible(binding.sendButton)
+        viewGone(binding.shimmerFrameLayout)
     }
 
     private fun enterStandbyMode() {
-        binding.sendButton.visibility = View.GONE
-        binding.shimmerFrameLayout.visibility = View.VISIBLE
+        viewGone(binding.sendButton)
+        viewVisible(binding.shimmerFrameLayout)
     }
 }

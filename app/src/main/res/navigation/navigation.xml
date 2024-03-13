@@ -161,5 +161,16 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_addListFragment_to_materialFragment"
+            app:destination="@id/materialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/materialFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.MaterialFragment"
+        android:label="MaterialFragment" >
+        <action
+            android:id="@+id/action_materialFragment_to_addListFragment"
+            app:destination="@id/addListFragment" />
     </fragment>
 </navigation>

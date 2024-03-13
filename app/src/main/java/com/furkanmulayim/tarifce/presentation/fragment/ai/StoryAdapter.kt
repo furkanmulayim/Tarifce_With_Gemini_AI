@@ -15,10 +15,8 @@ import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.databinding.ItemMessageBinding
 
-class StoryAdapter(
-    val context: Context
-) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
-    private var dataList: List<Message> = listOf()
+class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
+    RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
     private var lastAddedItemPosition: Int = -1
 
     inner class ViewHolder(binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -82,7 +80,8 @@ class StoryAdapter(
         }
     }
 
-    fun updateList(messages: List<Message>) {
+    fun updateList(messages: ArrayList<Message>) {
+        dataList.clear()
         dataList = messages
         notifyItemRangeChanged(0, dataList.size)
     }

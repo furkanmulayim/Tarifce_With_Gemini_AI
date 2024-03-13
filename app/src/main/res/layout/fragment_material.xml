@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseViewModel" />
+            type="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.MaterialViewModel" />
     </data>
 
     <LinearLayout
@@ -94,7 +94,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Yapay Zekaya Sor"
+            android:text="Tamamdır"
             android:textAllCaps="true"
             android:textColor="@color/main_text_color0" />
 

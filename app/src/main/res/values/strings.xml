@@ -26,10 +26,14 @@
 
     <!-- &&&&&&&&&& CHOOSE FRAGMENT &&&&&&&&&&& -->
     <string name="header_ing">Malzeme Seç</string>
+    <string name="empty_list">Listenize Hiçbir Şey Eklemediniz.</string>
     <string name="checked_link">https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/check.png</string>
 
 
     <!-- &&&&&&&&&& SHOPPING LIST FRAGMENT &&&&&&&&&&& -->
     <string name="header_shop">Alışveriş Listem</string>
-    <string name="shopper_button">Yeni Liste Oluştur</string>
+    <string name="header_shop_list">Listeye Malzeme Ekle</string>
+    <string name="shopper_button_select">Yeni Liste Oluştur</string>
+    <string name="material_search">Malzeme Bul</string>
+    <string name="shopper_button">Bitir ve Kaydet</string>
 </resources>

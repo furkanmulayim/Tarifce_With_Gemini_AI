@@ -60,6 +60,19 @@
             android:id="@+id/shoppingList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:visibility="gone"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1" />
+
+        <!-- &&&&&&&&&& RECYCLER &&&&&&&&&&& -->
+        <TextView
+            android:id="@+id/shoppingListEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="@color/main_text_color"
+            android:gravity="center"
+            android:visibility="visible"
+            android:text="@string/empty_list"
             android:layout_marginTop="15dp"
             android:layout_weight="1" />
 
@@ -68,7 +81,7 @@
             android:id="@+id/createListButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/shopper_button"
+            android:text="@string/shopper_button_select"
             android:textAllCaps="true"
             android:textColor="@color/bottom_sheet_back" />
     </LinearLayout>
