@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentSavedBinding
+import com.furkanmulayim.tarifce.util.navigate
 
 class SavedFragment : Fragment() {
 
@@ -29,12 +30,7 @@ class SavedFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            nav(R.id.action_savedFragment_to_helloFragment)
+            requireParentFragment().navigate(R.id.action_savedFragment_to_helloFragment)
         }
     }
-
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
-    }
-
 }

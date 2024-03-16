@@ -16,7 +16,7 @@
             android:endX="11.883"
             android:endY="19.792"
             android:type="linear">
-          <item android:offset="0" android:color="#FFFFD460"/>
+          <item android:offset="0" android:color="@color/yellow"/>
           <item android:offset="1" android:color="#FFFFFFFF"/>
         </gradient>
       </aapt:attr>
@@ -36,13 +36,13 @@
             android:endX="21.415"
             android:endY="13.2"
             android:type="linear">
-          <item android:offset="0" android:color="#FFFFECB8"/>
+          <item android:offset="0" android:color="@color/yellow"/>
           <item android:offset="1" android:color="#FFFFFFFF"/>
         </gradient>
       </aapt:attr>
     </path>
     <path
         android:pathData="M17.805,7.933C17.915,8.051 18.047,8.146 18.194,8.212C18.341,8.277 18.5,8.312 18.661,8.315H18.682C18.84,8.315 18.996,8.284 19.142,8.224C19.288,8.164 19.42,8.075 19.531,7.963L22.249,5.245C22.369,5.126 22.436,4.963 22.436,4.794C22.437,4.625 22.369,4.462 22.25,4.342C22.13,4.222 21.968,4.155 21.799,4.155C21.629,4.155 21.467,4.222 21.347,4.341L18.683,7.009L17.898,6.167C17.783,6.044 17.623,5.971 17.455,5.965C17.286,5.959 17.122,6.021 16.998,6.136C16.875,6.251 16.802,6.411 16.796,6.58C16.791,6.748 16.852,6.913 16.968,7.036L17.805,7.933Z"
-        android:fillColor="#F47D4A"/>
+        android:fillColor="@color/yellow"/>
   </group>
 </vector>

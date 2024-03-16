@@ -1,7 +1,7 @@
 package com.furkanmulayim.tarifce.data.repo
 
 import androidx.lifecycle.MutableLiveData
-import com.furkanmulayim.tarifce.data.db.FoodDao
+import com.furkanmulayim.tarifce.data.db.food.FoodDao
 import com.furkanmulayim.tarifce.data.model.Food
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

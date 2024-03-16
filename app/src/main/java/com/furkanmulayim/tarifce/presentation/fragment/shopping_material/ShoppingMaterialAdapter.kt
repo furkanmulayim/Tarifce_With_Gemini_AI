@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item
+package com.furkanmulayim.tarifce.presentation.fragment.shopping_material
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,17 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.Material
-import com.furkanmulayim.tarifce.data.model.ShoppingList
+import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.ItemMaterialGeneralBinding
 import com.furkanmulayim.tarifce.databinding.ItemMaterialIngredientsBinding
 import com.furkanmulayim.tarifce.util.loadImage
 
 class ShoppingMaterialAdapter(
-    var categories: List<Category>, private val onClick: (MutableSet<ShoppingList>) -> Unit
+    var categories: List<Category>, private val onClick: (MutableSet<Shopliste>) -> Unit
 ) : RecyclerView.Adapter<ShoppingMaterialAdapter.ViewHolder>() {
 
-    private val selectedItems = mutableSetOf<ShoppingList>()
-    private val selectedItemsName = mutableSetOf<String>()
+    private val selectedItems = mutableSetOf<Shopliste>()
 
     inner class ViewHolder(binding: ItemMaterialGeneralBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -69,21 +68,14 @@ class ShoppingMaterialAdapter(
             holder.categ.text = item.name
             holder.image.loadImage(item.imageUrl)
 
-            val selectedItem = ShoppingList(
-                name = item.name,
-                image = item.imageUrl,
-                weight = "0.5",
-                explain = "",
-                isSold = false
-            )
-
             holder.itemView.setOnClickListener {
-                val selectedItem = ShoppingList(
+                val selectedItem = Shopliste(
+                    id = 0,
                     name = item.name,
                     image = item.imageUrl,
                     weight = "0.5",
-                    explain = "",
-                    isSold = false
+                    explain = " ",
+                    issold = 0
                 )
 
                 if (selectedItems.contains(selectedItem)) {

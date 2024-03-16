@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
+import com.furkanmulayim.tarifce.util.navigate
 
 class ChooseFragment : Fragment() {
 
@@ -39,7 +40,7 @@ class ChooseFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            nav(R.id.action_chooseFragment_to_helloFragment)
+            requireParentFragment().navigate(R.id.action_chooseFragment_to_helloFragment)
         }
 
         binding.sendButton.setOnClickListener {
@@ -90,9 +91,5 @@ class ChooseFragment : Fragment() {
         binding.shimmerFrameLayout.visibility = View.GONE
         binding.materialRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
-    }
-
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
     }
 }

@@ -1,8 +1,7 @@
-package com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item
+package com.furkanmulayim.tarifce.presentation.fragment.shopping_material
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,16 +11,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.data.model.ShoppingList
+import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentMaterialBinding
-import com.furkanmulayim.tarifce.presentation.fragment.material_choose.MaterialAdapter
+import com.furkanmulayim.tarifce.util.navigate
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MaterialFragment : Fragment() {
 
     private lateinit var viewModel: MaterialViewModel
     private lateinit var binding: FragmentMaterialBinding
     private lateinit var adapter: ShoppingMaterialAdapter
-    private val selectedMaterialList: MutableList<ShoppingList> = mutableListOf()
+    private val selectedMaterialList: MutableList<Shopliste> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -42,7 +43,7 @@ class MaterialFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            nav(R.id.action_chooseFragment_to_helloFragment)
+            requireParentFragment().navigate(R.id.action_materialFragment_to_shoppingListFragment)
         }
 
         binding.sendButton.setOnClickListener {
@@ -53,7 +54,6 @@ class MaterialFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
-
      adapter = ShoppingMaterialAdapter(emptyList()) {
             for (element in it) {
                 selectedMaterialList.add(element)
@@ -72,12 +72,9 @@ class MaterialFragment : Fragment() {
         if (selectedMaterialList.isEmpty()) {
             handleEmptyCategory()
         } else {
-            val bundle = Bundle().apply {
-                val distinctItems = selectedMaterialList.distinct()
-                val selectedMaterialArrayList = ArrayList(distinctItems)
-                putSerializable("selectedMaterialArrayList", selectedMaterialArrayList)
+            if (viewModel.saveDatabase(selectedMaterialList.distinct())) {
+                requireParentFragment().navigate(R.id.action_materialFragment_to_shoppingListFragment)
             }
-            navigateToAddListFragment(bundle)
         }
     }
 
@@ -85,18 +82,9 @@ class MaterialFragment : Fragment() {
         // burda malzeme seçilmemiş demektir. Kullanıcıyla iletisim !!!
     }
 
-    private fun navigateToAddListFragment(bundle: Bundle) {
-        Navigation.findNavController(requireView())
-            .navigate(R.id.action_materialFragment_to_addListFragment, bundle)
-    }
-
     private fun shimmerKapat() {
         binding.shimmerFrameLayout.visibility = View.GONE
         binding.materialRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
-    }
-
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
     }
 }

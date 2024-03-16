@@ -1,108 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item_food_category_back"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
-    android:layout_margin="10dp"
-    android:background="@drawable/button_materials_back4"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#F3F3F3"
+        android:foreground="@drawable/delete"
+        android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"/>
 
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:fontFamily="@font/inter_semibold"
-        android:textColor="@color/main_text_color"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="15dp"
-        android:layout_weight="1"
+        android:layout_weight="1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/buttonDecrease"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:foreground="@drawable/dec_svg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonDecrease"
-            app:layout_constraintEnd_toStartOf="@+id/buttonIncrease"
-            app:layout_constraintStart_toEndOf="@+id/buttonDecrease"
-            app:layout_constraintTop_toTopOf="@+id/buttonIncrease">
+        app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/weight"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
                 android:fontFamily="@font/inter_semibold"
-                android:gravity="center"
-                android:text="0.5"
                 android:textColor="@color/main_text_color"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/deneee"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="@font/inter_semibold"
-                android:gravity="center"
-                android:text="KG"
-                android:textColor="@color/main_text_color"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/deneee"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/buttonIncrease"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:foreground="@drawable/inc_svg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="13sp" />
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>

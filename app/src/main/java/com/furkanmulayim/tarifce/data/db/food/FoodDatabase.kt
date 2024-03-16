@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.data.db
+package com.furkanmulayim.tarifce.data.db.food
 
 import android.content.Context
 import androidx.room.Database

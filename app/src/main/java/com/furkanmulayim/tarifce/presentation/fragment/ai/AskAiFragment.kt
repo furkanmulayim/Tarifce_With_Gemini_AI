@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.databinding.FragmentAskAiBinding
+import com.furkanmulayim.tarifce.util.navigate
 import com.furkanmulayim.tarifce.util.viewGone
 import com.furkanmulayim.tarifce.util.viewVisible
 
@@ -61,7 +62,7 @@ class AskAiFragment : Fragment() {
             addMessageToConversation(message, Message(message, true))
         }
         binding.backButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_askAiFragment_to_chooseFragment)
+            requireParentFragment().navigate(R.id.action_askAiFragment_to_chooseFragment)
         }
     }
 

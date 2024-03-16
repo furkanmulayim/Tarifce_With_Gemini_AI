@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.data.db
+package com.furkanmulayim.tarifce.data.db.food
 
 import androidx.room.Dao
 import androidx.room.Delete

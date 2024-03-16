@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
+import com.furkanmulayim.tarifce.util.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,15 +53,15 @@ class HelloFragment : Fragment() {
     //  onclick listeners*/
     private fun clickListener() {
         binding.savedButton.setOnClickListener {
-            nav(R.id.action_helloFragment_to_savedFragment)
+            requireParentFragment().navigate(R.id.action_helloFragment_to_savedFragment)
         }
 
         binding.aiButton.setOnClickListener {
-            nav(R.id.action_helloFragment_to_chooseFragment)
+            requireParentFragment().navigate(R.id.action_helloFragment_to_chooseFragment)
         }
 
         binding.shoppingListButton.setOnClickListener {
-            nav(R.id.action_helloFragment_to_shoppingListFragment)
+            requireParentFragment().navigate(R.id.action_helloFragment_to_shoppingListFragment)
         }
 
         // send bundle all foods to bottom sheet dialog with nav graph*/
@@ -112,11 +113,4 @@ class HelloFragment : Fragment() {
         binding.foodsRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }
-
-
-    // navigaation transactions
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
-    }
-
 }

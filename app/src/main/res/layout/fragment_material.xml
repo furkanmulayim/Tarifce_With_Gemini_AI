@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.MaterialViewModel" />
+            type="com.furkanmulayim.tarifce.presentation.fragment.shopping_material.MaterialViewModel" />
     </data>
 
     <LinearLayout
@@ -36,7 +36,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_squircle_yellow"
+                android:background="@drawable/ai_button"
                 android:contentDescription="@string/desc_save"
                 android:foreground="@drawable/svg_back"
                 android:foregroundGravity="center"
@@ -92,11 +92,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/white"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="Tamamdır"
-            android:textAllCaps="true"
-            android:textColor="@color/main_text_color0" />
+            android:textAllCaps="true"/>
 
 
     </LinearLayout>

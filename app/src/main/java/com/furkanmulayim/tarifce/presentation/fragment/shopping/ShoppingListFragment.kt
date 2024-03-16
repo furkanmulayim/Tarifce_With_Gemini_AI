@@ -1,20 +1,29 @@
 package com.furkanmulayim.tarifce.presentation.fragment.shopping
 
+import ShoppingAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentShoppingListBinding
+import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
+import dagger.hilt.android.AndroidEntryPoint
 
-class ShoppingListFragment : Fragment() {
+@AndroidEntryPoint
+class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
 
     private lateinit var binding: FragmentShoppingListBinding
     private lateinit var viewModel: ShoppingListViewModel
+    private lateinit var adapter: ShoppingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,19 +36,83 @@ class ShoppingListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observList()
+        observClicked()
         clickListener()
+    }
+
+    private fun observList() {
+        viewModel.cardList.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
+                viewGone(binding.shoppingListRcyc)
+                viewVisible(binding.shoppingListEmpty)
+            } else {
+                viewVisible(binding.shoppingListRcyc)
+                viewGone(binding.shoppingListEmpty)
+            }
+            setAdapter(it.reversed())
+        }
+    }
+
+    private fun observClicked() {
+        viewModel.isSelectedAdapter.observe(viewLifecycleOwner) { isFilterOn ->
+            if (isFilterOn) {
+                binding.allListedButton.background = null
+                binding.filterListedButton.background = AppCompatResources.getDrawable(
+                    requireContext(), R.drawable.shopping_list_swiper_selected
+                )
+                if (isListIsNotNull()) {
+                    val newList = viewModel.cardList.value!!.filter { it.issold == 0 }
+                    setAdapter(newList.reversed())
+                }
+            } else {
+                binding.filterListedButton.background = null
+                binding.allListedButton.background = AppCompatResources.getDrawable(
+                    requireContext(), R.drawable.shopping_list_swiper_selected
+                )
+                if (isListIsNotNull()) {
+                    val newList = viewModel.cardList.value!!
+                    setAdapter(newList.reversed())
+                }
+
+            }
+        }
+    }
+
+    private fun isListIsNotNull(): Boolean {
+        return !viewModel.cardList.value.isNullOrEmpty()
+    }
+
+    private fun setAdapter(list: List<Shopliste>) {
+        if (list.isNotEmpty()) {
+            adapter = ShoppingAdapter(requireContext(), list as ArrayList<Shopliste>, this)
+            binding.shoppingListRcyc.layoutManager = GridLayoutManager(requireContext(), 3)
+            binding.shoppingListRcyc.adapter = adapter
+        }
     }
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            nav(R.id.action_shoppingListFragment_to_helloFragment)
+            requireParentFragment().navigate(R.id.action_shoppingListFragment_to_helloFragment)
         }
         binding.createListButton.setOnClickListener {
-            nav(R.id.action_shoppingListFragment_to_addListFragment)
+            requireParentFragment().navigate(R.id.action_shoppingListFragment_to_materialFragment)
+        }
+
+        binding.allListedButton.setOnClickListener {
+            viewModel.isSelectedAdapter.value = false
+        }
+
+        binding.filterListedButton.setOnClickListener {
+            viewModel.isSelectedAdapter.value = true
         }
     }
 
-    private fun nav(id: Int) {
-        Navigation.findNavController(requireView()).navigate(id)
+    override fun onItemIsSold(id: Int, isSold: Int) {
+        viewModel.updateItem(id, isSold)
+    }
+
+    override fun onItemDelete(id: Int) {
+        viewModel.deleteItem(id)
     }
 }

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Tarifce" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimary">@color/yellow_top</item>
         <item name="colorPrimaryVariant">@color/yellow_darken</item>
         <item name="colorOnPrimary">@color/main_text_color</item>
         <!-- Secondary brand color. -->

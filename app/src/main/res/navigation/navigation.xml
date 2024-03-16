@@ -134,7 +134,8 @@
     <fragment
         android:id="@+id/shoppingListFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingListFragment"
-        android:label="ShoppingListFragment">
+        android:label="ShoppingListFragment"
+        tools:layout="@layout/fragment_shopping_list">
         <action
             android:id="@+id/action_shoppingListFragment_to_helloFragment"
             app:destination="@id/helloFragment"
@@ -143,34 +144,18 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
-            android:id="@+id/action_shoppingListFragment_to_addListFragment"
-            app:destination="@id/addListFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-    </fragment>
-    <fragment
-        android:id="@+id/addListFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.AddListFragment"
-        android:label="AddListFragment" >
-        <action
-            android:id="@+id/action_addListFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-        <action
-            android:id="@+id/action_addListFragment_to_materialFragment"
+            android:id="@+id/action_shoppingListFragment_to_materialFragment"
             app:destination="@id/materialFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/materialFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_add_item.MaterialFragment"
-        android:label="MaterialFragment" >
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_material.MaterialFragment"
+        android:label="MaterialFragment"
+        tools:layout="@layout/fragment_material">
+
         <action
-            android:id="@+id/action_materialFragment_to_addListFragment"
-            app:destination="@id/addListFragment" />
+            android:id="@+id/action_materialFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
     </fragment>
 </navigation>

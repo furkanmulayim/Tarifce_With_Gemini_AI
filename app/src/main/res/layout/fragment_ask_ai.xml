@@ -35,7 +35,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_squircle_yellow"
+                android:background="@drawable/ai_button"
                 android:contentDescription="@string/desc_save"
                 android:foreground="@drawable/svg_back"
                 android:foregroundGravity="center"
@@ -87,6 +87,7 @@
 
             <Button
                 android:id="@+id/sendButton"
+                android:fontFamily="@font/inter_bold"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Bu Yemeği Beğenmedim"

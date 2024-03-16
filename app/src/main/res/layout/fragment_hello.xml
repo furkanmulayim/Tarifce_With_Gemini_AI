@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_squircle_white"
+                android:background="@drawable/button_squircle_app_name"
                 android:contentDescription="@string/desc_icon"
                 android:drawablePadding="14dp"
                 android:fontFamily="@font/inter_bold"
@@ -53,7 +53,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_squircle_yellow"
+                android:background="@drawable/ai_button"
                 android:contentDescription="@string/desc_save"
                 android:foreground="@drawable/svg_save"
                 android:foregroundGravity="center"
@@ -65,7 +65,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_squircle_yellow"
+                android:background="@drawable/ai_button"
                 android:contentDescription="@string/desc_save"
                 android:foreground="@drawable/svg_shopping"
                 android:foregroundGravity="center"
@@ -80,7 +80,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="-20dp"
             android:text="@string/welcome"
-            android:textColor="#546E7A"
+            android:textColor="@color/yellow_top"
             android:textSize="17sp" />
 
 
@@ -120,7 +120,7 @@
                     android:fontFamily="@font/inter_semibold"
                     android:paddingEnd="150dp"
                     android:text="@string/ai_button_info"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/yellow_bottom"
                     android:textSize="18sp"
                     tools:ignore="ImageContrastCheck,RtlSymmetry,VisualLintBounds" />
 
@@ -131,11 +131,11 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/ai_button"
+                    android:background="@drawable/button_materials_back2"
                     android:fontFamily="@font/inter_semibold"
                     android:gravity="center"
                     android:text="@string/ai_now"
-                    android:textColor="#5D4037" />
+                    android:textColor="@color/background" />
             </LinearLayout>
 
             <ImageView
@@ -189,7 +189,7 @@
                 android:layout_gravity="center"
                 android:textSize="15sp"
                 android:layout_marginStart="5dp"
-                android:textColor="@color/orange_bottom"
+                android:textColor="@color/yellow_bottom"
                 android:fontFamily="@font/inter_semibold"/>
 
         </LinearLayout>

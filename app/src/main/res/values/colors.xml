@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <color name="bottom_sheet_back">#5f5f5d</color>
+    <color name="selected_back">#E4E4E2</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <!-- MAİN  color -->
-    <color name="yellow">#F8CA51</color>
-    <color name="yellow_darken">#FFB900</color>
+    <color name="yellow">#c6ddcb</color>
+    <color name="yellow_darken">#DDE6FF</color>
 
     <!-- Status bar color -->
-    <color name="yellow_top">#F8CA51</color>
-    <color name="yellow_bottom">#F7A930</color>
-
-    <color name="orange_top">#FF9852</color>
-    <color name="orange_bottom">#F47D4A</color>
+    <color name="yellow_top">#6495A8</color>
+    <color name="yellow_top2">#587C8A</color>
+    <color name="yellow_bottom">#3C6A7C</color>
 
     <!-- Txt color -->
     <color name="main_text_color0">#373737</color>
@@ -26,5 +24,4 @@
     <!-- Status bar color -->
     <color name="background">#EEEEE9</color>
     <color name="status_bar_color">#EEEEE9</color>
-
 </resources>
