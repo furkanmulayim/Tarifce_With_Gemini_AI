@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
@@ -34,57 +33,51 @@ class AskAiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+
+        storyAdapter = StoryAdapter(arrayListOf(), requireContext())
+        binding.foodAiRcyc.layoutManager = LinearLayoutManager(requireContext())
+        binding.foodAiRcyc.adapter = storyAdapter
+
         extractSelectedMaterials()
-        setupAdapter()
-        addInitialMessage()
         setClickListeners()
+        observeDataAndSetupAdapter()
     }
 
     private fun extractSelectedMaterials() {
         val selectedMaterials = arguments?.getStringArray("material_list")
+        println("LOGF: BUNDLE: " + selectedMaterials?.size)
         selectedMaterials?.let {
             selectedMaterialsMessage =
-                it.joinToString(" ") + " malzemeleri ile evde yapabileceğim bir tane yemeğin yapılışını anlatır mısın?"
+                it.joinToString(" ") + " malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın? "
+            viewModel.mesajEkle(selectedMaterialsMessage, true)
+            enterStandbyMode()
+            viewModel.askGoogleAI(selectedMaterialsMessage)
         }
     }
 
-    private fun setupAdapter() {
-        storyAdapter = viewModel.messageList?.let { StoryAdapter(it,requireContext()) }!!
-        binding.foodAiRcyc.layoutManager = LinearLayoutManager(requireContext())
-        binding.foodAiRcyc.adapter = storyAdapter
+    private fun observeDataAndSetupAdapter() {
+        viewModel.mesajlar.observe(viewLifecycleOwner) {
+            it?.let {
+                val alist: ArrayList<Message>? = viewModel.mesajlar.value
+                alist?.let { arrlist ->
+                    storyAdapter.updateList(arrlist)
+                    binding.foodAiRcyc.scrollToPosition(arrlist.size - 1)
+                }
+                if (viewModel.dataGeldiMi.value == true) exitStandbyMode() else enterStandbyMode()
+            }
+        }
     }
-
 
     private fun setClickListeners() {
         binding.sendButton.setOnClickListener {
             enterStandbyMode()
+            viewModel.dataGeldiMi.value = false
             val message = "Bu sefer bir öncekinden farklı olarak $selectedMaterialsMessage"
-            addMessageToConversation(message, Message(message, true))
+            viewModel.mesajEkle(message, true)
+            viewModel.askGoogleAI(message)
         }
         binding.backButton.setOnClickListener {
             requireParentFragment().navigate(R.id.action_askAiFragment_to_chooseFragment)
-        }
-    }
-
-    private fun addInitialMessage() {
-        addMessageToConversation(selectedMaterialsMessage, Message(selectedMaterialsMessage, true))
-    }
-
-    private fun addMessageToConversation(messageText: String, message: Message) {
-        enterStandbyMode()
-        viewModel.messageList?.add(message)
-        viewModel.askGoogleAI(messageText)
-        observeGoogleAiMessage()
-    }
-
-
-    private fun observeGoogleAiMessage() {
-        viewModel.dataGeldiMi.observe(viewLifecycleOwner) {
-            it.let {
-                exitStandbyMode()
-                println("Observ Liste: " + viewModel.messageList?.size)
-                viewModel.messageList?.let { it1 -> storyAdapter.updateList(it1) }
-            }
         }
     }
 

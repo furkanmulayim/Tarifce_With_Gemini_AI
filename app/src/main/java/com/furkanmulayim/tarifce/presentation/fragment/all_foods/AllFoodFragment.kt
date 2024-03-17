@@ -1,36 +1,36 @@
-package com.furkanmulayim.tarifce.presentation.fragment.all_foods_bs
+package com.furkanmulayim.tarifce.presentation.fragment.all_foods
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.databinding.FragmentSeeAllBSBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.furkanmulayim.tarifce.databinding.FragmentAllFoodBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SeeAllBSFragment : BottomSheetDialogFragment() {
+class AllFoodFragment : Fragment() {
 
-
-    private lateinit var viewModel: SeeAllBViewModel
-    private lateinit var binding: FragmentSeeAllBSBinding
+    private lateinit var viewModel: AllFoodViewModel
+    private lateinit var binding: FragmentAllFoodBinding
     private var foodAdapter = AllFoodAdapter(arrayListOf())
     private lateinit var bundleData: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bundleData = arguments?.getString("category").toString()
+        bundleData = arguments?.getString("itemName").toString()
+        println("LOGF: ->" + bundleData)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_see_all_b_s, container, false)
-        viewModel = ViewModelProvider(this)[SeeAllBViewModel::class.java]
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_all_food, container, false)
+        viewModel = ViewModelProvider(this)[AllFoodViewModel::class.java]
         return binding.root
     }
 

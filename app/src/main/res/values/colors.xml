@@ -9,6 +9,7 @@
     <!-- MAİN  color -->
     <color name="yellow">#c6ddcb</color>
     <color name="yellow_darken">#DDE6FF</color>
+    <color name="yellow_darken2">#7EA3B1</color>
 
     <!-- Status bar color -->
     <color name="yellow_top">#6495A8</color>

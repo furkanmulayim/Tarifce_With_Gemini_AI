@@ -45,7 +45,6 @@ class HelloFragment : Fragment() {
         viewModel.getData()
         setItems()
         observeLiveData()
-
         setAdapter()
         clickListener()
     }
@@ -66,7 +65,9 @@ class HelloFragment : Fragment() {
 
         // send bundle all foods to bottom sheet dialog with nav graph*/
         binding.seeAllButton.setOnClickListener {
-            val act = HelloFragmentDirections.actionHelloFragmentToSeeAllBSFragment(category)
+            val act =
+                HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(itemName = category)
+            println("LOGF: " + category)
             Navigation.findNavController(it).navigate(act)
         }
     }

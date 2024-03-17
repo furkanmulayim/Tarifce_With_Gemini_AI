@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FoodDaoRepository(var fdao: FoodDao) {
+class FoodDaoRepository(private var fdao: FoodDao) {
 
 
     private var foodList: MutableLiveData<List<Food>> = MutableLiveData()

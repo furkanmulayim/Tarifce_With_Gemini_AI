@@ -92,7 +92,7 @@
                 android:layout_height="50dp"
                 android:text="Bu Yemeği Beğenmedim"
                 android:textAllCaps="true"
-                android:textColor="@color/bottom_sheet_back"
+                android:textColor="@color/background"
                 android:visibility="gone" />
 
 
@@ -106,7 +106,7 @@
                     android:layout_height="50dp"
                     android:text="YEMEĞİNİZ HAZIRLANIYOR..."
                     android:textAllCaps="true"
-                    android:textColor="@color/bottom_sheet_back" />
+                    android:textColor="@color/background" />
 
             </com.facebook.shimmer.ShimmerFrameLayout>
         </LinearLayout>

@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentDetailBinding
+import com.furkanmulayim.tarifce.util.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,7 +43,7 @@ class DetailFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            //childFragmentManager.popBackStack()
+            navigate(R.id.action_detailFragment_to_helloFragment)
         }
     }
 

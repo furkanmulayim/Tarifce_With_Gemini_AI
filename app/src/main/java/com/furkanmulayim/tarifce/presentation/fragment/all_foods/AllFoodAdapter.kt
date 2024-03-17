@@ -1,9 +1,10 @@
-package com.furkanmulayim.tarifce.presentation.fragment.all_foods_bs
+package com.furkanmulayim.tarifce.presentation.fragment.all_foods
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.databinding.ItemAllFoodBinding
@@ -22,7 +23,10 @@ class AllFoodAdapter(
 
         init {
             binding.root.setOnClickListener {
-                // Burada bottom sheet fragment üzerinden fragmente bundle gönderimi olacak
+                val item = dataList[adapterPosition]
+                val action =
+                    AllFoodFragmentDirections.actionAllFoodFragmentToDetailFragment(item.name)
+                Navigation.findNavController(it).navigate(action)
             }
         }
     }

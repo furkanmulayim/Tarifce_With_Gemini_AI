@@ -43,6 +43,7 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
 
     private fun observList() {
         viewModel.cardList.observe(viewLifecycleOwner) {
+            setAdapter(it.reversed())
             if (it.isEmpty()) {
                 viewGone(binding.shoppingListRcyc)
                 viewVisible(binding.shoppingListEmpty)
@@ -50,7 +51,6 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
                 viewVisible(binding.shoppingListRcyc)
                 viewGone(binding.shoppingListEmpty)
             }
-            setAdapter(it.reversed())
         }
     }
 
@@ -64,6 +64,8 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
                 if (isListIsNotNull()) {
                     val newList = viewModel.cardList.value!!.filter { it.issold == 0 }
                     setAdapter(newList.reversed())
+                } else {
+                    setAdapter(listOf())
                 }
             } else {
                 binding.filterListedButton.background = null
@@ -73,8 +75,9 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
                 if (isListIsNotNull()) {
                     val newList = viewModel.cardList.value!!
                     setAdapter(newList.reversed())
+                } else {
+                    setAdapter(listOf())
                 }
-
             }
         }
     }
@@ -84,12 +87,15 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
     }
 
     private fun setAdapter(list: List<Shopliste>) {
-        if (list.isNotEmpty()) {
-            adapter = ShoppingAdapter(requireContext(), list as ArrayList<Shopliste>, this)
-            binding.shoppingListRcyc.layoutManager = GridLayoutManager(requireContext(), 3)
-            binding.shoppingListRcyc.adapter = adapter
+        adapter = if (list.isNotEmpty()) {
+            ShoppingAdapter(requireContext(), ArrayList(list), this)
+        } else {
+            ShoppingAdapter(requireContext(), arrayListOf(), this)
         }
+        binding.shoppingListRcyc.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.shoppingListRcyc.adapter = adapter
     }
+
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {

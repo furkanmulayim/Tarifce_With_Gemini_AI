@@ -12,19 +12,38 @@ import kotlinx.coroutines.launch
 class AskAiViewModel(application: Application) : BaseViewModel(application) {
 
     val dataGeldiMi = MutableLiveData<Boolean>()
-    val messageList: ArrayList<Message>? = null
+    val mesajlar = MutableLiveData<ArrayList<Message>>()
+
     fun askGoogleAI(text: String) {
         viewModelScope.launch {
             try {
-                val response = GoogleAI().generateResponse(text)
+                var response =
+                    GoogleAI().generateResponse(text)
+                        .replace("* ", "")
+                        .replace(" *", "")
+                        .replace(" **", "")
+                        .replace("** ", "")
+                        .replace(":", "")
                 dataGeldiMi.value = true
-                messageList?.add(Message(mesaj = response, isuser = false))
+                val result = response.replace(Regex("\\*\\*(.*?)\\*\\*")) {
+                    "👉 ${it.groupValues[1].uppercase()}"
+                }
+
+                mesajEkle(result, false)
             } catch (e: Exception) {
                 val errorMessage =
                     "Google AI'dan yanıt alınamadı. Galiba Yemeğinizi ocakta unuttu. Lütfen Daha Sonra Tekrar Deneyiniz."
                 dataGeldiMi.value = true
-                messageList?.add(Message(mesaj = errorMessage, isuser = false))
+                println("LOGF: response: " + e.localizedMessage)
+                mesajEkle(errorMessage, false)
             }
         }
     }
+
+    fun mesajEkle(mesaj: String, isUser: Boolean) {
+        val tempList = mesajlar.value ?: arrayListOf()
+        tempList.add(Message(mesaj = mesaj, isuser = isUser))
+        mesajlar.postValue(tempList)
+    }
+
 }

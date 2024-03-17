@@ -10,13 +10,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.databinding.ItemMessageBinding
 
-class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
-    RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
+class StoryAdapter(
+    var dataList: ArrayList<Message>, val context: Context
+) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
     private var lastAddedItemPosition: Int = -1
 
     inner class ViewHolder(binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -24,7 +26,7 @@ class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
         val aiSpace: ImageView = binding.aiSpace
         val sl: ImageView = binding.spaceLeft
         val sr: ImageView = binding.spaceRight
-        val message: TextView = binding.message
+        var message: TextView = binding.message
         val mBack: ConstraintLayout = binding.messageBack
         val lay: LinearLayout = binding.lay
 
@@ -51,6 +53,7 @@ class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
 
         if (item.isuser) {
             setUserMessageTemplate(holder)
+            holder.message.setTextColor(ContextCompat.getColor(context, R.color.white))
         } else {
             setAiMessageTemplate(holder)
         }
@@ -61,6 +64,7 @@ class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
     }
 
     private fun setUserMessageTemplate(holder: ViewHolder) {
+
         holder.let {
             it.userSpace.visibility = View.VISIBLE
             it.aiSpace.visibility = View.GONE
@@ -80,9 +84,10 @@ class StoryAdapter(var dataList: ArrayList<Message>, val context: Context) :
         }
     }
 
+
     fun updateList(messages: ArrayList<Message>) {
         dataList.clear()
-        dataList = messages
+        dataList.addAll(messages)
         notifyItemRangeChanged(0, dataList.size)
     }
 

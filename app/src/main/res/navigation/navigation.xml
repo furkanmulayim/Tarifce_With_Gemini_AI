@@ -13,34 +13,28 @@
         <action
             android:id="@+id/action_helloFragment_to_detailFragment"
             app:destination="@id/detailFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
         <action
             android:id="@+id/action_helloFragment_to_savedFragment"
             app:destination="@id/savedFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
         <action
             android:id="@+id/action_helloFragment_to_chooseFragment"
             app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_helloFragment_to_seeAllBSFragment"
-            app:destination="@id/seeAllBSFragment" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
         <action
             android:id="@+id/action_helloFragment_to_shoppingListFragment"
             app:destination="@id/shoppingListFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_helloFragment_to_allFoodFragment"
+            app:destination="@id/allFoodFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -50,10 +44,8 @@
         <action
             android:id="@+id/action_detailFragment_to_helloFragment"
             app:destination="@id/helloFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_detailFragment_to_prepareBSFragment"
             app:destination="@id/prepareBSFragment" />
@@ -70,10 +62,8 @@
         <action
             android:id="@+id/action_savedFragment_to_helloFragment"
             app:destination="@id/helloFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
@@ -83,17 +73,13 @@
         <action
             android:id="@+id/action_chooseFragment_to_helloFragment"
             app:destination="@id/helloFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_chooseFragment_to_askAiFragment"
             app:destination="@id/askAiFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
     <dialog
         android:id="@+id/prepareBSFragment"
@@ -105,19 +91,7 @@
             android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
             app:argType="string" />
     </dialog>
-    <dialog
-        android:id="@+id/seeAllBSFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.all_foods_bs.SeeAllBSFragment"
-        android:label="SeeAllBSFragment"
-        tools:layout="@layout/fragment_see_all_b_s">
-        <argument
-            android:name="category"
-            android:defaultValue="Trend"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_seeAllBSFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </dialog>
+
     <fragment
         android:id="@+id/askAiFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiFragment"
@@ -126,10 +100,8 @@
         <action
             android:id="@+id/action_askAiFragment_to_chooseFragment"
             app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/shoppingListFragment"
@@ -139,13 +111,13 @@
         <action
             android:id="@+id/action_shoppingListFragment_to_helloFragment"
             app:destination="@id/helloFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_shoppingListFragment_to_materialFragment"
-            app:destination="@id/materialFragment" />
+            app:destination="@id/materialFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
 
     <fragment
@@ -156,6 +128,27 @@
 
         <action
             android:id="@+id/action_materialFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment" />
+            app:destination="@id/shoppingListFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/allFoodFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.all_foods.AllFoodFragment"
+        android:label="AllFoodFragment"
+        tools:layout="@layout/fragment_all_food">
+        <argument
+            android:name="itemName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_allFoodFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_allFoodFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
 </navigation>
