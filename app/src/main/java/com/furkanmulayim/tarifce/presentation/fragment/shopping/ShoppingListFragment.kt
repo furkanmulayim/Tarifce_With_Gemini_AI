@@ -106,11 +106,11 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
         }
 
         binding.allListedButton.setOnClickListener {
-            viewModel.isSelectedAdapter.value = false
+            if (viewModel.isSelectedAdapter.value == true) viewModel.isSelectedAdapter.value = false
         }
 
         binding.filterListedButton.setOnClickListener {
-            viewModel.isSelectedAdapter.value = true
+            if (viewModel.isSelectedAdapter.value == false) viewModel.isSelectedAdapter.value = true
         }
     }
 

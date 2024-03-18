@@ -3,16 +3,20 @@ package com.furkanmulayim.tarifce.presentation.fragment.detail
 import android.app.Application
 import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.tarifce.data.model.Food
-import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.repository.FoodDaoRepository
+import com.furkanmulayim.tarifce.repository.SavedDaoRepository
 import com.furkanmulayim.tarifce.util.loadImage
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(application: Application, var frepo: FoodDaoRepository) :
-    BaseViewModel(application) {
+class DetailViewModel @Inject constructor(
+    application: Application, var frepo: FoodDaoRepository, var srepo: SavedDaoRepository
+) : BaseViewModel(application) {
 
     private var foods = MutableLiveData<List<Food>>()
     var food = MutableLiveData<Food>()
@@ -44,4 +48,27 @@ class DetailViewModel @Inject constructor(application: Application, var frepo: F
     }
 
 
+    fun saveFood() {
+        saveDatabase()
+    }
+
+    private fun saveDatabase() {
+        food.value?.let {
+            viewModelScope.launch {
+                srepo.saveFoods(
+                    image = it.image,
+                    name = it.name,
+                    category = it.category,
+                    stars = it.stars,
+                    trend = it.trend,
+                    duration = it.duration,
+                    calorie = it.calorie,
+                    person = it.person,
+                    level = it.level,
+                    hastags = it.hastags,
+                    specific = it.specific,
+                )
+            }
+        }
+    }
 }

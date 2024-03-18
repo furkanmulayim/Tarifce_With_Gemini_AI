@@ -7,59 +7,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:orientation="vertical"
         tools:context=".presentation.fragment.all_foods.AllFoodFragment">
 
+
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:layout_weight="0"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UselessParent">
+
 
             <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ai_button"
+                android:contentDescription="@string/desc_save"
+                android:foreground="@drawable/svg_back"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/categoryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/trend"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/line_svg" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/main_text_color"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+
+            <ImageView
+                android:id="@+id/savedButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/finger"/>
-
-                <TextView
-                    android:id="@+id/categoryName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/trend"
-                    android:textColor="@color/main_text_color"
-                    android:textSize="25sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/foodsRcyc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:foregroundTintMode="screen" />
+                android:contentDescription="@string/desc_save"
+                android:foregroundGravity="center"
+                tools:ignore="ImageContrastCheck" />
         </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/foodsRcyc"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 </layout>

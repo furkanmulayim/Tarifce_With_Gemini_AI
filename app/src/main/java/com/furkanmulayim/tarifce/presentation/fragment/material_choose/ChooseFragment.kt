@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
 import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
 
 class ChooseFragment : Fragment() {
 
@@ -88,7 +90,7 @@ class ChooseFragment : Fragment() {
     }
 
     private fun shimmerKapat() {
-        binding.shimmerFrameLayout.visibility = View.GONE
+        viewGone(binding.shimmerFrameLayout)
         binding.materialRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }

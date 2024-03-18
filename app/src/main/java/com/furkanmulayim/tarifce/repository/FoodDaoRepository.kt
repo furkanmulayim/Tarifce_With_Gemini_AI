@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.data.repo
+package com.furkanmulayim.tarifce.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.data.db.food.FoodDao

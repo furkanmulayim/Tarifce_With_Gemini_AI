@@ -3,7 +3,7 @@ package com.furkanmulayim.tarifce.presentation.fragment.shopping
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.data.model.Shopliste
-import com.furkanmulayim.tarifce.data.repo.ShopListDaoRepository
+import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

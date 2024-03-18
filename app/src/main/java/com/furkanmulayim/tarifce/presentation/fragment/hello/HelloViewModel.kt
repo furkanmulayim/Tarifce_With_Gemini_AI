@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.model.FoodCategory
-import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
+import com.furkanmulayim.tarifce.repository.FoodDaoRepository
 import com.furkanmulayim.tarifce.data.service.food.FoodAPIService
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
 import com.furkanmulayim.tarifce.util.SharedPrefs
@@ -54,7 +54,6 @@ class HelloViewModel @Inject constructor(application: Application, private var f
     fun getData() {
         //get download time
         val updateTime = sharedPrefs.getTime()
-
         if (updateTime != null && updateTime != 0L) {
             getFoodList()
         } else {

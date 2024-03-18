@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
 import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -67,7 +69,6 @@ class HelloFragment : Fragment() {
         binding.seeAllButton.setOnClickListener {
             val act =
                 HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(itemName = category)
-            println("LOGF: " + category)
             Navigation.findNavController(it).navigate(act)
         }
     }
@@ -110,7 +111,7 @@ class HelloFragment : Fragment() {
     }
 
     private fun stopShimmer() {
-        binding.shimmerFrameLayout.visibility = View.GONE
+        viewGone(binding.shimmerFrameLayout)
         binding.foodsRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }

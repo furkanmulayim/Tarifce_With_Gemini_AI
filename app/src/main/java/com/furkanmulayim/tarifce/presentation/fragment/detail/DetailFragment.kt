@@ -45,6 +45,10 @@ class DetailFragment : Fragment() {
         binding.backButton.setOnClickListener {
             navigate(R.id.action_detailFragment_to_helloFragment)
         }
+
+        binding.savedButton.setOnClickListener{
+            viewModel.saveFood()
+        }
     }
 
     //send bundle prepare to bottom sheet dialog with nav graph

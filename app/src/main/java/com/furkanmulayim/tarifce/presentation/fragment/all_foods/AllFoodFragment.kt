@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.databinding.FragmentAllFoodBinding
@@ -23,7 +24,6 @@ class AllFoodFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bundleData = arguments?.getString("itemName").toString()
-        println("LOGF: ->" + bundleData)
     }
 
     override fun onCreateView(
@@ -39,6 +39,7 @@ class AllFoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setAdapter()
         setFoods()
+        clickListener()
     }
 
     private fun setAdapter() {
@@ -46,13 +47,16 @@ class AllFoodFragment : Fragment() {
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
+    private fun clickListener() {
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_allFoodFragment_to_helloFragment)
+    }
 
     private fun setFoods() {
         binding.categoryName.text = bundleData
         viewModel.commonData(bundleData)
         viewModel.foods.observe(viewLifecycleOwner) { f ->
             f?.let {
-                println("Fragment" + it.size)
                 foodAdapter.updateList(it)
             }
 

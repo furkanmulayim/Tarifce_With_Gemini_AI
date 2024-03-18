@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Room
 import com.furkanmulayim.tarifce.data.db.food.FoodDao
 import com.furkanmulayim.tarifce.data.db.food.FoodDatabase
+import com.furkanmulayim.tarifce.data.db.saved_food.SavedDao
+import com.furkanmulayim.tarifce.data.db.saved_food.SavedDatabase
 import com.furkanmulayim.tarifce.data.db.shoping_list.ShoppingListDao
 import com.furkanmulayim.tarifce.data.db.shoping_list.ShoppingListDatabase
-import com.furkanmulayim.tarifce.data.repo.FoodDaoRepository
-import com.furkanmulayim.tarifce.data.repo.ShopListDaoRepository
+import com.furkanmulayim.tarifce.repository.FoodDaoRepository
+import com.furkanmulayim.tarifce.repository.SavedDaoRepository
+import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,14 +21,26 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Provides
+    @Singleton
+    fun provideSavedDaoRepository(sdao: SavedDao): SavedDaoRepository {
+        return SavedDaoRepository(sdao)
+    }
+    @Provides
+    @Singleton
+    fun provideSavedDao(@ApplicationContext context: Context): SavedDao {
+        val vt = Room.databaseBuilder(context, SavedDatabase::class.java, name = "saved.sqlite")
+            .createFromAsset("saved.sqlite").build()
+        return vt.shopListDao()
+    }
 
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Provides
     @Singleton
     fun provideShopDaoRepository(fdao: ShoppingListDao): ShopListDaoRepository {
         return ShopListDaoRepository(fdao)
     }
-
     @Provides
     @Singleton
     fun provideShopsDao(@ApplicationContext context: Context): ShoppingListDao {
@@ -34,12 +49,12 @@ class AppModule {
         return vt.shopListDao()
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Provides
     @Singleton
     fun provideCardsDaoRepository(fdao: FoodDao): FoodDaoRepository {
         return FoodDaoRepository(fdao)
     }
-
     @Provides
     @Singleton
     fun provideCardsDao(@ApplicationContext context: Context): FoodDao {

@@ -2,16 +2,14 @@ package com.furkanmulayim.tarifce.presentation.fragment.shopping_material
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.tarifce.data.model.Category
 import com.furkanmulayim.tarifce.data.model.CategoryData
 import com.furkanmulayim.tarifce.data.model.Material
 import com.furkanmulayim.tarifce.data.model.Shopliste
-import com.furkanmulayim.tarifce.data.repo.ShopListDaoRepository
+import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import com.furkanmulayim.tarifce.data.service.materials.MaterialsAPIService
 import com.furkanmulayim.tarifce.presentation.BaseViewModel
-import com.furkanmulayim.tarifce.util.SharedPrefs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -55,10 +53,7 @@ class MaterialViewModel @Inject constructor(application: Application, private va
                         }
                         categoriesLiveData.value = allCategories
                     }
-
-
                     override fun onError(e: Throwable) {
-                        println("hata: ${e.localizedMessage}")
                     }
                 })
         )

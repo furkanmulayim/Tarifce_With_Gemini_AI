@@ -2,6 +2,8 @@ import android.content.Context
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,6 +16,7 @@ import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.ItemShoppingMaterialsBinding
 import com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingItemClickListener
 import com.furkanmulayim.tarifce.util.loadImage
+import kotlinx.coroutines.*
 
 class ShoppingAdapter(
     private val context: Context,
@@ -60,6 +63,21 @@ class ShoppingAdapter(
                 }
             }
         }
+
+        fun bind(item: Shopliste) {
+            name.text = item.name
+            image.loadImage(item.image)
+
+            if (item.issold == 0) {
+                back.setCardBackgroundColor(getColor(context, R.color.white))
+                image.foreground = null
+                name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            } else {
+                back.setCardBackgroundColor(getColor(context, R.color.yellow))
+                image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
+                name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -70,20 +88,11 @@ class ShoppingAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
-        holder.binding.apply {
-            holder.name.text = item.name
-            holder.image.loadImage(item.image)
+        holder.bind(item)
 
-            if (item.issold == 0) {
-                holder.back.setCardBackgroundColor(getColor(context, R.color.white))
-                image.foreground = null
-                name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            } else {
-                holder.back.setCardBackgroundColor(getColor(context, R.color.yellow))
-                image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
-                name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            }
-        }
+        // Animasyonu burada uygulayın
+        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim_items)
+        holder.itemView.startAnimation(animation)
     }
 
     override fun getItemCount(): Int {

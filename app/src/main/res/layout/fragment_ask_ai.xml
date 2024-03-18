@@ -91,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Bu Yemeği Beğenmedim"
+                android:background="@drawable/ai_button"
                 android:textAllCaps="true"
                 android:textColor="@color/background"
                 android:visibility="gone" />
@@ -103,6 +104,7 @@
 
                 <Button
                     android:layout_width="match_parent"
+                    android:background="@drawable/ai_button"
                     android:layout_height="50dp"
                     android:text="YEMEĞİNİZ HAZIRLANIYOR..."
                     android:textAllCaps="true"

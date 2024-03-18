@@ -37,4 +37,10 @@
     <string name="material_search">Malzeme Bul</string>
     <string name="material_search_add">Malzeme Ekle</string>
     <string name="shopper_button">Bitir ve Kaydet</string>
+
+
+    <!-- &&&&&&&&&&&6 GOOGLE AI &&&&&&&&&&&&&&&&-->
+    <string name="google_ai_first_message"> malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın?"</string>
+    <string name="google_ai_error">Google AI\'dan yanıt alınamadı. Galiba Yemeğinizi ocakta unuttu. Lütfen Daha Sonra Tekrar Deneyiniz."</string>
+    <string name="google_ai_second_message">Bu sefer bir öncekinden farklı olarak</string>
 </resources>

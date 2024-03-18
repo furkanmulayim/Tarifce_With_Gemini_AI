@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/helloFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/helloFragment"
@@ -148,6 +148,16 @@
         <action
             android:id="@+id/action_allFoodFragment_to_detailFragment"
             app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left" />
     </fragment>

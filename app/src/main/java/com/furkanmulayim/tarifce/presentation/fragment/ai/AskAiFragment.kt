@@ -45,13 +45,12 @@ class AskAiFragment : Fragment() {
 
     private fun extractSelectedMaterials() {
         val selectedMaterials = arguments?.getStringArray("material_list")
-        println("LOGF: BUNDLE: " + selectedMaterials?.size)
         selectedMaterials?.let {
             selectedMaterialsMessage =
-                it.joinToString(" ") + " malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın? "
+                it.joinToString(" ") + getString(R.string.google_ai_first_message)
             viewModel.mesajEkle(selectedMaterialsMessage, true)
             enterStandbyMode()
-            viewModel.askGoogleAI(selectedMaterialsMessage)
+            viewModel.askGoogleAI(requireContext(),selectedMaterialsMessage)
         }
     }
 
@@ -72,9 +71,10 @@ class AskAiFragment : Fragment() {
         binding.sendButton.setOnClickListener {
             enterStandbyMode()
             viewModel.dataGeldiMi.value = false
-            val message = "Bu sefer bir öncekinden farklı olarak $selectedMaterialsMessage"
+
+            val message = "${getString(R.string.google_ai_second_message) } $selectedMaterialsMessage"
             viewModel.mesajEkle(message, true)
-            viewModel.askGoogleAI(message)
+            viewModel.askGoogleAI(requireContext(),message)
         }
         binding.backButton.setOnClickListener {
             requireParentFragment().navigate(R.id.action_askAiFragment_to_chooseFragment)

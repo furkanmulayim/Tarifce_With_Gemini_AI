@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentMaterialBinding
 import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.util.viewGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,7 +54,7 @@ class MaterialFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
         binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
-     adapter = ShoppingMaterialAdapter(emptyList()) {
+        adapter = ShoppingMaterialAdapter(emptyList()) {
             for (element in it) {
                 selectedMaterialList.add(element)
             }
@@ -79,11 +79,11 @@ class MaterialFragment : Fragment() {
     }
 
     private fun handleEmptyCategory() {
-        // burda malzeme seçilmemiş demektir. Kullanıcıyla iletisim !!!
+        // TODO burda malzeme seçilmemiş demektir. Kullanıcıyla iletisim !!!
     }
 
     private fun shimmerKapat() {
-        binding.shimmerFrameLayout.visibility = View.GONE
+        viewGone(binding.shimmerFrameLayout)
         binding.materialRcyc.visibility = View.VISIBLE
         binding.shimmerFrameLayout.stopShimmer()
     }

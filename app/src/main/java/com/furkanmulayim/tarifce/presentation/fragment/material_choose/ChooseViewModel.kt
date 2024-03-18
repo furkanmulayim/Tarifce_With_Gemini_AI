@@ -46,10 +46,7 @@ class ChooseViewModel : ViewModel() {
                         }
                         categoriesLiveData.value = allCategories
                     }
-
-
                     override fun onError(e: Throwable) {
-                        println("hata: ${e.localizedMessage}")
                     }
                 })
         )

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
+        android:orientation="vertical"
         tools:context=".presentation.fragment.saved.SavedFragment">
-
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -24,7 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="UselessParent">
-
 
             <ImageView
                 android:id="@+id/backButton"
@@ -41,14 +38,13 @@
                 android:id="@+id/food_names"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/savedds"
-                android:textColor="@color/main_text_color"
                 android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="19sp"
+                android:layout_weight="1"
                 android:fontFamily="@font/inter_bold"
-                android:layout_weight="1" />
-
+                android:text="@string/savedds"
+                android:textAlignment="center"
+                android:textColor="@color/main_text_color"
+                android:textSize="19sp" />
 
             <ImageView
                 android:layout_width="50dp"
@@ -58,6 +54,71 @@
                 tools:ignore="ImageContrastCheck" />
 
         </LinearLayout>
-    </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:background="@drawable/shopping_list_swiper_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/allListedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shopping_list_swiper_selected"
+                android:fontFamily="@font/inter_bold"
+                android:paddingStart="5dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="4dp"
+                android:text="Tümü"
+                android:textColor="#6C6C77"
+                android:textSize="15dp"
+                tools:ignore="SpUsage,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/denemeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:paddingStart="5dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="5dp"
+                android:text="⭐️Yıldızı Yüksek"
+                android:textColor="#6C6C77"
+                android:textSize="15dp"
+                tools:ignore="SpUsage,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/denemeButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:paddingStart="5dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="5dp"
+                android:text="Kısa Süre"
+                android:textColor="#6C6C77"
+                android:textSize="15dp"
+                tools:ignore="SpUsage,TextSizeCheck" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/savedRcyc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
 </layout>

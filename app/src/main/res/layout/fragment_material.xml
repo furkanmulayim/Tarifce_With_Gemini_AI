@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         android:orientation="vertical"
         tools:context=".presentation.fragment.material_choose.ChooseFragment">
 
@@ -90,13 +91,14 @@
         <Button
             android:id="@+id/sendButton"
             android:layout_width="match_parent"
+            android:background="@drawable/ai_button"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/inter_bold"
             android:textColor="@color/white"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Tamamdır"
+            android:text="Ekle"
             android:textAllCaps="true"/>
 
 

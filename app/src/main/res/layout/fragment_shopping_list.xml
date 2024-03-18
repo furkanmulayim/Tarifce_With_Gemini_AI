@@ -130,6 +130,7 @@
             android:id="@+id/createListButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@drawable/ai_button"
             android:fontFamily="@font/inter_bold"
             android:text="@string/shopper_button_select"
             android:textAllCaps="true"
