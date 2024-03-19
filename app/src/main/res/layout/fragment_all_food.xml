@@ -68,6 +68,7 @@
             android:layout_height="0dp"
             android:id="@+id/foodsRcyc"
             android:layout_marginTop="15dp"
+            android:overScrollMode="never"
             android:layout_weight="1"/>
 
     </LinearLayout>

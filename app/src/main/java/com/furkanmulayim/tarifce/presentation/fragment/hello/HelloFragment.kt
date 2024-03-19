@@ -4,46 +4,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
-import com.furkanmulayim.tarifce.util.navigate
 import com.furkanmulayim.tarifce.util.viewGone
-import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HelloFragment : Fragment() {
+class HelloFragment : BaseFragment<FragmentHelloBinding>() {
 
     private var foodAdapter = FoodAdapter(arrayListOf())
-    private lateinit var viewModel: HelloViewModel
-    private lateinit var binding: FragmentHelloBinding
+    private val viewModel: HelloViewModel by viewModels()
     private lateinit var itemAdapter: FoodCategoryAdapter
     private var category: String = "Trend"
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_hello, container, false)
-        viewModel = ViewModelProvider(this)[HelloViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentHelloBinding {
+        return FragmentHelloBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewModel = viewModel
 
         binding.shimmerFrameLayout.startShimmer()
-
-        // adapter init*/
         binding.foodsRcyc.adapter = foodAdapter
         binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        //  get data from apı or sqlite (situation!)*/
         viewModel.getData()
         setItems()
         observeLiveData()
@@ -51,26 +39,58 @@ class HelloFragment : Fragment() {
         clickListener()
     }
 
+    /*    private fun clearCache() {
+            try {
+                val dir: File = requireContext().cacheDir
+                deleteDir(dir)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        private fun deleteDir(dir: File?): Boolean {
+            if (dir != null && dir.isDirectory) {
+                val children: Array<String> = dir.list()
+                for (i in children.indices) {
+                    val success: Boolean = deleteDir(File(dir, children[i]))
+                    if (!success) {
+                        return false
+                    }
+                }
+                return dir.delete()
+            } else if (dir != null && dir.isFile) {
+                return dir.delete()
+            } else {
+                return false
+          }
+            binding.logoTV.setOnClickListener {
+                clearCache()
+            }
+        }*/
+
+
     //  onclick listeners*/
     private fun clickListener() {
         binding.savedButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_helloFragment_to_savedFragment)
+            val action = HelloFragmentDirections.actionHelloFragmentToSavedFragment()
+            navigateTo(action.actionId)
         }
 
         binding.aiButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_helloFragment_to_chooseFragment)
+            val action = HelloFragmentDirections.actionHelloFragmentToChooseFragment()
+            navigateTo(action.actionId)
         }
 
         binding.shoppingListButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_helloFragment_to_shoppingListFragment)
+            val action = HelloFragmentDirections.actionHelloFragmentToShoppingListFragment()
+            navigateTo(action.actionId)
         }
 
-        // send bundle all foods to bottom sheet dialog with nav graph*/
         binding.seeAllButton.setOnClickListener {
-            val act =
+            val action =
                 HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(itemName = category)
-            Navigation.findNavController(it).navigate(act)
+            navigateTo(action.actionId, bundle = action.arguments)
         }
+
     }
 
     //  Show category names in recycler view*/
@@ -91,6 +111,7 @@ class HelloFragment : Fragment() {
     //  adapter ayarlama*/
     private fun setAdapter() {
         binding.itemFoodCategoryRcyc.adapter = itemAdapter
+        binding.let {}
         binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
     }
 

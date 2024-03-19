@@ -7,7 +7,7 @@ import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.model.FoodCategory
 import com.furkanmulayim.tarifce.repository.FoodDaoRepository
 import com.furkanmulayim.tarifce.data.service.food.FoodAPIService
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.util.SharedPrefs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers

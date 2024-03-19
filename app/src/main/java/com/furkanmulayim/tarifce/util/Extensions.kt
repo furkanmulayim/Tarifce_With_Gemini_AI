@@ -20,10 +20,6 @@ fun ImageView.loadImage(url: String?) {
     Glide.with(context).setDefaultRequestOptions(opt).load(url).into(this).waitForLayout()
 }
 
-fun Fragment.navigate(id: Int) {
-    findNavController().navigate(id)
-}
-
 fun viewGone(view:View){
     view.visibility = View.GONE
 }

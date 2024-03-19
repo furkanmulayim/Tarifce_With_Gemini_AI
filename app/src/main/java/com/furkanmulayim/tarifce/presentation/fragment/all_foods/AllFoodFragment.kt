@@ -6,18 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentAllFoodBinding
+import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
+import com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AllFoodFragment : Fragment() {
+class AllFoodFragment : BaseFragment<FragmentAllFoodBinding>() {
 
-    private lateinit var viewModel: AllFoodViewModel
-    private lateinit var binding: FragmentAllFoodBinding
+    private val viewModel: AllFoodViewModel by viewModels()
     private var foodAdapter = AllFoodAdapter(arrayListOf())
     private lateinit var bundleData: String
 
@@ -26,14 +29,12 @@ class AllFoodFragment : Fragment() {
         bundleData = arguments?.getString("itemName").toString()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_all_food, container, false)
-        viewModel = ViewModelProvider(this)[AllFoodViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentAllFoodBinding {
+        return FragmentAllFoodBinding.inflate(inflater, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,8 +49,11 @@ class AllFoodFragment : Fragment() {
     }
 
     private fun clickListener() {
-        Navigation.findNavController(requireView())
-            .navigate(R.id.action_allFoodFragment_to_helloFragment)
+        binding.backButton.setOnClickListener {
+            val act = AllFoodFragmentDirections.actionAllFoodFragmentToHelloFragment()
+            navigateTo(act.actionId)
+        }
+
     }
 
     private fun setFoods() {

@@ -9,7 +9,7 @@ import com.furkanmulayim.tarifce.data.model.Material
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import com.furkanmulayim.tarifce.data.service.materials.MaterialsAPIService
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

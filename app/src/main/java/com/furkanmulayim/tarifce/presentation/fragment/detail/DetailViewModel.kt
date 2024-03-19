@@ -5,7 +5,7 @@ import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.tarifce.data.model.Food
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.repository.FoodDaoRepository
 import com.furkanmulayim.tarifce.repository.SavedDaoRepository
 import com.furkanmulayim.tarifce.util.loadImage

@@ -5,31 +5,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentMaterialBinding
-import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingListFragmentDirections
 import com.furkanmulayim.tarifce.util.viewGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MaterialFragment : Fragment() {
+class MaterialFragment : BaseFragment<FragmentMaterialBinding>() {
 
-    private lateinit var viewModel: MaterialViewModel
-    private lateinit var binding: FragmentMaterialBinding
+    private val viewModel: MaterialViewModel by viewModels()
     private lateinit var adapter: ShoppingMaterialAdapter
     private val selectedMaterialList: MutableList<Shopliste> = mutableListOf()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_material, container, false)
-        viewModel = ViewModelProvider(this)[MaterialViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentMaterialBinding {
+        return FragmentMaterialBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +39,8 @@ class MaterialFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_materialFragment_to_shoppingListFragment)
+            val act = MaterialFragmentDirections.actionMaterialFragmentToShoppingListFragment()
+            navigateTo(act.actionId)
         }
 
         binding.sendButton.setOnClickListener {
@@ -73,7 +70,9 @@ class MaterialFragment : Fragment() {
             handleEmptyCategory()
         } else {
             if (viewModel.saveDatabase(selectedMaterialList.distinct())) {
-                requireParentFragment().navigate(R.id.action_materialFragment_to_shoppingListFragment)
+                val act = MaterialFragmentDirections.actionMaterialFragmentToShoppingListFragment()
+                navigateTo(act.actionId)
+
             }
         }
     }

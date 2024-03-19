@@ -6,32 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentShoppingListBinding
-import com.furkanmulayim.tarifce.util.navigate
 import com.furkanmulayim.tarifce.util.viewGone
 import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
+class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
+    ShoppingItemClickListener {
 
-    private lateinit var binding: FragmentShoppingListBinding
-    private lateinit var viewModel: ShoppingListViewModel
+    private val viewModel: ShoppingListViewModel by viewModels()
     private lateinit var adapter: ShoppingAdapter
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shopping_list, container, false)
-        viewModel = ViewModelProvider(this)[ShoppingListViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentShoppingListBinding {
+        return FragmentShoppingListBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,12 +51,14 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
 
     private fun observClicked() {
         viewModel.isSelectedAdapter.observe(viewLifecycleOwner) { isFilterOn ->
+
+            val isListNotNull = !viewModel.cardList.value.isNullOrEmpty()
             if (isFilterOn) {
                 binding.allListedButton.background = null
                 binding.filterListedButton.background = AppCompatResources.getDrawable(
                     requireContext(), R.drawable.shopping_list_swiper_selected
                 )
-                if (isListIsNotNull()) {
+                if (isListNotNull) {
                     val newList = viewModel.cardList.value!!.filter { it.issold == 0 }
                     setAdapter(newList.reversed())
                 } else {
@@ -72,7 +69,7 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
                 binding.allListedButton.background = AppCompatResources.getDrawable(
                     requireContext(), R.drawable.shopping_list_swiper_selected
                 )
-                if (isListIsNotNull()) {
+                if (isListNotNull) {
                     val newList = viewModel.cardList.value!!
                     setAdapter(newList.reversed())
                 } else {
@@ -80,10 +77,6 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
                 }
             }
         }
-    }
-
-    private fun isListIsNotNull(): Boolean {
-        return !viewModel.cardList.value.isNullOrEmpty()
     }
 
     private fun setAdapter(list: List<Shopliste>) {
@@ -99,10 +92,12 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_shoppingListFragment_to_helloFragment)
+            val act = ShoppingListFragmentDirections.actionShoppingListFragmentToHelloFragment()
+            navigateTo(act.actionId)
         }
         binding.createListButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_shoppingListFragment_to_materialFragment)
+            val act = ShoppingListFragmentDirections.actionShoppingListFragmentToMaterialFragment()
+            navigateTo(act.actionId)
         }
 
         binding.allListedButton.setOnClickListener {
@@ -116,6 +111,9 @@ class ShoppingListFragment : Fragment(), ShoppingItemClickListener {
 
     override fun onItemIsSold(id: Int, isSold: Int) {
         viewModel.updateItem(id, isSold)
+        viewModel.cardList.value?.filter {
+            it.id == id
+        }?.indices
     }
 
     override fun onItemDelete(id: Int) {

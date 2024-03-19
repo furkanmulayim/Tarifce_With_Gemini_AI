@@ -4,30 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentDetailBinding
-import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment() {
+class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
-    private lateinit var binding: FragmentDetailBinding
-    private lateinit var viewModel: DetailViewModel
+    private val viewModel: DetailViewModel by viewModels()
     private var name: String = ""
     private lateinit var ingredientsAdapter: IngredientsAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
-        viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentDetailBinding {
+        return FragmentDetailBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,10 +38,11 @@ class DetailFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            navigate(R.id.action_detailFragment_to_helloFragment)
+            val act = DetailFragmentDirections.actionDetailFragmentToHelloFragment()
+            navigateTo(act.actionId)
         }
 
-        binding.savedButton.setOnClickListener{
+        binding.savedButton.setOnClickListener {
             viewModel.saveFood()
         }
     }
@@ -55,7 +51,7 @@ class DetailFragment : Fragment() {
     private fun setBottomSheet(bundle: String) {
         binding.seeThePrepare.setOnClickListener {
             val act = DetailFragmentDirections.actionDetailFragmentToPrepareBSFragment(bundle)
-            Navigation.findNavController(it).navigate(act)
+            navigateTo(act.actionId)
         }
     }
 

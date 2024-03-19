@@ -5,30 +5,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
-import com.furkanmulayim.tarifce.util.navigate
+import com.furkanmulayim.tarifce.presentation.fragment.detail.DetailFragmentDirections
 import com.furkanmulayim.tarifce.util.viewGone
-import com.furkanmulayim.tarifce.util.viewVisible
 
-class ChooseFragment : Fragment() {
+class ChooseFragment : BaseFragment<FragmentChooseBinding>() {
 
-    private lateinit var viewModel: ChooseViewModel
-    private lateinit var binding: FragmentChooseBinding
+    private val viewModel: ChooseViewModel by viewModels()
     private lateinit var adapter: MaterialAdapter
     private val selectedMaterialList: MutableList<String> = mutableListOf()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choose, container, false)
-        viewModel = ViewModelProvider(this)[ChooseViewModel::class.java]
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentChooseBinding {
+        return FragmentChooseBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +37,8 @@ class ChooseFragment : Fragment() {
 
     private fun clickListener() {
         binding.backButton.setOnClickListener {
-            requireParentFragment().navigate(R.id.action_chooseFragment_to_helloFragment)
+            val act = ChooseFragmentDirections.actionChooseFragmentToHelloFragment()
+            navigateTo(act.actionId)
         }
 
         binding.sendButton.setOnClickListener {
@@ -86,7 +82,8 @@ class ChooseFragment : Fragment() {
 
     private fun navigateToResultFragment(bundle: Bundle) {
         Navigation.findNavController(requireView())
-            .navigate(R.id.action_chooseFragment_to_askAiFragment, bundle)
+        val act = ChooseFragmentDirections.actionChooseFragmentToAskAiFragment()
+        navigateTo(act.actionId)
     }
 
     private fun shimmerKapat() {

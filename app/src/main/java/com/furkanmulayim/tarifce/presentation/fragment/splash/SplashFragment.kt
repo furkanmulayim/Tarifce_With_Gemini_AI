@@ -4,39 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.furkanmulayim.tarifce.R
+import androidx.fragment.app.viewModels
+import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentSplashBinding
 import com.furkanmulayim.tarifce.util.viewGone
 import com.furkanmulayim.tarifce.util.viewVisible
 
-class SplashFragment : Fragment() {
-    private lateinit var binding: FragmentSplashBinding
-    private lateinit var viewModel: SplashViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false)
-        viewModel = ViewModelProvider(this)[SplashViewModel::class.java]
-        return binding.root
+class SplashFragment : BaseFragment<FragmentSplashBinding>() {
+    private val viewModel: SplashViewModel by viewModels()
+    override fun getFragmentBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentSplashBinding {
+        return FragmentSplashBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
 
-        //internet var mı yok mu fonksiyonu açılınca çağrıldı
         viewModel.checkInternetConnection()
         observeLiveData()
     }
 
 
     private fun observeLiveData() {
-        viewModel.isInternetAvailable.observe(viewLifecycleOwner, Observer { connect ->
+        viewModel.isInternetAvailable.observe(viewLifecycleOwner) { connect ->
             if (connect == true) {
                 //eğer bağlantı varsa
                 viewModel.baglantiVar(requireView())
@@ -45,8 +37,7 @@ class SplashFragment : Fragment() {
                 viewVisible(binding.baglaniYokButton)
                 baglantiClickListener()
             }
-
-        })
+        }
     }
 
 

@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.data.service.ai.GoogleAI
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 

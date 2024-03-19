@@ -12,29 +12,19 @@
         tools:layout="@layout/fragment_hello">
         <action
             android:id="@+id/action_helloFragment_to_detailFragment"
-            app:destination="@id/detailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/detailFragment"/>
         <action
             android:id="@+id/action_helloFragment_to_savedFragment"
-            app:destination="@id/savedFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/savedFragment" />
         <action
             android:id="@+id/action_helloFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/chooseFragment"/>
         <action
             android:id="@+id/action_helloFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/shoppingListFragment"/>
         <action
             android:id="@+id/action_helloFragment_to_allFoodFragment"
-            app:destination="@id/allFoodFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/allFoodFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -43,9 +33,7 @@
         tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/action_detailFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/helloFragment"/>
         <action
             android:id="@+id/action_detailFragment_to_prepareBSFragment"
             app:destination="@id/prepareBSFragment" />
@@ -61,9 +49,7 @@
         tools:layout="@layout/fragment_saved">
         <action
             android:id="@+id/action_savedFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/helloFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
@@ -72,14 +58,10 @@
         tools:layout="@layout/fragment_choose">
         <action
             android:id="@+id/action_chooseFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/helloFragment" />
         <action
             android:id="@+id/action_chooseFragment_to_askAiFragment"
-            app:destination="@id/askAiFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/askAiFragment" />
     </fragment>
     <dialog
         android:id="@+id/prepareBSFragment"
@@ -99,9 +81,7 @@
         tools:layout="@layout/fragment_ask_ai">
         <action
             android:id="@+id/action_askAiFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/chooseFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingListFragment"
@@ -110,14 +90,10 @@
         tools:layout="@layout/fragment_shopping_list">
         <action
             android:id="@+id/action_shoppingListFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/helloFragment" />
         <action
             android:id="@+id/action_shoppingListFragment_to_materialFragment"
-            app:destination="@id/materialFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/materialFragment" />
     </fragment>
 
     <fragment
@@ -128,9 +104,7 @@
 
         <action
             android:id="@+id/action_materialFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/shoppingListFragment" />
     </fragment>
     <fragment
         android:id="@+id/allFoodFragment"
@@ -142,23 +116,18 @@
             app:argType="string" />
         <action
             android:id="@+id/action_allFoodFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_out_right" />
+            app:destination="@id/helloFragment" />
         <action
             android:id="@+id/action_allFoodFragment_to_detailFragment"
-            app:destination="@id/detailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/detailFragment"/>
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
+        tools:layout="@layout/fragment_splash"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.splash.SplashFragment"
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_helloFragment"
-            app:destination="@id/helloFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_in_left" />
+            app:destination="@id/helloFragment"/>
     </fragment>
 </navigation>

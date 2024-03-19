@@ -9,7 +9,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.Navigation
 import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.presentation.BaseViewModel
+import com.furkanmulayim.tarifce.base.BaseViewModel
+import com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseFragmentDirections
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

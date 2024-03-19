@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation
+package com.furkanmulayim.tarifce.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
