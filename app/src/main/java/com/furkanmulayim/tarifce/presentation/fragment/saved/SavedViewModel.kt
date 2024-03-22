@@ -14,7 +14,11 @@ class SavedViewModel @Inject constructor(
 ) : BaseViewModel(application) {
 
     var food = MutableLiveData<List<Saved>>()
-    fun getFoodList() {
+
+    fun getData(){
+        getFoodList()
+    }
+    private fun getFoodList() {
         srepo.getAllFoods()
         food = srepo.foodsPostViewModel()
     }

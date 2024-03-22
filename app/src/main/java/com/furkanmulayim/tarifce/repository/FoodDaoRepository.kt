@@ -6,30 +6,18 @@ import com.furkanmulayim.tarifce.data.model.Food
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class FoodDaoRepository(private var fdao: FoodDao) {
 
-
-    private var foodList: MutableLiveData<List<Food>> = MutableLiveData()
-    private var food: MutableLiveData<Food> = MutableLiveData()
-
-    fun foodsPostViewModel(): MutableLiveData<List<Food>> {
+    private var foodList: MutableLiveData<List<Food>?> = MutableLiveData()
+    fun foodsPostViewModel(): MutableLiveData<List<Food>?> {
         return foodList
     }
 
-    fun foodPostViewModel(): MutableLiveData<Food> {
-        return food
-    }
-
     fun getAllFoods() {
-        val job = CoroutineScope(Dispatchers.Main).launch {
-            foodList.value = fdao.allFoods()
-        }
-    }
-
-    fun getFood(name: String) {
-        val job = CoroutineScope(Dispatchers.Main).launch {
-            food.value = fdao.foodGet(name)
+        CoroutineScope(Dispatchers.IO).launch {
+            foodList.postValue(fdao.allFoods())
         }
     }
 
@@ -49,7 +37,7 @@ class FoodDaoRepository(private var fdao: FoodDao) {
         specific: String
     ) {
 
-        val job = CoroutineScope(Dispatchers.Main).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             val newFood = Food(
                 id = id,
                 image = image,
@@ -64,7 +52,9 @@ class FoodDaoRepository(private var fdao: FoodDao) {
                 hastags = hastags,
                 specific = specific
             )
-            fdao.addFood(newFood)
+            withContext(Dispatchers.IO) {
+                fdao.addFood(newFood)
+            }
         }
 
     }

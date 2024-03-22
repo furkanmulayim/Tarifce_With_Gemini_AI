@@ -16,7 +16,6 @@ class FoodCategoryAdapter(
     private val dataList: ArrayList<FoodCategory>, private val onClick: (String) -> Unit
 ) : RecyclerView.Adapter<FoodCategoryAdapter.ViewHolder>() {
 
-
     private var selectedPosition = RecyclerView.SCROLLBAR_POSITION_DEFAULT
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

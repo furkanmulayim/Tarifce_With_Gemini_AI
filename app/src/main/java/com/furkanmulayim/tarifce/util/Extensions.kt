@@ -3,16 +3,21 @@ package com.furkanmulayim.tarifce.util
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.AnimRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.furkanmulayim.tarifce.R
+import es.dmoral.toasty.Toasty
 
 //Görselleri indiriyoruz
 fun ImageView.loadImage(url: String?) {

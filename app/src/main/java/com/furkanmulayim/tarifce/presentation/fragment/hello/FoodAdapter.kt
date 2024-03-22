@@ -12,7 +12,8 @@ import com.furkanmulayim.tarifce.util.loadImage
 import com.google.android.material.imageview.ShapeableImageView
 
 class FoodAdapter(
-    private val dataList: ArrayList<Food>
+    private val dataList: ArrayList<Food>,
+    private val onClick:(String) -> (Unit)
 ) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     class ViewHolder(binding: ItemFoodBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -37,8 +38,7 @@ class FoodAdapter(
         holder.category.text = item.category
 
         holder.itemView.setOnClickListener {
-            val action = HelloFragmentDirections.actionHelloFragmentToDetailFragment(item.name)
-            Navigation.findNavController(it).navigate(action)
+            onClick(item.name)
         }
     }
 
@@ -47,9 +47,12 @@ class FoodAdapter(
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(newList: List<Food>) {
-        dataList.clear()
-        dataList.addAll(newList)
-        notifyDataSetChanged()
+    fun updateList(newList: List<Food>?) {
+        if (newList != null) {
+            dataList.clear()
+            dataList.addAll(newList)
+            notifyDataSetChanged()
+        }
     }
+
 }

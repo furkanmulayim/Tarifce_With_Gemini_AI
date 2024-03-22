@@ -8,7 +8,9 @@ import com.furkanmulayim.tarifce.data.db.saved_food.SavedDao
 import com.furkanmulayim.tarifce.data.db.saved_food.SavedDatabase
 import com.furkanmulayim.tarifce.data.db.shoping_list.ShoppingListDao
 import com.furkanmulayim.tarifce.data.db.shoping_list.ShoppingListDatabase
+import com.furkanmulayim.tarifce.data.service.food.FoodAPIService
 import com.furkanmulayim.tarifce.repository.FoodDaoRepository
+import com.furkanmulayim.tarifce.repository.FoodRepository
 import com.furkanmulayim.tarifce.repository.SavedDaoRepository
 import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import dagger.Module
@@ -62,4 +64,5 @@ class AppModule {
             .createFromAsset("foods.sqlite").build()
         return vt.foodDao()
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

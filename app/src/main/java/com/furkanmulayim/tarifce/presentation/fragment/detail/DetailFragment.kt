@@ -68,7 +68,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     private fun setIngredients(ingr: String) {
         ingredientsAdapter = IngredientsAdapter(viewModel.ingrList(ingr))
         binding.ingrRcyc.adapter = ingredientsAdapter
-        val layoutManager = GridLayoutManager(requireContext(), 2)
+        val layoutManager = GridLayoutManager(mContext, 2)
         binding.ingrRcyc.layoutManager = layoutManager
     }
 }

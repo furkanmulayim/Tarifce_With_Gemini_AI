@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.databinding.FragmentChooseBinding
-import com.furkanmulayim.tarifce.presentation.fragment.detail.DetailFragmentDirections
 import com.furkanmulayim.tarifce.util.viewGone
+import es.dmoral.toasty.Toasty
 
 class ChooseFragment : BaseFragment<FragmentChooseBinding>() {
 
@@ -48,7 +48,7 @@ class ChooseFragment : BaseFragment<FragmentChooseBinding>() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setAdapter() {
-        binding.materialRcyc.layoutManager = GridLayoutManager(requireContext(), 1)
+        binding.materialRcyc.layoutManager = GridLayoutManager(mContext, 1)
 
         adapter = MaterialAdapter(emptyList()) {
             selectedMaterialList.clear()
@@ -77,13 +77,13 @@ class ChooseFragment : BaseFragment<FragmentChooseBinding>() {
     }
 
     private fun handleEmptyCategory() {
-        // burda malzeme seçilmemiş demektir. Kullanıcıyla iletisim !!!
+        Toasty.error(mContext, "Lütfen Malzeme Seçiniz!", Toast.LENGTH_SHORT, false).show()
     }
 
     private fun navigateToResultFragment(bundle: Bundle) {
         Navigation.findNavController(requireView())
         val act = ChooseFragmentDirections.actionChooseFragmentToAskAiFragment()
-        navigateTo(act.actionId)
+        navigateTo(act.actionId,bundle)
     }
 
     private fun shimmerKapat() {

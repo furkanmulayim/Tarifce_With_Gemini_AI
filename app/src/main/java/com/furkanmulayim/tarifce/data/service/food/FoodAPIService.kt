@@ -2,6 +2,7 @@ package com.furkanmulayim.tarifce.data.service.food
 
 import com.furkanmulayim.tarifce.data.model.Food
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +16,7 @@ class FoodAPIService {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
             .create(FoodAPI::class.java)
 
-    fun getData(): Single<List<Food>> {
+    fun getData(): Response<List<Food>> {
         return api.getFood()
     }
 

@@ -41,10 +41,15 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         val navController = findNavController()
         val options = NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
+            .setExitAnim(R.anim.slide_in_left)
+            .setPopEnterAnim(androidx.navigation.ui.R.anim.nav_default_pop_enter_anim)
+            .setPopExitAnim(androidx.navigation.ui.R.anim.nav_default_pop_exit_anim)
             .build()
         navController.navigate(actionId, bundle, options)
+    }
+
+
+    fun onBackPressed(){
+        this.onBackPressed()
     }
 }

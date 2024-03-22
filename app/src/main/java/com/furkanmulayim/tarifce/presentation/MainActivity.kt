@@ -1,4 +1,4 @@
-package com.furkanmulayim.tarifce.presentation.activity
+package com.furkanmulayim.tarifce.presentation
 
 import android.content.Context
 import android.os.Bundle

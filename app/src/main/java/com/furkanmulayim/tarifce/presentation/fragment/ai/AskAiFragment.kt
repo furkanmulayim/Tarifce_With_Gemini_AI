@@ -29,8 +29,8 @@ class AskAiFragment : BaseFragment<FragmentAskAiBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
 
-        storyAdapter = StoryAdapter(arrayListOf(), requireContext())
-        binding.foodAiRcyc.layoutManager = LinearLayoutManager(requireContext())
+        storyAdapter = StoryAdapter(arrayListOf(), mContext)
+        binding.foodAiRcyc.layoutManager = LinearLayoutManager(mContext)
         binding.foodAiRcyc.adapter = storyAdapter
 
         extractSelectedMaterials()
@@ -45,7 +45,7 @@ class AskAiFragment : BaseFragment<FragmentAskAiBinding>() {
                 it.joinToString(" ") + getString(R.string.google_ai_first_message)
             viewModel.mesajEkle(selectedMaterialsMessage, true)
             enterStandbyMode()
-            viewModel.askGoogleAI(requireContext(), selectedMaterialsMessage)
+            viewModel.askGoogleAI(mContext, selectedMaterialsMessage)
         }
     }
 
@@ -70,7 +70,7 @@ class AskAiFragment : BaseFragment<FragmentAskAiBinding>() {
             val message =
                 "${getString(R.string.google_ai_second_message)} $selectedMaterialsMessage"
             viewModel.mesajEkle(message, true)
-            viewModel.askGoogleAI(requireContext(), message)
+            viewModel.askGoogleAI(mContext, message)
         }
         binding.backButton.setOnClickListener {
             val act = AskAiFragmentDirections.actionAskAiFragmentToChooseFragment()

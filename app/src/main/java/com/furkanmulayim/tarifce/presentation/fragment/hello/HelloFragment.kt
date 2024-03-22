@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.base.BaseFragment
+import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
 import com.furkanmulayim.tarifce.util.viewGone
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HelloFragment : BaseFragment<FragmentHelloBinding>() {
 
-    private var foodAdapter = FoodAdapter(arrayListOf())
+    private lateinit var foodAdapter: FoodAdapter
     private val viewModel: HelloViewModel by viewModels()
     private lateinit var itemAdapter: FoodCategoryAdapter
     private var category: String = "Trend"
@@ -27,48 +28,14 @@ class HelloFragment : BaseFragment<FragmentHelloBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.shimmerFrameLayout.startShimmer()
-        binding.foodsRcyc.adapter = foodAdapter
-        binding.foodsRcyc.layoutManager = GridLayoutManager(requireContext(), 2)
-
         viewModel.getData()
         setItems()
         observeLiveData()
-        setAdapter()
         clickListener()
     }
 
-    /*    private fun clearCache() {
-            try {
-                val dir: File = requireContext().cacheDir
-                deleteDir(dir)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-        private fun deleteDir(dir: File?): Boolean {
-            if (dir != null && dir.isDirectory) {
-                val children: Array<String> = dir.list()
-                for (i in children.indices) {
-                    val success: Boolean = deleteDir(File(dir, children[i]))
-                    if (!success) {
-                        return false
-                    }
-                }
-                return dir.delete()
-            } else if (dir != null && dir.isFile) {
-                return dir.delete()
-            } else {
-                return false
-          }
-            binding.logoTV.setOnClickListener {
-                clearCache()
-            }
-        }*/
 
-
-    //  onclick listeners*/
     private fun clickListener() {
         binding.savedButton.setOnClickListener {
             val action = HelloFragmentDirections.actionHelloFragmentToSavedFragment()
@@ -86,14 +53,11 @@ class HelloFragment : BaseFragment<FragmentHelloBinding>() {
         }
 
         binding.seeAllButton.setOnClickListener {
-            val action =
-                HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(itemName = category)
+            val action = HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(category)
             navigateTo(action.actionId, bundle = action.arguments)
         }
-
     }
 
-    //  Show category names in recycler view*/
     private fun setItems() {
         viewModel.selectedCategories(category)
         itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { categoryName ->
@@ -106,17 +70,16 @@ class HelloFragment : BaseFragment<FragmentHelloBinding>() {
             }
         }
         observeLiveData()
-    }
-
-    //  adapter ayarlama*/
-    private fun setAdapter() {
         binding.itemFoodCategoryRcyc.adapter = itemAdapter
-        binding.let {}
-        binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(requireContext(), 5)
+        binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(mContext, 5)
     }
 
 
-    ///  food list observe */
+    private fun navigateToDetail(name: String) {
+        val action = HelloFragmentDirections.actionHelloFragmentToDetailFragment(name)
+        navigateTo(action.actionId, bundle = action.arguments)
+    }
+
     private fun observeLiveData() {
         viewModel.food.observe(viewLifecycleOwner) { foods ->
             foods?.let {
@@ -124,7 +87,9 @@ class HelloFragment : BaseFragment<FragmentHelloBinding>() {
                 viewModel.seciliUrunler.observe(viewLifecycleOwner) {
                     it?.let {
                         stopShimmer()
-                        foodAdapter.updateList(it)
+                        foodAdapter = FoodAdapter(it as ArrayList<Food>, ::navigateToDetail)
+                        binding.foodsRcyc.adapter = foodAdapter
+                        binding.foodsRcyc.layoutManager = GridLayoutManager(mContext, 2)
                     }
                 }
             }

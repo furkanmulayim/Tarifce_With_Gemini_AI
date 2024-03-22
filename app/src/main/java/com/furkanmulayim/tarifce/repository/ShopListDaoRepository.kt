@@ -6,8 +6,9 @@ import com.furkanmulayim.tarifce.data.model.Shopliste
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class ShopListDaoRepository(var sldao: ShoppingListDao) {
+class ShopListDaoRepository(private var sldao: ShoppingListDao) {
 
 
     private var shopList: MutableLiveData<List<Shopliste>> = MutableLiveData()
@@ -16,20 +17,8 @@ class ShopListDaoRepository(var sldao: ShoppingListDao) {
     }
 
     fun getAllFoods() {
-        CoroutineScope(Dispatchers.Main).launch {
-            shopList.value = sldao.allList()
-        }
-    }
-
-
-    private var list: MutableLiveData<Shopliste> = MutableLiveData()
-    fun shopPostViewModel(): MutableLiveData<Shopliste> {
-        return list
-    }
-
-    fun getFood(name: String) {
-        CoroutineScope(Dispatchers.Main).launch {
-            list.value = sldao.listGet(name)
+        CoroutineScope(Dispatchers.IO).launch {
+            shopList.postValue(sldao.allList())
         }
     }
 
@@ -37,8 +26,8 @@ class ShopListDaoRepository(var sldao: ShoppingListDao) {
         id: Int,
         issold: Int,
     ) {
-        CoroutineScope(Dispatchers.Main).launch {
-            sldao.updateItem(id,issold)
+        CoroutineScope(Dispatchers.IO).launch {
+            sldao.updateItem(id, issold)
         }
     }
 
@@ -60,13 +49,15 @@ class ShopListDaoRepository(var sldao: ShoppingListDao) {
                 explain = explain,
                 issold = issold
             )
-            sldao.addList(newFood)
+            withContext(Dispatchers.IO) {
+                sldao.addList(newFood)
+            }
         }
     }
 
 
     fun deleteMaterial(id: Int) {
-        CoroutineScope(Dispatchers.Main).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             sldao.deleteMaterial(id)
         }
     }

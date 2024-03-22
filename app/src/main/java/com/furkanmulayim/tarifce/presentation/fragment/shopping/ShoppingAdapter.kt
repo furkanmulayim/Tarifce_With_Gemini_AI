@@ -89,10 +89,10 @@ class ShoppingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
-
+/*
         // Animasyonu burada uygulayın
-        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim_items)
-        holder.itemView.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim)
+        holder.itemView.startAnimation(animation)*/
     }
 
     override fun getItemCount(): Int {

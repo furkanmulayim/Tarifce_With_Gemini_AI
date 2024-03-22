@@ -1,34 +1,31 @@
 package com.furkanmulayim.tarifce.presentation.fragment.hello
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.data.model.FoodCategory
-import com.furkanmulayim.tarifce.repository.FoodDaoRepository
 import com.furkanmulayim.tarifce.data.service.food.FoodAPIService
-import com.furkanmulayim.tarifce.base.BaseViewModel
+import com.furkanmulayim.tarifce.repository.FoodDaoRepository
 import com.furkanmulayim.tarifce.util.SharedPrefs
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
+import es.dmoral.toasty.Toasty
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HelloViewModel @Inject constructor(application: Application, private var frepo: FoodDaoRepository) :
-    BaseViewModel(application) {
+class HelloViewModel @Inject constructor(
+    application: Application, private var frepo: FoodDaoRepository
+) : BaseViewModel(application) {
 
     private var sharedPrefs = SharedPrefs(getApplication())
-
-    var food = MutableLiveData<List<Food>>()
-
+    var food = MutableLiveData<List<Food>?>()
     val selectedCategory = MutableLiveData<String>()
     var seciliUrunler = MutableLiveData<List<Food>>()
-
-    private val foodAPIService = FoodAPIService()
-    private val disposable = CompositeDisposable()
 
     private fun getFoodList() {
         frepo.getAllFoods()
@@ -52,7 +49,6 @@ class HelloViewModel @Inject constructor(application: Application, private var f
     )
 
     fun getData() {
-        //get download time
         val updateTime = sharedPrefs.getTime()
         if (updateTime != null && updateTime != 0L) {
             getFoodList()
@@ -61,39 +57,38 @@ class HelloViewModel @Inject constructor(application: Application, private var f
         }
     }
 
-    // download data from API
+    //TODO İlerde repository katmanına alınacak!
     private fun getFoodFromApi() {
-        disposable.add(
-            foodAPIService.getData()
-                //async new thread
-                .subscribeOn(Schedulers.newThread())
-                //show main Thread
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<List<Food>>() {
-                    override fun onSuccess(t: List<Food>) {
-                        food.postValue(t)
-                        comeFirstDataFoodsByCategory()
-                        saveDatabase(t)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = FoodAPIService().getData()
+                if (response.isSuccessful) {
+                    val foodListResponse = response.body()
+                    if (foodListResponse != null) {
+                        saveDatabase(foodListResponse)
+                        food.postValue(foodListResponse)
+                    } else {
+                        // TODO hata durumu!
                     }
-
-                    override fun onError(e: Throwable) {
-                    }
-                })
-        )
+                }
+            } catch (e: Exception) {
+            }
+        }
     }
 
     fun comeFirstDataFoodsByCategory() {
-        seciliUrunler.postValue(food.value?.filter {
-            it.category.equals(
-                selectedCategory.value, ignoreCase = true
-            )
-        })
+        CoroutineScope(Dispatchers.Default).launch {
+            seciliUrunler.postValue(food.value?.filter {
+                it.category.equals(
+                    selectedCategory.value, ignoreCase = true
+                )
+            })
+        }
+
     }
 
 
-    /** save the data downloaded from API in SQLite */
-    fun saveDatabase(list: List<Food>) {
-
+    private fun saveDatabase(list: List<Food>) {
         if (list.isNotEmpty()) {
             for (foodItem in list) {
                 frepo.saveFoods(
@@ -110,10 +105,10 @@ class HelloViewModel @Inject constructor(application: Application, private var f
                     foodItem.hastags,
                     foodItem.specific
                 )
-            }
+                //take the saved time
+                sharedPrefs.saveTime(System.nanoTime())
 
-            //take the saved time
-            sharedPrefs.saveTime(System.nanoTime())
+            }
         }
     }
 
@@ -126,4 +121,5 @@ class HelloViewModel @Inject constructor(application: Application, private var f
         selectedCategory.value = category
         comeFirstDataFoodsByCategory()
     }
+
 }

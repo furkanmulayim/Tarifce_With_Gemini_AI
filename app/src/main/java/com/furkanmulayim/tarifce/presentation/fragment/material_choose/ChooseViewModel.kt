@@ -10,20 +10,22 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ChooseViewModel : ViewModel() {
 
-
     val categoriesLiveData = MutableLiveData<List<Category>>()
-
     private val materialAPIService = MaterialsAPIService()
     private val disposable = CompositeDisposable()
+    val allCategories = mutableListOf<Category>()
 
     fun getData(){
         getFoodFromApi()
     }
 
-
+    //İlerde repository katmanına alınacak!
     // download data from API
     private fun getFoodFromApi() {
         disposable.add(
@@ -31,9 +33,7 @@ class ChooseViewModel : ViewModel() {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<List<CategoryData>>() {
-
                     override fun onSuccess(categoryDataList: List<CategoryData>) {
-                        val allCategories = mutableListOf<Category>()
                         categoryDataList.forEach { categoryData ->
                             categoryData.categories.forEach { category ->
                                 val materials = category.materials.map {

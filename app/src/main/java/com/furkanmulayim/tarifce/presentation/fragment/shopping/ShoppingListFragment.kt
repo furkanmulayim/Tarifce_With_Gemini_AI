@@ -15,6 +15,9 @@ import com.furkanmulayim.tarifce.databinding.FragmentShoppingListBinding
 import com.furkanmulayim.tarifce.util.viewGone
 import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -38,7 +41,9 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
 
     private fun observList() {
         viewModel.cardList.observe(viewLifecycleOwner) {
-            setAdapter(it.reversed())
+            it?.let {
+                setAdapter(it)
+            }
             if (it.isEmpty()) {
                 viewGone(binding.shoppingListRcyc)
                 viewVisible(binding.shoppingListEmpty)
@@ -79,17 +84,6 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
         }
     }
 
-    private fun setAdapter(list: List<Shopliste>) {
-        adapter = if (list.isNotEmpty()) {
-            ShoppingAdapter(requireContext(), ArrayList(list), this)
-        } else {
-            ShoppingAdapter(requireContext(), arrayListOf(), this)
-        }
-        binding.shoppingListRcyc.layoutManager = GridLayoutManager(requireContext(), 3)
-        binding.shoppingListRcyc.adapter = adapter
-    }
-
-
     private fun clickListener() {
         binding.backButton.setOnClickListener {
             val act = ShoppingListFragmentDirections.actionShoppingListFragmentToHelloFragment()
@@ -109,11 +103,22 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
         }
     }
 
+    private fun setAdapter(list: List<Shopliste>) {
+        adapter = if (list.isNotEmpty()) {
+            ShoppingAdapter(mContext, ArrayList(list.reversed()), this)
+        } else {
+            ShoppingAdapter(mContext, arrayListOf(), this)
+        }
+        binding.shoppingListRcyc.layoutManager = GridLayoutManager(mContext, 3)
+        binding.shoppingListRcyc.adapter = adapter
+    }
+
+
     override fun onItemIsSold(id: Int, isSold: Int) {
         viewModel.updateItem(id, isSold)
-        viewModel.cardList.value?.filter {
-            it.id == id
-        }?.indices
+            viewModel.cardList.value?.filter {
+                it.id == id
+            }?.indices
     }
 
     override fun onItemDelete(id: Int) {

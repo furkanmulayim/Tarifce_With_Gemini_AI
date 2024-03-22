@@ -2,10 +2,11 @@ package com.furkanmulayim.tarifce.presentation.fragment.shopping
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
-import com.furkanmulayim.tarifce.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import okhttp3.internal.notifyAll
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,7 +15,6 @@ class ShoppingListViewModel @Inject constructor(
 ) : BaseViewModel(application) {
 
     var cardList: MutableLiveData<List<Shopliste>>
-
     var isSelectedAdapter: MutableLiveData<Boolean> = MutableLiveData(false)
 
     init {
@@ -41,5 +41,4 @@ class ShoppingListViewModel @Inject constructor(
     fun updateItem(id: Int, issold: Int) {
         sldao.updateMaterial(id, issold)
     }
-
 }

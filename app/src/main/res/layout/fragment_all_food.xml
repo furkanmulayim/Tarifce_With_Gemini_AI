@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/background"
         android:orientation="vertical"
         tools:context=".presentation.fragment.all_foods.AllFoodFragment">
 
@@ -15,9 +15,9 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:orientation="horizontal"
             android:paddingStart="15dp"
-            android:layout_weight="0"
             android:paddingTop="15dp"
             android:paddingEnd="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,11 +41,11 @@
                 android:id="@+id/categoryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
-                android:text="@string/trend"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_weight="1"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="@string/trend"
                 android:textColor="@color/main_text_color"
                 android:textSize="25sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +63,14 @@
                 tools:ignore="ImageContrastCheck" />
         </LinearLayout>
 
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -70,6 +78,7 @@
             android:layout_marginTop="15dp"
             android:overScrollMode="never"
             android:layout_weight="1"/>
+
 
     </LinearLayout>
 </layout>
