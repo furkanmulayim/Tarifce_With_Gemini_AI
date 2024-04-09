@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "image": "https://example.com/product1.jpg",
+    "isim": "Ürün 1",
+    "kategori": "Kategori 1",
+    "aciklama": "Ürün 1 Açıklaması",
+    "numara": "ABC123",
+    "renk": 0,
+    "renkSecenek": "Mavi, Yeşil",
+    "satilanAdet": 50,
+    "fiyat": {
+      "oncekiFiyat": "100.00",
+      "gecerliFiyat": "80.00"
+    },
+    "indirimAciklama": "İndirim Açıklaması 1",
+    "lojik": {
+      "isAktif": true,
+      "isYeni": true,
+      "isKargoUcret": false,
+      "isSiparisAlim": true,
+      "isUreticiSecimi": false,
+      "isReelsActive": true
+    },
+    "ilgiliUrunler": "İlgili Ürünler 1",
+    "hastag": "#ürün1 #kategori1 #indirim"
+  },
+  {
+    "id": 2,
+    "image": "https://example.com/product2.jpg",
+    "isim": "Ürün 2",
+    "kategori": "Kategori 2",
+    "aciklama": "Ürün 2 Açıklaması",
+    "numara": "XYZ456",
+    "renk": 1,
+    "renkSecenek": "Kırmızı, Sarı",
+    "satilanAdet": 30,
+    "fiyat": {
+      "oncekiFiyat": "75.00",
+      "gecerliFiyat": "60.00"
+    },
+    "indirimAciklama": "İndirim Açıklaması 2",
+    "lojik": {
+      "isAktif": true,
+      "isYeni": false,
+      "isKargoUcret": true,
+      "isSiparisAlim": true,
+      "isUreticiSecimi": true,
+      "isReelsActive": false
+    },
+    "ilgiliUrunler": "İlgili Ürünler 2",
+    "hastag": "#ürün2 #kategori2 #indirim"
+  }
+]
