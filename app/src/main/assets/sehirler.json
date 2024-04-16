@@ -1,0 +1,92 @@
+[
+  {
+    "plaka": 1,
+    "il_adi": "ADANA",
+    "lat": 37,
+    "lon": 35,
+    "northeast_lat": 37.072004,
+    "northeast_lon": 35.461995,
+    "southwest_lat": 36.935523,
+    "southwest_lon": 35.174706
+  },
+  {
+    "plaka": 2,
+    "il_adi": "ADIYAMAN",
+    "lat": 37,
+    "lon": 38,
+    "northeast_lat": 37.825667,
+    "northeast_lon": 38.335465,
+    "southwest_lat": 37.717086,
+    "southwest_lon": 38.188188
+  },
+  {
+    "plaka": 3,
+    "il_adi": "AFYONKARAHİSAR",
+    "lat": 38,
+    "lon": 30,
+    "northeast_lat": 38.802105,
+    "northeast_lon": 30.611167,
+    "southwest_lat": 38.714289,
+    "southwest_lon": 30.44232
+  },
+  {
+    "plaka": 4,
+    "il_adi": "AĞRI",
+    "lat": 39,
+    "lon": 43,
+    "northeast_lat": 39.748605,
+    "northeast_lon": 43.085241,
+    "southwest_lat": 39.688144,
+    "southwest_lon": 43.001778
+  },
+  {
+    "plaka": 5,
+    "il_adi": "AMASYA",
+    "lat": 40,
+    "lon": 35,
+    "northeast_lat": 40.672834,
+    "northeast_lon": 35.856321,
+    "southwest_lat": 40.636911,
+    "southwest_lon": 35.789091
+  },
+  {
+    "plaka": 6,
+    "il_adi": "ANKARA",
+    "lat": 39,
+    "lon": 32,
+    "northeast_lat": 40.100981,
+    "northeast_lon": 33.024866,
+    "southwest_lat": 39.722821,
+    "southwest_lon": 32.499097
+  },
+  {
+    "plaka": 7,
+    "il_adi": "ANTALYA",
+    "lat": 36,
+    "lon": 30,
+    "northeast_lat": 36.975178,
+    "northeast_lon": 30.840953,
+    "southwest_lat": 36.785866,
+    "southwest_lon": 30.516095
+  },
+  {
+    "plaka": 8,
+    "il_adi": "ARTVİN",
+    "lat": 41,
+    "lon": 41,
+    "northeast_lat": 41.207078,
+    "northeast_lon": 41.854799,
+    "southwest_lat": 41.155415,
+    "southwest_lon": 41.777361
+  },
+  {
+    "plaka": 9,
+    "il_adi": "AYDIN",
+    "lat": 37,
+    "lon": 27,
+    "northeast_lat": 37.870997,
+    "northeast_lon": 27.885355,
+    "southwest_lat": 37.819573,
+    "southwest_lon": 27.790522
+  }
+]
