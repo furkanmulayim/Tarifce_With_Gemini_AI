@@ -1,157 +1,242 @@
 [
   {
-    "Tarih": "27 Aralık 1939",
-    "Yer": "Erzincan",
-    "Kayıplar": "33000",
-    "Büyüklük": "7.9"
+    "date": "27 Aralık 1939",
+    "location": "Erzincan",
+    "casualties": "33000",
+    "magnitude": "7.9",
+    "latitude": "39.75",
+    "longitude": "39.5"
   },
   {
-    "Tarih": "17 Ağustos 1999",
-    "Yer": "Gölcük, Kocaeli",
-    "Kayıplar": "17118",
-    "Büyüklük": "7.8"
+    "date": "17 Ağustos 1999",
+    "location": "Gölcük, Kocaeli",
+    "casualties": "17118",
+    "magnitude": "7.8",
+    "latitude": "40.76",
+    "longitude": "29.83"
   },
   {
-    "Tarih": "24 Kasım 1976",
-    "Yer": "Muradiye, Van",
-    "Kayıplar": "3840",
-    "Büyüklük": "7.5"
+    "date": "24 Kasım 1976",
+    "location": "Muradiye, Van",
+    "casualties": "3840",
+    "magnitude": "7.5",
+    "latitude": "38.5",
+    "longitude": "43.4"
   },
   {
-    "Tarih": "12 Kasım 1999",
-    "Yer": "Düzce",
-    "Kayıplar": "894",
-    "Büyüklük": "7.5 Mw"
+    "date": "12 Kasım 1999",
+    "location": "Düzce",
+    "casualties": "894",
+    "magnitude": "7.5 Mw",
+    "latitude": "40.84",
+    "longitude": "31.16"
   },
   {
-    "Tarih": "7 Mayıs 1930",
-    "Yer": "Türkiye-İran sınırı",
-    "Kayıplar": "2514",
-    "Büyüklük": "7.2"
+    "date": "7 Mayıs 1930",
+    "location": "Türkiye-İran sınırı",
+    "casualties": "2514",
+    "magnitude": "7.2",
+    "latitude": "39.39",
+    "longitude": "44.52"
   },
   {
-    "Tarih": "28 Mart 1970",
-    "Yer": "Gediz, Kütahya",
-    "Kayıplar": "1086",
-    "Büyüklük": "7.2"
+    "date": "28 Mart 1970",
+    "location": "Gediz, Kütahya",
+    "casualties": "1086",
+    "magnitude": "7.2",
+    "latitude": "39.14",
+    "longitude": "29.17"
   },
   {
-    "Tarih": "27 Kasım 1943",
-    "Yer": "Kastamonu-Çankırı sınırı",
-    "Kayıplar": "4000",
-    "Büyüklük": "7.2"
+    "date": "27 Kasım 1943",
+    "location": "Kastamonu-Çankırı sınırı",
+    "casualties": "4000",
+    "magnitude": "7.2",
+    "latitude": "41.5",
+    "longitude": "33.75"
   },
   {
-    "Tarih": "1 Şubat 1944",
-    "Yer": "Gerede, Bolu",
-    "Kayıplar": "3959",
-    "Büyüklük": "7.2"
+    "date": "1 Şubat 1944",
+    "location": "Gerede, Bolu",
+    "casualties": "3959",
+    "magnitude": "7.2",
+    "latitude": "40.8",
+    "longitude": "31.06"
   },
   {
-    "Tarih": "18 Mart 1953",
-    "Yer": "Yenice, Çanakkale",
-    "Kayıplar": "265",
-    "Büyüklük": "7.2"
+    "date": "18 Mart 1953",
+    "location": "Yenice, Çanakkale",
+    "casualties": "265",
+    "magnitude": "7.2",
+    "latitude": "40.16",
+    "longitude": "26.41"
   },
   {
-    "Tarih": "22 Temmuz 1967",
-    "Yer": "Mudurnu, Bolu",
-    "Kayıplar": "89",
-    "Büyüklük": "7.2"
+    "date": "22 Temmuz 1967",
+    "location": "Mudurnu, Bolu",
+    "casualties": "89",
+    "magnitude": "7.2",
+    "latitude": "40.61",
+    "longitude": "31.24"
   },
   {
-    "Tarih": "24 Nisan 1957",
-    "Yer": "Fethiye, Muğla (Ölüdeniz açıkları)",
-    "Kayıplar": "19",
-    "Büyüklük": "7.1"
+    "date": "27 Kasım 1943",
+    "location": "Kastamonu-Çankırı sınırı",
+    "casualties": "4000",
+    "magnitude": "7.2",
+    "latitude": "41.5",
+    "longitude": "33.75"
   },
   {
-    "Tarih": "25 Nisan 1957",
-    "Yer": "Fethiye, Muğla (Ölüdeniz açıkları)",
-    "Kayıplar": "19",
-    "Büyüklük": "7.3"
+    "date": "1 Şubat 1944",
+    "location": "Gerede, Bolu",
+    "casualties": "3959",
+    "magnitude": "7.2",
+    "latitude": "40.8",
+    "longitude": "31.06"
   },
   {
-    "Tarih": "26 Mayıs 1957",
-    "Yer": "Mudurnu, Bolu",
-    "Kayıplar": "52",
-    "Büyüklük": "7.1 MS"
+    "date": "18 Mart 1953",
+    "location": "Yenice, Çanakkale",
+    "casualties": "265",
+    "magnitude": "7.2",
+    "latitude": "40.16",
+    "longitude": "26.41"
   },
   {
-    "Tarih": "18 Kasım 1919",
-    "Yer": "Ayvalık, Balıkesir",
-    "Kayıplar": "0",
-    "Büyüklük": "7.0"
+    "date": "22 Temmuz 1967",
+    "location": "Mudurnu, Bolu",
+    "casualties": "89",
+    "magnitude": "7.2",
+    "latitude": "40.61",
+    "longitude": "31.24"
   },
   {
-    "Tarih": "20 Aralık 1942",
-    "Yer": "Erbaa, Tokat",
-    "Kayıplar": "3000",
-    "Büyüklük": "7.0"
+    "date": "24 Kasım 1957",
+    "location": "Fethiye, Muğla (Ölüdeniz açıkları)",
+    "casualties": "19",
+    "magnitude": "7.1",
+    "latitude": "36.62",
+    "longitude": "29.12"
   },
   {
-    "Tarih": "6 Ekim 1964",
-    "Yer": "Manyas, Balıkesir",
-    "Kayıplar": "23",
-    "Büyüklük": "7.0"
+    "date": "25 Nisan 1957",
+    "location": "Fethiye, Muğla (Ölüdeniz açıkları)",
+    "casualties": "19",
+    "magnitude": "7.3",
+    "latitude": "36.62",
+    "longitude": "29.12"
   },
   {
-    "Tarih": "19 Ağustos 1966",
-    "Yer": "Varto, Muş",
-    "Kayıplar": "2394",
-    "Büyüklük": "6.9"
+    "date": "26 Mayıs 1957",
+    "location": "Mudurnu, Bolu",
+    "casualties": "52",
+    "magnitude": "7.1 MS",
+    "latitude": "40.61",
+    "longitude": "31.24"
   },
   {
-    "Tarih": "4 Ekim 1914",
-    "Yer": "Burdur-Isparta sınırı",
-    "Kayıplar": "300",
-    "Büyüklük": "6.9"
+    "date": "18 Kasım 1919",
+    "location": "Ayvalık, Balıkesir",
+    "casualties": "0",
+    "magnitude": "7.0",
+    "latitude": "39.32",
+    "longitude": "26.68"
   },
   {
-    "Tarih": "13 Ağustos 1951",
-    "Yer": "Kurşunlu, Çankırı",
-    "Kayıplar": "50",
-    "Büyüklük": "6.9"
+    "date": "20 Aralık 1942",
+    "location": "Erbaa, Tokat",
+    "casualties": "3000",
+    "magnitude": "7.0",
+    "latitude": "40.67",
+    "longitude": "36.57"
   },
   {
-    "Tarih": "30 Ekim 1983",
-    "Yer": "Narman, Erzurum",
-    "Kayıplar": "1155",
-    "Büyüklük": "6.9"
-  }, {
-    "Tarih": "20 Şubat 2023",
-    "Yer": "Hatay , Samandağ",
-    "Kayıplar": "11 vefat 592 yaralı",
-    "Büyüklük": "6.4"
+    "date": "6 Ekim 1964",
+    "location": "Manyas, Balıkesir",
+    "casualties": "23",
+    "magnitude": "7.0",
+    "latitude": "40.08",
+    "longitude": "27.95"
   },
   {
-    "Tarih": "6 Şubat 2023",
-    "Yer": "Elbistan, Kahramanmaraş",
-    "Kayıplar": "62013",
-    "Büyüklük": "7.5"
+    "date": "19 Ağustos 1966",
+    "location": "Varto, Muş",
+    "casualties": "2394",
+    "magnitude": "6.9",
+    "latitude": "39.86",
+    "longitude": "41.77"
   },
   {
-    "Tarih": "6 Şubat 2023",
-    "Yer": "Pazarcık, Kahramanmaraş",
-    "Kayıplar": "62013",
-    "Büyüklük": "7.7"
+    "date": "4 Ekim 1914",
+    "location": "Burdur-Isparta sınırı",
+    "casualties": "300",
+    "magnitude": "6.9",
+    "latitude": "37.69",
+    "longitude": "30.52"
   },
   {
-    "Tarih": "23 Kasım 2022",
-    "Yer": "Gölyaka, Düzce",
-    "Kayıplar": "2",
-    "Büyüklük": "6.0"
+    "date": "13 Ağustos 1951",
+    "location": "Kurşunlu, Çankırı",
+    "casualties": "50",
+    "magnitude": "6.9",
+    "latitude": "40.61",
+    "longitude": "33.62"
   },
   {
-    "Tarih": "14 Haziran 2020",
-    "Yer": "Kaynarpınar, Karlıova",
-    "Kayıplar": "1",
-    "Büyüklük": "5.9"
+    "date": "30 Ekim 1983",
+    "location": "Narman, Erzurum",
+    "casualties": "1155",
+    "magnitude": "6.9",
+    "latitude": "40.75",
+    "longitude": "41.50"
   },
   {
-    "Tarih": "24 Ocak 2020",
-    "Yer": "Sivrice, Elazığ",
-    "Kayıplar": "44",
-    "Büyüklük": "6.8"
+    "date": "20 Şubat 2023",
+    "location": "Hatay , Samandağ",
+    "casualties": "11 vefat 592 yaralı",
+    "magnitude": "6.4",
+    "latitude": "36.11",
+    "longitude": "35.96"
+  },
+  {
+    "date": "6 Şubat 2023",
+    "location": "Elbistan, Kahramanmaraş",
+    "casualties": "62013",
+    "magnitude": "7.5",
+    "latitude": "38.21",
+    "longitude": "37.19"
+  },
+  {
+    "date": "6 Şubat 2023",
+    "location": "Pazarcık, Kahramanmaraş",
+    "casualties": "62013",
+    "magnitude": "7.7",
+    "latitude": "38.24",
+    "longitude": "37.87"
+  },
+  {
+    "date": "23 Kasım 2022",
+    "location": "Gölyaka, Düzce",
+    "casualties": "2",
+    "magnitude": "6.0",
+    "latitude": "40.86",
+    "longitude": "31.17"
+  },
+  {
+    "date": "14 Haziran 2020",
+    "location": "Kaynarpınar, Karlıova",
+    "casualties": "1",
+    "magnitude": "5.9",
+    "latitude": "39.37",
+    "longitude": "40.52"
+  },
+  {
+    "date": "24 Ocak 2020",
+    "location": "Sivrice, Elazığ",
+    "casualties": "44",
+    "magnitude": "6.8",
+    "latitude": "38.73",
+    "longitude": "39.35"
   }
 ]
