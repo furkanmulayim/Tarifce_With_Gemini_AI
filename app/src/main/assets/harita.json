@@ -1,0 +1,44 @@
+[
+    {
+        "il": "Adana",
+        "bolge": "1",
+        "yuzolcum": 14030,
+        "lat": 3720,
+        "lon": 3568
+    },
+    {
+        "il": "Adıyaman",
+        "bolge": "3",
+        "yuzolcum": 7614,
+        "lat": 3755,
+        "lon": 3824
+    },
+    {
+        "il": "Afyonkarahisar",
+        "bolge": "5",
+        "yuzolcum": 14016,
+        "lat": 3843,
+        "lon": 3095
+    },
+    {
+        "il": "Ağrı",
+        "bolge": "4",
+        "yuzolcum": 11376,
+        "lat": 3949,
+        "lon": 4302
+    },
+    {
+        "il": "Amasya",
+        "bolge": "2",
+        "yuzolcum": 5520,
+        "lat": 4020,
+        "lon": 3550
+    },
+    {
+        "il": "Ankara",
+        "bolge": "5",
+        "yuzolcum": 25706,
+        "lat": 3968,
+        "lon": 3242
+    }
+]
