@@ -1,0 +1,57 @@
+[
+  {
+    "area": "A",
+    "name": "Bilgisayar Bilimleri",
+    "size": 120
+  },
+  {
+    "area": "B",
+    "name": "Bilgisayar MH.",
+    "size": 30
+  },
+  {
+    "area": "C",
+    "name": "Yapay Zeka MH.",
+    "size": 30
+  },
+  {
+    "area": "D",
+    "name": "Yazılım MH.",
+    "size": 30
+  },
+  {
+    "area": "A&B",
+    "name": "Bilgisayar MH.",
+    "size": 60
+  },
+  {
+    "area": "A&C",
+    "name": "Yapay Zeka MH.",
+    "size": 60
+  },
+  {
+    "area": "A&D",
+    "name": "Yazılım MH.",
+    "size": 60
+  },
+  {
+    "area": "B&C",
+    "name": "Mach L.",
+    "size": 5
+  },
+  {
+    "area": "C&D",
+    "name": "NLP",
+    "size": 5
+  },
+  {
+    "area": "D&B",
+    "name": "Dağıtık Sistem",
+    "size": 10
+  },
+  {
+    "area": "B&C&D",
+    "name": "EEL MH.",
+    "size": 10
+  }
+]
