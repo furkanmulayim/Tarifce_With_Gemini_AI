@@ -1,0 +1,569 @@
+[
+    {
+        "il": "Adana",
+        "bolge": "1",
+        "yuzolcum": 14030,
+        "lat": 3720,
+        "lon": 3568
+    },
+    {
+        "il": "Adıyaman",
+        "bolge": "3",
+        "yuzolcum": 7614,
+        "lat": 3755,
+        "lon": 3824
+    },
+    {
+        "il": "Afyonkarahisar",
+        "bolge": "5",
+        "yuzolcum": 14016,
+        "lat": 3843,
+        "lon": 3095
+    },
+    {
+        "il": "Ağrı",
+        "bolge": "4",
+        "yuzolcum": 11376,
+        "lat": 3949,
+        "lon": 4302
+    },
+    {
+        "il": "Amasya",
+        "bolge": "2",
+        "yuzolcum": 5520,
+        "lat": 4020,
+        "lon": 3550
+    },
+    {
+        "il": "Ankara",
+        "bolge": "5",
+        "yuzolcum": 25706,
+        "lat": 3968,
+        "lon": 3242
+    },
+    {
+        "il": "Antalya",
+        "bolge": "7",
+        "yuzolcum": 20171,
+        "lat": 3653,
+        "lon": 3058
+    },
+    {
+        "il": "Artvin",
+        "bolge": "1",
+        "yuzolcum": 7602,
+        "lat": 4101,
+        "lon": 4118
+    },
+    {
+        "il": "Aydın",
+        "bolge": "7",
+        "yuzolcum": 8005,
+        "lat": 3771,
+        "lon": 2763
+    },
+    {
+        "il": "Balıkesir",
+        "bolge": "2",
+        "yuzolcum": 14808,
+        "lat": 3984,
+        "lon": 2720
+    },
+    {
+        "il": "Bilecik",
+        "bolge": "5",
+        "yuzolcum": 4167,
+        "lat": 3996,
+        "lon": 3057
+    },
+    {
+        "il": "Bingöl",
+        "bolge": "4",
+        "yuzolcum": 8841,
+        "lat": 3840,
+        "lon": 4045
+    },
+    {
+        "il": "Bitlis",
+        "bolge": "4",
+        "yuzolcum": 8261,
+        "lat": 3812,
+        "lon": 4235
+    },
+    {
+        "il": "Bolu",
+        "bolge": "5",
+        "yuzolcum": 7412,
+        "lat": 4043,
+        "lon": 3130
+    },
+    {
+        "il": "Burdur",
+        "bolge": "7",
+        "yuzolcum": 6536,
+        "lat": 3734,
+        "lon": 3037
+    },
+    {
+        "il": "Bursa",
+        "bolge": "7",
+        "yuzolcum": 10431,
+        "lat": 4001,
+        "lon": 2842
+    },
+    {
+        "il": "Çanakkale",
+        "bolge": "2",
+        "yuzolcum": 9259,
+        "lat": 4017,
+        "lon": 2630
+    },
+    {
+        "il": "Çankırı",
+        "bolge": "5",
+        "yuzolcum": 7256,
+        "lat": 4065,
+        "lon": 3317
+    },
+    {
+        "il": "Çorum",
+        "bolge": "5",
+        "yuzolcum": 12505,
+        "lat": 4060,
+        "lon": 3443
+    },
+    {
+        "il": "Denizli",
+        "bolge": "7",
+        "yuzolcum": 11928,
+        "lat": 3761,
+        "lon": 2931
+    },
+    {
+        "il": "Diyarbakır",
+        "bolge": "4",
+        "yuzolcum": 15109,
+        "lat": 3751,
+        "lon": 4034
+    },
+    {
+        "il": "Edirne",
+        "bolge": "2",
+        "yuzolcum": 6321,
+        "lat": 4156,
+        "lon": 2625
+    },
+    {
+        "il": "Elazığ",
+        "bolge": "4",
+        "yuzolcum": 8887,
+        "lat": 3835,
+        "lon": 3933
+    },
+    {
+        "il": "Erzincan",
+        "bolge": "4",
+        "yuzolcum": 11890,
+        "lat": 3962,
+        "lon": 3936
+    },
+    {
+        "il": "Erzurum",
+        "bolge": "4",
+        "yuzolcum": 25168,
+        "lat": 3930,
+        "lon": 4116
+    },
+    {
+        "il": "Eskişehir",
+        "bolge": "5",
+        "yuzolcum": 13967,
+        "lat": 3990,
+        "lon": 3052
+    },
+    {
+        "il": "Gaziantep",
+        "bolge": "4",
+        "yuzolcum": 6872,
+        "lat": 3703,
+        "lon": 3734
+    },
+    {
+        "il": "Giresun",
+        "bolge": "1",
+        "yuzolcum": 6871,
+        "lat": 4051,
+        "lon": 3855
+    },
+    {
+        "il": "Gümüşhane",
+        "bolge": "1",
+        "yuzolcum": 6483,
+        "lat": 4018,
+        "lon": 3916
+    },
+    {
+        "il": "Hakkari",
+        "bolge": "4",
+        "yuzolcum": 7836,
+        "lat": 3732,
+        "lon": 4420
+    },
+    {
+        "il": "Hatay",
+        "bolge": "6",
+        "yuzolcum": 5559,
+        "lat": 3645,
+        "lon": 3614
+    },
+    {
+        "il": "Isparta",
+        "bolge": "7",
+        "yuzolcum": 8292,
+        "lat": 3786,
+        "lon": 3032
+    },
+    {
+        "il": "Mersin",
+        "bolge": "7",
+        "yuzolcum": 15838,
+        "lat": 3677,
+        "lon": 3544
+    },
+    {
+        "il": "İstanbul",
+        "bolge": "1",
+        "yuzolcum": 5461,
+        "lat": 4101,
+        "lon": 2836
+    },
+    {
+        "il": "İzmir",
+        "bolge": "7",
+        "yuzolcum": 11891,
+        "lat": 3832,
+        "lon": 2741
+    },
+    {
+        "il": "Kars",
+        "bolge": "4",
+        "yuzolcum": 9291,
+        "lat": 4023,
+        "lon": 4345
+    },
+    {
+        "il": "Kastamonu",
+        "bolge": "1",
+        "yuzolcum": 13728,
+        "lat": 4153,
+        "lon": 3722
+    },
+    {
+        "il": "Kayseri",
+        "bolge": "3",
+        "yuzolcum": 17239,
+        "lat": 3877,
+        "lon": 3358
+    },
+    {
+        "il": "Kırklareli",
+        "bolge": "2",
+        "yuzolcum": 6301,
+        "lat": 4136,
+        "lon": 2730
+    },
+    {
+        "il": "Kırşehir",
+        "bolge": "3",
+        "yuzolcum": 6275,
+        "lat": 3960,
+        "lon": 3340
+    },
+    {
+        "il": "Kocaeli",
+        "bolge": "1",
+        "yuzolcum": 3617,
+        "lat": 4050,
+        "lon": 2920
+    },
+    {
+        "il": "Konya",
+        "bolge": "3",
+        "yuzolcum": 38814,
+        "lat": 3737,
+        "lon": 3245
+    },
+    {
+        "il": "Kütahya",
+        "bolge": "5",
+        "yuzolcum": 11910,
+        "lat": 3945,
+        "lon": 2955
+    },
+    {
+        "il": "Malatya",
+        "bolge": "3",
+        "yuzolcum": 12361,
+        "lat": 3835,
+        "lon": 3820
+    },
+    {
+        "il": "Manisa",
+        "bolge": "7",
+        "yuzolcum": 13697,
+        "lat": 3850,
+        "lon": 2830
+    },
+    {
+        "il": "Kahramanmaraş",
+        "bolge": "6",
+        "yuzolcum": 7444,
+        "lat": 3727,
+        "lon": 3742
+    },
+    {
+        "il": "Mardin",
+        "bolge": "4",
+        "yuzolcum": 8662,
+        "lat": 3720,
+        "lon": 4010
+    },
+    {
+        "il": "Muğla",
+        "bolge": "7",
+        "yuzolcum": 12979,
+        "lat": 3710,
+        "lon": 2834
+    },
+    {
+        "il": "Muş",
+        "bolge": "4",
+        "yuzolcum": 8203,
+        "lat": 3835,
+        "lon": 4244
+    },
+    {
+        "il": "Nevşehir",
+        "bolge": "3",
+        "yuzolcum": 5773,
+        "lat": 3858,
+        "lon": 3351
+    },
+    {
+        "il": "Niğde",
+        "bolge": "3",
+        "yuzolcum": 7424,
+        "lat": 3774,
+        "lon": 3360
+    },
+    {
+        "il": "Ordu",
+        "bolge": "1",
+        "yuzolcum": 6325,
+        "lat": 4105,
+        "lon": 3750
+    },
+    {
+        "il": "Rize",
+        "bolge": "1",
+        "yuzolcum": 3612,
+        "lat": 4105,
+        "lon": 4000
+    },
+    {
+        "il": "Sakarya",
+        "bolge": "1",
+        "yuzolcum": 4817,
+        "lat": 4054,
+        "lon": 2928
+    },
+    {
+        "il": "Samsun",
+        "bolge": "1",
+        "yuzolcum": 9474,
+        "lat": 4140,
+        "lon": 3700
+    },
+    {
+        "il": "Siirt",
+        "bolge": "4",
+        "yuzolcum": 5611,
+        "lat": 3742,
+        "lon": 4200
+    },
+    {
+        "il": "Sinop",
+        "bolge": "1",
+        "yuzolcum": 5670,
+        "lat": 4225,
+        "lon": 3445
+    },
+    {
+        "il": "Sivas",
+        "bolge": "3",
+        "yuzolcum": 28666,
+        "lat": 3953,
+        "lon": 3733
+    },
+    {
+        "il": "Tekirdağ",
+        "bolge": "2",
+        "yuzolcum": 6330,
+        "lat": 4148,
+        "lon": 2724
+    },
+    {
+        "il": "Tokat",
+        "bolge": "2",
+        "yuzolcum": 10412,
+        "lat": 4030,
+        "lon": 3650
+    },
+    {
+        "il": "Trabzon",
+        "bolge": "1",
+        "yuzolcum": 4667,
+        "lat": 4100,
+        "lon": 3925
+    },
+    {
+        "il": "Tunceli",
+        "bolge": "4",
+        "yuzolcum": 7806,
+        "lat": 3910,
+        "lon": 4003
+    },
+    {
+        "il": "Şanlıurfa",
+        "bolge": "4",
+        "yuzolcum": 18962,
+        "lat": 3715,
+        "lon": 3853
+    },
+    {
+        "il": "Uşak",
+        "bolge": "5",
+        "yuzolcum": 5827,
+        "lat": 3854,
+        "lon": 2925
+    },
+    {
+        "il": "Van",
+        "bolge": "4",
+        "yuzolcum": 19779,
+        "lat": 3840,
+        "lon": 4404
+    },
+    {
+        "il": "Yozgat",
+        "bolge": "3",
+        "yuzolcum": 14050,
+        "lat": 3943,
+        "lon": 3507
+    },
+    {
+        "il": "Zonguldak",
+        "bolge": "2",
+        "yuzolcum": 3896,
+        "lat": 4130,
+        "lon": 3130
+    },
+    {
+        "il": "Aksaray",
+        "bolge": "3",
+        "yuzolcum": 7645,
+        "lat": 3866,
+        "lon": 3320
+    },
+    {
+        "il": "Bayburt",
+        "bolge": "1",
+        "yuzolcum": 3664,
+        "lat": 4054,
+        "lon": 4024
+    },
+    {
+        "il": "Karaman",
+        "bolge": "3",
+        "yuzolcum": 9191,
+        "lat": 3756,
+        "lon": 3340
+    },
+    {
+        "il": "Kırıkkale",
+        "bolge": "5",
+        "yuzolcum": 4648,
+        "lat": 3980,
+        "lon": 3340
+    },
+    {
+        "il": "Batman",
+        "bolge": "4",
+        "yuzolcum": 4648,
+        "lat": 3754,
+        "lon": 3933
+    },
+    {
+        "il": "Şırnak",
+        "bolge": "4",
+        "yuzolcum": 7394,
+        "lat": 3732,
+        "lon": 4123
+    },
+    {
+        "il": "Bartın",
+        "bolge": "2",
+        "yuzolcum": 2273,
+        "lat": 4145,
+        "lon": 3240
+    },
+    {
+        "il": "Ardahan",
+        "bolge": "4",
+        "yuzolcum": 5445,
+        "lat": 4105,
+        "lon": 4250
+    },
+    {
+        "il": "Iğdır",
+        "bolge": "4",
+        "yuzolcum": 3889,
+        "lat": 4037,
+        "lon": 3950
+    },
+    {
+        "il": "Yalova",
+        "bolge": "1",
+        "yuzolcum": 847,
+        "lat": 4020,
+        "lon": 2945
+    },
+    {
+        "il": "Karabük",
+        "bolge": "1",
+        "yuzolcum": 4666,
+        "lat": 4142,
+        "lon": 3245
+    },
+    {
+        "il": "Kilis",
+        "bolge": "6",
+        "yuzolcum": 1384,
+        "lat": 3716,
+        "lon": 3726
+    },
+    {
+        "il": "Osmaniye",
+        "bolge": "6",
+        "yuzolcum": 3211,
+        "lat": 3700,
+        "lon": 3625
+    },
+    {
+        "il": "Düzce",
+        "bolge": "1",
+        "yuzolcum": 3369,
+        "lat": 4075,
+        "lon": 3100
+    }
+]

@@ -1,0 +1,407 @@
+[
+    {
+        "il": "Adana",
+        "bolge": "Akdeniz",
+        "yuzolcum": 14030
+    },
+    {
+        "il": "Adıyaman",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 7614
+    },
+    {
+        "il": "Afyonkarahisar",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 14016
+    },
+    {
+        "il": "Ağrı",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 11376
+    },
+    {
+        "il": "Amasya",
+        "bolge": "Karadeniz",
+        "yuzolcum": 5520
+    },
+    {
+        "il": "Ankara",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 25706
+    },
+    {
+        "il": "Antalya",
+        "bolge": "Akdeniz",
+        "yuzolcum": 20723
+    },
+    {
+        "il": "Artvin",
+        "bolge": "Karadeniz",
+        "yuzolcum": 7436
+    },
+    {
+        "il": "Aydın",
+        "bolge": "Ege",
+        "yuzolcum": 8007
+    },
+    {
+        "il": "Balıkesir",
+        "bolge": "Marmara",
+        "yuzolcum": 14218
+    },
+    {
+        "il": "Bilecik",
+        "bolge": "Marmara",
+        "yuzolcum": 4307
+    },
+    {
+        "il": "Bingöl",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 8176
+    },
+    {
+        "il": "Bitlis",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 7183
+    },
+    {
+        "il": "Bolu",
+        "bolge": "Karadeniz",
+        "yuzolcum": 7410
+    },
+    {
+        "il": "Burdur",
+        "bolge": "Akdeniz",
+        "yuzolcum": 6887
+    },
+    {
+        "il": "Bursa",
+        "bolge": "Marmara",
+        "yuzolcum": 10958
+    },
+    {
+        "il": "Çanakkale",
+        "bolge": "Marmara",
+        "yuzolcum": 9737
+    },
+    {
+        "il": "Çankırı",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 7389
+    },
+    {
+        "il": "Çorum",
+        "bolge": "Karadeniz",
+        "yuzolcum": 12796
+    },
+    {
+        "il": "Denizli",
+        "bolge": "Ege",
+        "yuzolcum": 11868
+    },
+    {
+        "il": "Diyarbakır",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 15355
+    },
+    {
+        "il": "Edirne",
+        "bolge": "Marmara",
+        "yuzolcum": 6279
+    },
+    {
+        "il": "Elazığ",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 8455
+    },
+    {
+        "il": "Erzincan",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 11902
+    },
+    {
+        "il": "Erzurum",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 25066
+    },
+    {
+        "il": "Eskişehir",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 13652
+    },
+    {
+        "il": "Gaziantep",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 6844
+    },
+    {
+        "il": "Giresun",
+        "bolge": "Karadeniz",
+        "yuzolcum": 6934
+    },
+    {
+        "il": "Gümüşhane",
+        "bolge": "Karadeniz",
+        "yuzolcum": 6575
+    },
+    {
+        "il": "Hakkari",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 7121
+    },
+    {
+        "il": "Hatay",
+        "bolge": "Akdeniz",
+        "yuzolcum": 5524
+    },
+    {
+        "il": "Isparta",
+        "bolge": "Akdeniz",
+        "yuzolcum": 8993
+    },
+    {
+        "il": "Mersin",
+        "bolge": "Akdeniz",
+        "yuzolcum": 15853
+    },
+    {
+        "il": "İstanbul",
+        "bolge": "Marmara",
+        "yuzolcum": 5343
+    },
+    {
+        "il": "İzmir",
+        "bolge": "Ege",
+        "yuzolcum": 11973
+    },
+    {
+        "il": "Kars",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 10226
+    },
+    {
+        "il": "Kastamonu",
+        "bolge": "Karadeniz",
+        "yuzolcum": 13108
+    },
+    {
+        "il": "Kayseri",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 16917
+    },
+    {
+        "il": "Kırklareli",
+        "bolge": "Marmara",
+        "yuzolcum": 6550
+    },
+    {
+        "il": "Kırşehir",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 6575
+    },
+    {
+        "il": "Kocaeli",
+        "bolge": "Marmara",
+        "yuzolcum": 3626
+    },
+    {
+        "il": "Konya",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 38257
+    },
+    {
+        "il": "Kütahya",
+        "bolge": "Ege",
+        "yuzolcum": 11875
+    },
+    {
+        "il": "Malatya",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 12313
+    },
+    {
+        "il": "Manisa",
+        "bolge": "Ege",
+        "yuzolcum": 13339
+    },
+    {
+        "il": "Kahramanmaraş",
+        "bolge": "Akdeniz",
+        "yuzolcum": 14327
+    },
+    {
+        "il": "Mardin",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 8891
+    },
+    {
+        "il": "Muğla",
+        "bolge": "Ege",
+        "yuzolcum": 13338
+    },
+    {
+        "il": "Muş",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 8196
+    },
+    {
+        "il": "Nevşehir",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 5467
+    },
+    {
+        "il": "Niğde",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 7312
+    },
+    {
+        "il": "Ordu",
+        "bolge": "Karadeniz",
+        "yuzolcum": 5952
+    },
+    {
+        "il": "Rize",
+        "bolge": "Karadeniz",
+        "yuzolcum": 3920
+    },
+    {
+        "il": "Sakarya",
+        "bolge": "Marmara",
+        "yuzolcum": 4832
+    },
+    {
+        "il": "Samsun",
+        "bolge": "Karadeniz",
+        "yuzolcum": 9654
+    },
+    {
+        "il": "Siirt",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 5406
+    },
+    {
+        "il": "Sinop",
+        "bolge": "Karadeniz",
+        "yuzolcum": 5862
+    },
+    {
+        "il": "Sivas",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 28488
+    },
+    {
+        "il": "Tekirdağ",
+        "bolge": "Marmara",
+        "yuzolcum": 6345
+    },
+    {
+        "il": "Tokat",
+        "bolge": "Karadeniz",
+        "yuzolcum": 10042
+    },
+    {
+        "il": "Trabzon",
+        "bolge": "Karadeniz",
+        "yuzolcum": 4685
+    },
+    {
+        "il": "Tunceli",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 7774
+    },
+    {
+        "il": "Şanlıurfa",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 18584
+    },
+    {
+        "il": "Uşak",
+        "bolge": "Ege",
+        "yuzolcum": 5341
+    },
+    {
+        "il": "Van",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 19069
+    },
+    {
+        "il": "Yozgat",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 13857
+    },
+    {
+        "il": "Zonguldak",
+        "bolge": "Karadeniz",
+        "yuzolcum": 3481
+    },
+    {
+        "il": "Aksaray",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 7626
+    },
+    {
+        "il": "Bayburt",
+        "bolge": "Karadeniz",
+        "yuzolcum": 3652
+    },
+    {
+        "il": "Karaman",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 9163
+    },
+    {
+        "il": "Kırıkkale",
+        "bolge": "İç Anadolu",
+        "yuzolcum": 4755
+    },
+    {
+        "il": "Batman",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 4659
+    },
+    {
+        "il": "Şırnak",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 7152
+    },
+    {
+        "il": "Bartın",
+        "bolge": "Karadeniz",
+        "yuzolcum": 2080
+    },
+    {
+        "il": "Ardahan",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 4960
+    },
+    {
+        "il": "Iğdır",
+        "bolge": "Doğu Anadolu",
+        "yuzolcum": 3587
+    },
+    {
+        "il": "Yalova",
+        "bolge": "Marmara",
+        "yuzolcum": 847
+    },
+    {
+        "il": "Karabük",
+        "bolge": "Karadeniz",
+        "yuzolcum": 4097
+    },
+    {
+        "il": "Kilis",
+        "bolge": "Güneydoğu Anadolu",
+        "yuzolcum": 1642
+    },
+    {
+        "il": "Osmaniye",
+        "bolge": "Akdeniz",
+        "yuzolcum": 3767
+    },
+    {
+        "il": "Düzce",
+        "bolge": "Karadeniz",
+        "yuzolcum": 2492
+    }
+]
