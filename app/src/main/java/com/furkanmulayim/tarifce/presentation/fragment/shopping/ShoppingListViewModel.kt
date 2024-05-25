@@ -12,7 +12,7 @@ class ShoppingListViewModel @Inject constructor(
     application: Application
 ) : BaseViewModel(application) {
 
-    var cardList = MutableLiveData<List<Shopliste>>()
+    var shopList = MutableLiveData<List<Shopliste>>()
 
     fun getList() {
     }
@@ -21,11 +21,11 @@ class ShoppingListViewModel @Inject constructor(
         //sldao.deleteMaterial(id)
 
         //deleted item for adapterList
-        val currentList = cardList.value.orEmpty().toMutableList()
+        val currentList = shopList.value.orEmpty().toMutableList()
         val deletedItem = currentList.find { it.id == id }
         deletedItem?.let {
             currentList.remove(it)
-            cardList.value = currentList.toList()
+            shopList.value = currentList.toList()
         }
     }
 

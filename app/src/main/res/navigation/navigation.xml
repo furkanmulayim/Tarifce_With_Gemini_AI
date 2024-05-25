@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_helloFragment_to_shoppingListFragment"
             app:destination="@id/shoppingListFragment" />
+        <action
+            android:id="@+id/action_helloFragment_to_favFragment"
+            app:destination="@id/favFragment" />
     </fragment>
     <fragment
         android:id="@+id/seeAllFragment"
@@ -81,11 +84,21 @@
     </fragment>
     <fragment
         android:id="@+id/askAiFragment"
+        tools:layout="@layout/fragment_ask_ai"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiFragment"
         android:label="AskAiFragment">
         <argument
             android:name="selectedList"
             android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.fav.FavFragment"
+        android:label="fragment_fav"
+        tools:layout="@layout/fragment_fav">
+        <action
+            android:id="@+id/action_favFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

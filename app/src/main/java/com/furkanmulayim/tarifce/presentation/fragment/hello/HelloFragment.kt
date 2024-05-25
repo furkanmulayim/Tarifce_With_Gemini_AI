@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.furkanmulayim.tarifce.base.BaseFragment
 import com.furkanmulayim.tarifce.data.enums.Categorie
 import com.furkanmulayim.tarifce.data.enums.FragmentNames
-import com.furkanmulayim.tarifce.data.enums.SavedFragmentName
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
 import com.furkanmulayim.tarifce.presentation.fragment.hello.adapters.FoodAdapter
@@ -61,6 +60,11 @@ class HelloFragment : BaseFragment<FragmentHelloBinding, HelloViewModel>() {
                 }
                 val action = HelloFragmentDirections.actionHelloFragmentToCategoryFragment()
                 navigateTo(action.actionId, bundle)
+            }
+
+            savedButton.onSingleClickListener {
+                val action = HelloFragmentDirections.actionHelloFragmentToFavFragment()
+                navigateTo(action.actionId)
             }
         }
     }

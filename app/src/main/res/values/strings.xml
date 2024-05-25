@@ -15,6 +15,7 @@
     <!-- &&&&&&&&&& SAVED FRAGMENT &&&&&&&&&&& -->
 
     <string name="saved_hata">Bu ürün beğenilirken hataya düştü.</string>
+    <string name="empty_list_fav">❤️‍🔥❤️‍🔥❤️‍🔥 \n Favori Listeniz Boş Görünüyor. \n Lütfen Birkaç Favori Ekleyin.</string>
     <string name="trend">Trend</string>
     <string name="savedds">Kaydedilenler</string>
     <string name="save_ok">Başarıyla Kaydedildi</string>

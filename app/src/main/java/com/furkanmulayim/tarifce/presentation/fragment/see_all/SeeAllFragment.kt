@@ -63,7 +63,7 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding, SeeAllViewModel>() {
 
     private fun onClickAdapterFoodItem(food: Food) {
         val bundle = Bundle().apply { putParcelable("FoodDetail", food) }
-        val action = SeeAllFragmentDirections.actionSeeAllFragmentToDetailFragment().actionId
-        navigateTo(action, bundle)
+        val action = SeeAllFragmentDirections.actionSeeAllFragmentToDetailFragment()
+        navigateTo(action.actionId, bundle)
     }
 }

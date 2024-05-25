@@ -44,7 +44,7 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding, ShoppingL
     }
 
     private fun observList() {
-        viewModel.cardList.observe(viewLifecycleOwner) { list ->
+        viewModel.shopList.observe(viewLifecycleOwner) { list ->
             list?.let {
                 val uniqueNames = mutableSetOf<String>()
                 val uniqueSavedList = mutableListOf<Shopliste>()
@@ -56,14 +56,17 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding, ShoppingL
                 }
                 adapter.updateList(ArrayList(uniqueSavedList))
             }
+            setEmptyListUI(list)
+        }
+    }
 
-            if (list.isNullOrEmpty()) {
-                viewGone(binding.shoppingListRcyc)
-                viewVisible(binding.shoppingListEmpty)
-            } else {
-                viewVisible(binding.shoppingListRcyc)
-                viewGone(binding.shoppingListEmpty)
-            }
+    private fun setEmptyListUI(list: List<Shopliste>) {
+        if (list.isEmpty()) {
+            viewGone(binding.shoppingListRcyc)
+            viewVisible(binding.shoppingListEmpty)
+        } else {
+            viewVisible(binding.shoppingListRcyc)
+            viewGone(binding.shoppingListEmpty)
         }
     }
 
@@ -79,7 +82,7 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding, ShoppingL
             navigateTo(act.actionId, bundle)
         }
         binding.deleteButton.onSingleClickListener {
-            if (!viewModel.cardList.value.isNullOrEmpty()) {
+            if (!viewModel.shopList.value.isNullOrEmpty()) {
 
                 //viewModel.cardList.value = null
                 //viewModel.deleteAllSql()
@@ -101,7 +104,7 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding, ShoppingL
 
     override fun onItemIsSold(id: Int, isSold: Int) {
         viewModel.updateItem(id, isSold)
-        viewModel.cardList.value?.filter { it.id == id }?.indices
+        viewModel.shopList.value?.filter { it.id == id }?.indices
     }
 
     override fun onItemDelete(id: Int) {

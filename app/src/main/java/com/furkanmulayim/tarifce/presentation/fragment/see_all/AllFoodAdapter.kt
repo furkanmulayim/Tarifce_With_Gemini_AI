@@ -22,15 +22,15 @@ class AllFoodAdapter(
 ) : RecyclerView.Adapter<AllFoodAdapter.ViewHolder>() {
 
     inner class ViewHolder(binding: ItemAllFoodBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val rootItem: LinearLayout = binding.rootItem
         private val image: ShapeableImageView = binding.itemFoodCategoryBack
-        val duration: TextView = binding.foodDuration
+        private val rootItem: LinearLayout = binding.rootItem
         private val stars: TextView = binding.foodStars
+        val duration: TextView = binding.foodDuration
         val name: TextView = binding.foodName
 
         fun bind(item: Food) {
-            image.loadImage(item.image)
             duration.text = item.duration
+            image.loadImage(item.image)
             stars.text = item.stars
             name.text = item.name
 
