@@ -1,19 +1,13 @@
 package com.furkanmulayim.tarifce.util
 
+import OnSingleClickListener
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.View
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.annotation.AnimRes
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.furkanmulayim.tarifce.R
@@ -25,11 +19,37 @@ fun ImageView.loadImage(url: String?) {
     Glide.with(context).setDefaultRequestOptions(opt).load(url).into(this).waitForLayout()
 }
 
-fun viewGone(view:View){
+fun viewGone(view: View) {
     view.visibility = View.GONE
 }
-fun viewVisible(view:View){
+
+fun viewVisible(view: View) {
     view.visibility = View.VISIBLE
+}
+
+fun viewMessage(context: Context, message: String) {
+    Toasty.custom(
+        context,
+        message,
+        null,
+        Toast.LENGTH_SHORT,
+        false
+    ).show()
+}
+
+
+fun stringToList(str: String): List<String> {
+    return str.split(",")
+}
+
+fun stringToListSlash(str: String): List<String> {
+    return str.split("/")
+}
+
+fun handleMessage(context: Context, message: Int, icon: Drawable, tintColor: Int) {
+    Toasty.custom(
+        context, message, icon, tintColor, Toast.LENGTH_SHORT, true, true
+    ).show();
 }
 
 fun View.hideKeyboard() {
@@ -38,9 +58,14 @@ fun View.hideKeyboard() {
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
 
-fun Context.showMessage(message: String) {
-    //kullanıcıya mesaj göstermek için
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun View.onSingleClickListener(listener: View.OnClickListener) {
+    this.setOnClickListener(
+        object : OnSingleClickListener() {
+            override fun onSingleClick(view: View?) {
+                listener.onClick(view)
+            }
+        },
+    )
 }
 
 fun Activity.showExitDialog() {

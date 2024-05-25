@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AppInsightsSettings">
+    <option name="selectedTabId" value="Firebase Crashlytics" />
     <option name="tabSettings">
       <map>
         <entry key="Android Vitals">
@@ -8,7 +9,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="app.buratti.android" />
+                  <option name="appId" value="com.campbell.campbell" />
                 </ConnectionSetting>
               </option>
               <option name="failureTypes">
@@ -27,10 +28,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.furkanmulayim.tarifce" />
+                  <option name="mobileSdkAppId" value="1:370745955393:android:58d6d366523a833ad8a2c0" />
+                  <option name="projectId" value="tarifce-8f77b" />
+                  <option name="projectNumber" value="370745955393" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

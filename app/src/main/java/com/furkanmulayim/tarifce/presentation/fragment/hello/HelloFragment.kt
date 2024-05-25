@@ -4,101 +4,115 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.furkanmulayim.tarifce.base.BaseFragment
+import com.furkanmulayim.tarifce.data.enums.Categorie
+import com.furkanmulayim.tarifce.data.enums.FragmentNames
+import com.furkanmulayim.tarifce.data.enums.SavedFragmentName
 import com.furkanmulayim.tarifce.data.model.Food
 import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
-import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.presentation.fragment.hello.adapters.FoodAdapter
+import com.furkanmulayim.tarifce.presentation.fragment.hello.adapters.FoodCategoryAdapter
+import com.furkanmulayim.tarifce.util.onSingleClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HelloFragment : BaseFragment<FragmentHelloBinding>() {
+class HelloFragment : BaseFragment<FragmentHelloBinding, HelloViewModel>() {
 
+    private lateinit var categoryAdapter: FoodCategoryAdapter
     private lateinit var foodAdapter: FoodAdapter
-    private val viewModel: HelloViewModel by viewModels()
-    private lateinit var itemAdapter: FoodCategoryAdapter
-    private var category: String = "Trend"
-
     override fun getFragmentBinding(
-        inflater: LayoutInflater, container: ViewGroup?
+        inflater: LayoutInflater,
+        container: ViewGroup?
     ): FragmentHelloBinding {
         return FragmentHelloBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.shimmerFrameLayout.startShimmer()
-        viewModel.getData()
-        setItems()
-        observeLiveData()
-        clickListener()
+        initCategoryAdapter()
+        observeFoods()
+        observeCategories()
+        initClickListener()
     }
 
+    private fun initClickListener() {
+        with(binding) {
+            seeAllButton.onSingleClickListener {
+                val categ = viewModel.selectedCategory.value
+                val bundle = Bundle().apply {
+                    putString("category", categ)
+                }
+                val act = HelloFragmentDirections.actionHelloFragmentToSeeAllFragment()
+                navigateTo(act.actionId, bundle)
+            }
 
-    private fun clickListener() {
-        binding.savedButton.setOnClickListener {
-            val action = HelloFragmentDirections.actionHelloFragmentToSavedFragment()
-            navigateTo(action.actionId)
-        }
+            shoppingListButton.onSingleClickListener {
+                val action = HelloFragmentDirections.actionHelloFragmentToShoppingListFragment()
+                navigateTo(action.actionId)
+            }
 
-        binding.aiButton.setOnClickListener {
-            val action = HelloFragmentDirections.actionHelloFragmentToChooseFragment()
-            navigateTo(action.actionId)
-        }
-
-        binding.shoppingListButton.setOnClickListener {
-            val action = HelloFragmentDirections.actionHelloFragmentToShoppingListFragment()
-            navigateTo(action.actionId)
-        }
-
-        binding.seeAllButton.setOnClickListener {
-            val action = HelloFragmentDirections.actionHelloFragmentToAllFoodFragment(category)
-            navigateTo(action.actionId, bundle = action.arguments)
+            aiButton.onSingleClickListener {
+                val bundle = Bundle().apply {
+                    putString("fragmentState", FragmentNames.HELLO.names)
+                }
+                val action = HelloFragmentDirections.actionHelloFragmentToCategoryFragment()
+                navigateTo(action.actionId, bundle)
+            }
         }
     }
 
-    private fun setItems() {
+    private fun initCategoryAdapter() {
+        categoryAdapter =
+            FoodCategoryAdapter(viewModel.getCategories(), ::onClickAdapterCategItem)
+        with(binding.categoryRcyc) {
+            adapter = categoryAdapter
+            layoutManager = LinearLayoutManager(mcontext, LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    private fun setFoodsAdapter(foods: List<Food>) {
+        foodAdapter = FoodAdapter(mcontext, foods as ArrayList<Food>, ::onClickAdapterFoodItem)
+        with(binding.foodsRcyc) {
+            adapter = foodAdapter
+            layoutManager = GridLayoutManager(mcontext, 2)
+        }
+    }
+
+    private fun observeFoods() {
+        viewModel.foodList.observe(viewLifecycleOwner) { data ->
+            data.let { foods ->
+                if (foods != null) {
+                    setFoodsAdapter(foods)
+                }
+            }
+        }
+    }
+
+    private fun observeCategories() {
+        viewModel.selectedCategory.observe(viewLifecycleOwner) { categ ->
+            binding.itemName.text = categ
+            if (categ == Categorie.BUTUN.names) {
+                viewModel.foodList.value?.let { setFoodsAdapter(it) }
+            } else {
+                val all = viewModel.foodList.value
+                viewLifecycleOwner.lifecycleScope.launch {
+                    all?.let { viewModel.filterFoods(it) }?.let { setFoodsAdapter(it) }
+                }
+            }
+        }
+    }
+
+    private fun onClickAdapterCategItem(category: String) {
         viewModel.selectedCategories(category)
-        itemAdapter = FoodCategoryAdapter(viewModel.listReturn()) { categoryName ->
-            viewModel.selectedCategories(categoryName)
-            viewModel.selectedCategory.observe(viewLifecycleOwner) { categ ->
-                categ?.let {
-                    category = categ
-                    binding.itemName.text = category
-                }
-            }
-        }
-        observeLiveData()
-        binding.itemFoodCategoryRcyc.adapter = itemAdapter
-        binding.itemFoodCategoryRcyc.layoutManager = GridLayoutManager(mContext, 5)
     }
 
-
-    private fun navigateToDetail(name: String) {
-        val action = HelloFragmentDirections.actionHelloFragmentToDetailFragment(name)
-        navigateTo(action.actionId, bundle = action.arguments)
-    }
-
-    private fun observeLiveData() {
-        viewModel.food.observe(viewLifecycleOwner) { foods ->
-            foods?.let {
-                viewModel.comeFirstDataFoodsByCategory()
-                viewModel.seciliUrunler.observe(viewLifecycleOwner) {
-                    it?.let {
-                        stopShimmer()
-                        foodAdapter = FoodAdapter(it as ArrayList<Food>, ::navigateToDetail)
-                        binding.foodsRcyc.adapter = foodAdapter
-                        binding.foodsRcyc.layoutManager = GridLayoutManager(mContext, 2)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun stopShimmer() {
-        viewGone(binding.shimmerFrameLayout)
-        binding.foodsRcyc.visibility = View.VISIBLE
-        binding.shimmerFrameLayout.stopShimmer()
+    private fun onClickAdapterFoodItem(food: Food) {
+        val bundle = Bundle().apply { putParcelable("FoodDetail", food) }
+        val action = HelloFragmentDirections.actionHelloFragmentToDetailFragment().actionId
+        navigateTo(action, bundle)
     }
 }

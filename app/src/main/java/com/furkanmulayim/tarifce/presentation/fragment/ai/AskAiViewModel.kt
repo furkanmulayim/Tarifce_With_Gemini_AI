@@ -4,18 +4,34 @@ import android.app.Application
 import android.content.Context
 import androidx.core.content.ContextCompat.getString
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.data.model.Message
 import com.furkanmulayim.tarifce.data.service.ai.GoogleAI
-import com.furkanmulayim.tarifce.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 
-class AskAiViewModel(application: Application) : BaseViewModel(application) {
+class AskAiViewModel(application: Application, private var savedStateHandle: SavedStateHandle) :
+    BaseViewModel(application) {
 
     val dataGeldiMi = MutableLiveData<Boolean>()
+    val bundleList = MutableLiveData<String>()
     val mesajlar = MutableLiveData<ArrayList<Message>>()
+
+    init {
+        getBundle()
+    }
+
+    private fun getBundle() {
+        savedStateHandle.get<String>("selectedList").let {
+            if (it != null) {
+                bundleList.value =
+                    it.plus(" malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın?")
+            }
+        }
+    }
 
     fun askGoogleAI(context: Context, text: String) {
         viewModelScope.launch {

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tarifçe</string>
     <string name="app_name_space">Tarifçe</string>
+    <string name="ok">Devam Et</string>
 
     <!-- &&&&&&&&&& HELLO FRAGMENT &&&&&&&&&&& -->
     <string name="desc_icon">Uygulama Logosu</string>
@@ -12,8 +13,12 @@
     <string name="ai_now">Şimdi Dene</string>
 
     <!-- &&&&&&&&&& SAVED FRAGMENT &&&&&&&&&&& -->
+
+    <string name="saved_hata">Bu ürün beğenilirken hataya düştü.</string>
     <string name="trend">Trend</string>
     <string name="savedds">Kaydedilenler</string>
+    <string name="save_ok">Başarıyla Kaydedildi</string>
+    <string name="save_failrue"> Kaydedilemedi</string>
 
     <!-- &&&&&&&&&& DETAİL FRAGMENT &&&&&&&&&&& -->
     <string name="ingred">İçindekiler</string>
@@ -23,12 +28,13 @@
     <string name="how_many">Porsiyon</string>
     <string name="levels">Zorluk</string>
     <string name="see_food_prepare">Yemeğin Yapılışını Gör</string>
+    <string name="already_exist">Bu Tarif Zaten Kaydedilmiş!</string>
 
     <!-- &&&&&&&&&& CHOOSE FRAGMENT &&&&&&&&&&& -->
     <string name="header_ing">Malzeme Seç</string>
     <string name="empty_list">🛒 \n Alışveriş Listeniz Boş Görünüyor. \n Alttaki Butonla Kolayca Malzeme Ekleyin.</string>
     <string name="checked_link">https://raw.githubusercontent.com/furkanmulayim/Tarifce/master/json_img/icons/check.png</string>
-
+    <string name="please_material_choose">Lütfen Malzeme Seçiniz</string>
 
     <!-- &&&&&&&&&& SHOPPING LIST FRAGMENT &&&&&&&&&&& -->
     <string name="header_shop">Alışveriş Listem</string>
@@ -37,10 +43,22 @@
     <string name="material_search">Malzeme Bul</string>
     <string name="material_search_add">Malzeme Ekle</string>
     <string name="shopper_button">Bitir ve Kaydet</string>
+    <string name="empty_list_already">Liste Zaten Boş 🥹</string>
 
 
     <!-- &&&&&&&&&&&6 GOOGLE AI &&&&&&&&&&&&&&&&-->
     <string name="google_ai_first_message"> malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın?"</string>
     <string name="google_ai_error">Google AI\'dan yanıt alınamadı. Galiba Yemeğinizi ocakta unuttu. Lütfen Daha Sonra Tekrar Deneyiniz."</string>
     <string name="google_ai_second_message">Bu sefer bir öncekinden farklı olarak</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_plain_text">"Lezzet Dolu Yemek Tariflerine Tarifçe İle Kolayca Ulaşın, Cebinizden Muhteşem Tatlar Çıkarın."</string>
+    <string name="saved_plain_text_h2">Kaydetmeyi unuyma!</string>
+
+
+    <!-- &&&&&&&&&&&6 ASK AI FRAGMENT &&&&&&&&&&&&&&&&-->
+    <string name="intent_type">text/plain</string>
+    <string name="intent_title">Metni Paylaş</string>
+    <string name="arguments_metarial">material_list</string>
+
+
 </resources>

@@ -3,85 +3,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/splashFragment">
-
+    app:startDestination="@id/helloFragment">
     <fragment
         android:id="@+id/helloFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.hello.HelloFragment"
         android:label="HelloFragment"
         tools:layout="@layout/fragment_hello">
         <action
+            android:id="@+id/action_helloFragment_to_seeAllFragment"
+            app:destination="@id/seeAllFragment" />
+        <action
             android:id="@+id/action_helloFragment_to_detailFragment"
-            app:destination="@id/detailFragment"/>
+            app:destination="@id/detailFragment" />
         <action
-            android:id="@+id/action_helloFragment_to_savedFragment"
-            app:destination="@id/savedFragment" />
-        <action
-            android:id="@+id/action_helloFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment"/>
+            android:id="@+id/action_helloFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
         <action
             android:id="@+id/action_helloFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment"/>
+            app:destination="@id/shoppingListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seeAllFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.see_all.SeeAllFragment"
+        android:label="fragment_see_all"
+        tools:layout="@layout/fragment_see_all">
+        <argument
+            android:name="category"
+            android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
+            app:argType="string" />
         <action
-            android:id="@+id/action_helloFragment_to_allFoodFragment"
-            app:destination="@id/allFoodFragment" />
+            android:id="@+id/action_seeAllFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.furkanmulayim.tarifce.presentation.fragment.detail.DetailFragment"
-        android:label="DetailFragment"
+        android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
         <action
-            android:id="@+id/action_detailFragment_to_helloFragment"
-            app:destination="@id/helloFragment"/>
-        <action
-            android:id="@+id/action_detailFragment_to_prepareBSFragment"
-            app:destination="@id/prepareBSFragment" />
-        <argument
-            android:name="id"
-            app:argType="string"
-            app:nullable="false" />
-    </fragment>
-    <fragment
-        android:id="@+id/savedFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.saved.SavedFragment"
-        android:label="SavedFragment"
-        tools:layout="@layout/fragment_saved">
-        <action
-            android:id="@+id/action_savedFragment_to_helloFragment"
-            app:destination="@id/helloFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/chooseFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.material_choose.ChooseFragment"
-        android:label="ChooseFragment"
-        tools:layout="@layout/fragment_choose">
-        <action
-            android:id="@+id/action_chooseFragment_to_helloFragment"
-            app:destination="@id/helloFragment" />
-        <action
-            android:id="@+id/action_chooseFragment_to_askAiFragment"
-            app:destination="@id/askAiFragment" />
+            android:id="@+id/action_detailFragment_to_prepareBottomSheetDialogFragment"
+            app:destination="@id/prepareBottomSheetDialogFragment" />
     </fragment>
     <dialog
-        android:id="@+id/prepareBSFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.prepare_bs.PrepareBSFragment"
-        android:label="fragment_prepare_b_s"
-        tools:layout="@layout/fragment_prepare_b_s">
+        android:id="@+id/prepareBottomSheetDialogFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.detail.prepare_bs.PrepareBottomSheetDialogFragment"
+        android:label="PrepareBottomSheetDialogFragment"
+        tools:layout="@layout/fragment_prepare_bottom_sheet_dialog">
         <argument
             android:name="prepare"
             android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
             app:argType="string" />
     </dialog>
-
     <fragment
-        android:id="@+id/askAiFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiFragment"
-        android:label="AskAiFragment"
-        tools:layout="@layout/fragment_ask_ai">
+        android:id="@+id/categoryFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.categorie.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category">
         <action
-            android:id="@+id/action_askAiFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment" />
+            android:id="@+id/action_categoryFragment_to_askAiFragment"
+            app:destination="@id/askAiFragment" />
+        <argument
+            android:name="fragmentState"
+            android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_categoryFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingListFragment"
@@ -89,45 +76,16 @@
         android:label="ShoppingListFragment"
         tools:layout="@layout/fragment_shopping_list">
         <action
-            android:id="@+id/action_shoppingListFragment_to_helloFragment"
-            app:destination="@id/helloFragment" />
-        <action
-            android:id="@+id/action_shoppingListFragment_to_materialFragment"
-            app:destination="@id/materialFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/materialFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.shopping_material.MaterialFragment"
-        android:label="MaterialFragment"
-        tools:layout="@layout/fragment_material">
-
-        <action
-            android:id="@+id/action_materialFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment" />
+            android:id="@+id/action_shoppingListFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
-        android:id="@+id/allFoodFragment"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.all_foods.AllFoodFragment"
-        android:label="AllFoodFragment"
-        tools:layout="@layout/fragment_all_food">
+        android:id="@+id/askAiFragment"
+        android:name="com.furkanmulayim.tarifce.presentation.fragment.ai.AskAiFragment"
+        android:label="AskAiFragment">
         <argument
-            android:name="itemName"
+            android:name="selectedList"
+            android:defaultValue="Beklenmedik bir hata ile karşılaşıldı"
             app:argType="string" />
-        <action
-            android:id="@+id/action_allFoodFragment_to_helloFragment"
-            app:destination="@id/helloFragment" />
-        <action
-            android:id="@+id/action_allFoodFragment_to_detailFragment"
-            app:destination="@id/detailFragment"/>
-    </fragment>
-    <fragment
-        android:id="@+id/splashFragment"
-        tools:layout="@layout/fragment_splash"
-        android:name="com.furkanmulayim.tarifce.presentation.fragment.splash.SplashFragment"
-        android:label="SplashFragment" >
-        <action
-            android:id="@+id/action_splashFragment_to_helloFragment"
-            app:destination="@id/helloFragment"/>
     </fragment>
 </navigation>

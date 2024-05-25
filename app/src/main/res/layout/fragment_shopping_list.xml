@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="UselessParent">
 
-            <ImageView
+            <Button
                 android:id="@+id/backButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -39,65 +39,27 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="0" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/shopping_list_swiper_back"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/allListedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="7dp"
-                    android:background="@drawable/shopping_list_swiper_selected"
-                    android:fontFamily="@font/inter_bold"
-                    android:paddingStart="10dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="4dp"
-                    android:text="Tümü"
-                    android:textColor="#6C6C77"
-                    android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SpUsage,TextSizeCheck" />
-
-                <TextView
-                    android:id="@+id/filterListedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="7dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:paddingStart="10dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="4dp"
-                    android:text="Eksiklerim"
-                    android:textColor="#B5B5B5"
-                    android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/allListedButton"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SpUsage,TextSizeCheck" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/header_shop"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="20sp"
+                android:textColor="@color/main_text_color"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <ImageView
+            <Button
+                android:id="@+id/deleteButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:contentDescription="@string/app_name"
+                android:layout_gravity="center"
+                android:background="@drawable/ai_button"
+                android:contentDescription="@string/desc_save"
+                android:foreground="@drawable/trash"
                 android:foregroundGravity="center"
                 tools:ignore="ImageContrastCheck" />
         </LinearLayout>

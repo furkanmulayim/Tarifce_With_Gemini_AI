@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.furkanmulayim.tarifce.presentation.fragment.hello.HelloViewModel" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,8 +16,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
@@ -83,7 +76,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
@@ -109,7 +102,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
 
                     <LinearLayout
                         android:id="@+id/linearLayout"
@@ -163,11 +155,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/itemFoodCategoryRcyc"
+                    android:id="@+id/categoryRcyc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp" />
+                    android:overScrollMode="never" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -179,7 +171,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_semibold"
-                        android:text="@{viewModel.selectedCategory.toString()}"
                         android:textColor="@color/main_text_color"
                         android:textSize="23sp" />
 
@@ -196,39 +187,24 @@
                     <TextView
                         android:id="@+id/seeAllButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
                         android:text="@string/item_all"
                         android:textColor="@color/yellow_bottom"
                         android:textSize="15sp" />
 
                 </LinearLayout>
 
-
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmerFrameLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp">
-
-                    <include
-                        android:id="@+id/homeSB"
-                        layout="@layout/fake_layout2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp" />
-
-                </com.facebook.shimmer.ShimmerFrameLayout>
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/foodsRcyc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:overScrollMode="never"
                     android:layout_marginTop="10dp"
-                    android:visibility="gone" />
+                    android:overScrollMode="never" />
             </LinearLayout>
 
         </ScrollView>

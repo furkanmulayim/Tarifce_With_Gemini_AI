@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="15dp"
+    android:background="@color/background"
+    android:paddingTop="15dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".presentation.fragment.categorie.CategoryFragment">
+
+
+    <!-- &&&&&&&&&& Header &&&&&&&&&&& -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ai_button"
+            android:contentDescription="@string/desc_save"
+            android:foreground="@drawable/svg_back"
+            android:foregroundGravity="center"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/header_ing"
+            android:fontFamily="@font/inter_bold"
+            android:textSize="20sp"
+            android:textColor="@color/main_text_color"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ai_button"
+            android:contentDescription="@string/desc_save"
+            android:foreground="@drawable/trash"
+            android:foregroundGravity="center"
+            tools:ignore="ImageContrastCheck" />
+    </LinearLayout>
+
+    <!-- &&&&&&&&&& BOTTOM BUTTON &&&&&&&&&&& -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/materialRcyc"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/ai_button"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/ok"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+</LinearLayout>

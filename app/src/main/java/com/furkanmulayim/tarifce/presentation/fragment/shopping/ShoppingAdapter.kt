@@ -16,6 +16,7 @@ import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.ItemShoppingMaterialsBinding
 import com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingItemClickListener
 import com.furkanmulayim.tarifce.util.loadImage
+import com.furkanmulayim.tarifce.util.onSingleClickListener
 import kotlinx.coroutines.*
 
 class ShoppingAdapter(
@@ -31,8 +32,24 @@ class ShoppingAdapter(
         val back: CardView = binding.cardView
         private val deleteButton: Button = binding.buttonDelete
 
+
+        fun bind(item: Shopliste) {
+            name.text = item.name
+            image.loadImage(item.image)
+
+            if (item.issold == 0) {
+                back.setCardBackgroundColor(getColor(context, R.color.white))
+                image.foreground = null
+                name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            } else {
+                back.setCardBackgroundColor(getColor(context, R.color.yellow))
+                image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
+                name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+        }
+
         init {
-            itemView.setOnClickListener {
+            itemView.onSingleClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val item = dataList[position]
@@ -52,7 +69,7 @@ class ShoppingAdapter(
                 }
             }
 
-            deleteButton.setOnClickListener {
+            deleteButton.onSingleClickListener {
                 val pos = adapterPosition
                 if (pos != RecyclerView.NO_POSITION) {
                     val itemId = dataList[pos].id
@@ -64,20 +81,7 @@ class ShoppingAdapter(
             }
         }
 
-        fun bind(item: Shopliste) {
-            name.text = item.name
-            image.loadImage(item.image)
 
-            if (item.issold == 0) {
-                back.setCardBackgroundColor(getColor(context, R.color.white))
-                image.foreground = null
-                name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            } else {
-                back.setCardBackgroundColor(getColor(context, R.color.yellow))
-                image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
-                name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -89,10 +93,9 @@ class ShoppingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
-/*
-        // Animasyonu burada uygulayın
-        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim)
-        holder.itemView.startAnimation(animation)*/
+
+        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim_items_2)
+        holder.itemView.startAnimation(animation)
     }
 
     override fun getItemCount(): Int {
@@ -102,6 +105,6 @@ class ShoppingAdapter(
     fun updateList(newList: ArrayList<Shopliste>) {
         dataList.clear()
         dataList.addAll(newList)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, newList.size)
     }
 }

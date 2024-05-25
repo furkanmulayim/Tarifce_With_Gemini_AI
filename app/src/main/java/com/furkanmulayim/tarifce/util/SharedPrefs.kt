@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class SharedPrefs {
 
     companion object {
-        val preferencesTime = "preferences_time"
+        const val preferencesTime = "preferences_time"
 
         private var sp: SharedPreferences? = null
 
@@ -39,10 +39,7 @@ class SharedPrefs {
                 putLong(preferencesTime, time)
             }
         }
-
     }
 
     fun getTime() = sp?.getLong(preferencesTime, 0)
-
-
 }

@@ -4,41 +4,36 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.furkanmulayim.tarifce.base.BaseViewModel
 import com.furkanmulayim.tarifce.data.model.Shopliste
-import com.furkanmulayim.tarifce.repository.ShopListDaoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import okhttp3.internal.notifyAll
 import javax.inject.Inject
 
 @HiltViewModel
 class ShoppingListViewModel @Inject constructor(
-    application: Application, private var sldao: ShopListDaoRepository
+    application: Application
 ) : BaseViewModel(application) {
 
-    var cardList: MutableLiveData<List<Shopliste>>
-    var isSelectedAdapter: MutableLiveData<Boolean> = MutableLiveData(false)
+    var cardList = MutableLiveData<List<Shopliste>>()
 
-    init {
-        getCardList()
-        cardList = sldao.shopListPostViewModel()
-    }
-
-    private fun getCardList() {
-        sldao.getAllFoods()
+    fun getList() {
     }
 
     fun deleteItem(id: Int) {
-        sldao.deleteMaterial(id)
+        //sldao.deleteMaterial(id)
 
         //deleted item for adapterList
         val currentList = cardList.value.orEmpty().toMutableList()
-        val deletedItem  = currentList.find { it.id == id }
+        val deletedItem = currentList.find { it.id == id }
         deletedItem?.let {
             currentList.remove(it)
             cardList.value = currentList.toList()
         }
     }
 
+    fun deleteAllSql() {
+        //sldao.allMetarialDelete()
+    }
+
     fun updateItem(id: Int, issold: Int) {
-        sldao.updateMaterial(id, issold)
+        //sldao.updateMaterial(id, issold)
     }
 }

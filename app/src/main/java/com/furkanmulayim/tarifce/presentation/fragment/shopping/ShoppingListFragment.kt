@@ -5,26 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.fragment.app.viewModels
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.base.BaseFragment
+import com.furkanmulayim.tarifce.data.enums.FragmentNames
 import com.furkanmulayim.tarifce.data.model.Shopliste
 import com.furkanmulayim.tarifce.databinding.FragmentShoppingListBinding
+import com.furkanmulayim.tarifce.util.onSingleClickListener
 import com.furkanmulayim.tarifce.util.viewGone
 import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import es.dmoral.toasty.Toasty
 
 
 @AndroidEntryPoint
-class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
+class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding, ShoppingListViewModel>(),
     ShoppingItemClickListener {
-
-    private val viewModel: ShoppingListViewModel by viewModels()
     private lateinit var adapter: ShoppingAdapter
     override fun getFragmentBinding(
         inflater: LayoutInflater, container: ViewGroup?
@@ -34,17 +31,33 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getList()
         observList()
-        observClicked()
+        setupAdapter()
         clickListener()
     }
 
+    private fun setupAdapter() {
+        adapter = ShoppingAdapter(mcontext, arrayListOf(), this)
+        binding.shoppingListRcyc.layoutManager = GridLayoutManager(mcontext, 3)
+        binding.shoppingListRcyc.adapter = adapter
+    }
+
     private fun observList() {
-        viewModel.cardList.observe(viewLifecycleOwner) {
-            it?.let {
-                setAdapter(it)
+        viewModel.cardList.observe(viewLifecycleOwner) { list ->
+            list?.let {
+                val uniqueNames = mutableSetOf<String>()
+                val uniqueSavedList = mutableListOf<Shopliste>()
+
+                for (saved in it) {
+                    if (uniqueNames.add(saved.name)) {
+                        uniqueSavedList.add(saved)
+                    }
+                }
+                adapter.updateList(ArrayList(uniqueSavedList))
             }
-            if (it.isEmpty()) {
+
+            if (list.isNullOrEmpty()) {
                 viewGone(binding.shoppingListRcyc)
                 viewVisible(binding.shoppingListEmpty)
             } else {
@@ -54,71 +67,41 @@ class ShoppingListFragment : BaseFragment<FragmentShoppingListBinding>(),
         }
     }
 
-    private fun observClicked() {
-        viewModel.isSelectedAdapter.observe(viewLifecycleOwner) { isFilterOn ->
+    private fun clickListener() {
+        binding.backButton.onSingleClickListener {
+            onBackPressed()
+        }
+        binding.createListButton.onSingleClickListener {
+            val bundle = Bundle().apply {
+                putString("fragmentState", FragmentNames.SHOPPING.names)
+            }
+            val act = ShoppingListFragmentDirections.actionShoppingListFragmentToCategoryFragment()
+            navigateTo(act.actionId, bundle)
+        }
+        binding.deleteButton.onSingleClickListener {
+            if (!viewModel.cardList.value.isNullOrEmpty()) {
 
-            val isListNotNull = !viewModel.cardList.value.isNullOrEmpty()
-            if (isFilterOn) {
-                binding.allListedButton.background = null
-                binding.filterListedButton.background = AppCompatResources.getDrawable(
-                    requireContext(), R.drawable.shopping_list_swiper_selected
-                )
-                if (isListNotNull) {
-                    val newList = viewModel.cardList.value!!.filter { it.issold == 0 }
-                    setAdapter(newList.reversed())
-                } else {
-                    setAdapter(listOf())
-                }
+                //viewModel.cardList.value = null
+                //viewModel.deleteAllSql()
             } else {
-                binding.filterListedButton.background = null
-                binding.allListedButton.background = AppCompatResources.getDrawable(
-                    requireContext(), R.drawable.shopping_list_swiper_selected
-                )
-                if (isListNotNull) {
-                    val newList = viewModel.cardList.value!!
-                    setAdapter(newList.reversed())
-                } else {
-                    setAdapter(listOf())
-                }
+                emptyListMessage()
             }
         }
     }
 
-    private fun clickListener() {
-        binding.backButton.setOnClickListener {
-            val act = ShoppingListFragmentDirections.actionShoppingListFragmentToHelloFragment()
-            navigateTo(act.actionId)
-        }
-        binding.createListButton.setOnClickListener {
-            val act = ShoppingListFragmentDirections.actionShoppingListFragmentToMaterialFragment()
-            navigateTo(act.actionId)
-        }
-
-        binding.allListedButton.setOnClickListener {
-            if (viewModel.isSelectedAdapter.value == true) viewModel.isSelectedAdapter.value = false
-        }
-
-        binding.filterListedButton.setOnClickListener {
-            if (viewModel.isSelectedAdapter.value == false) viewModel.isSelectedAdapter.value = true
-        }
+    private fun emptyListMessage() {
+        Toasty.custom(
+            mcontext,
+            getString(R.string.empty_list_already),
+            null,
+            Toast.LENGTH_SHORT,
+            false
+        ).show()
     }
-
-    private fun setAdapter(list: List<Shopliste>) {
-        adapter = if (list.isNotEmpty()) {
-            ShoppingAdapter(mContext, ArrayList(list.reversed()), this)
-        } else {
-            ShoppingAdapter(mContext, arrayListOf(), this)
-        }
-        binding.shoppingListRcyc.layoutManager = GridLayoutManager(mContext, 3)
-        binding.shoppingListRcyc.adapter = adapter
-    }
-
 
     override fun onItemIsSold(id: Int, isSold: Int) {
         viewModel.updateItem(id, isSold)
-            viewModel.cardList.value?.filter {
-                it.id == id
-            }?.indices
+        viewModel.cardList.value?.filter { it.id == id }?.indices
     }
 
     override fun onItemDelete(id: Int) {
