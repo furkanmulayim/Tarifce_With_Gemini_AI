@@ -54,7 +54,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
     private fun observeFragmentState() {
         viewModel.fragmentState.observe(viewLifecycleOwner) { data ->
             if (data != null) beforeFragment = data
-            println("BOSs $data")
             setByFragmentState()
         }
     }
@@ -108,15 +107,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
             }
 
             FragmentNames.SHOPPING.names -> {
-                val bundle = Bundle().apply {
-                    putParcelableArrayList("material_list", selectedMaterialList)
+                if (viewModel.saveDatabase(selectedMaterialList.distinct())) {
+                    onBackPressed()
                 }
-                val action =
-                    CategoryFragmentDirections.actionCategoryFragmentToShoppingListFragment()
-                navigateTo(action.actionId, bundle)
             }
-
-            else -> println("BOSs")
         }
     }
 }

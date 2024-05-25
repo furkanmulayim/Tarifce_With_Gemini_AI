@@ -1,6 +1,9 @@
 package com.furkanmulayim.tarifce.data.model
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -10,7 +13,11 @@ data class CategoryData(
 ) : Parcelable
 
 @Parcelize
+@Entity(tableName = "material")
 data class Material(
-    val name: String? = "",
-    val url: String? = ""
-) : Parcelable
+    @ColumnInfo("name") var name: String? = "",
+    @ColumnInfo("url") var url: String? = ""
+) : Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    var uuid: Int = 0
+}

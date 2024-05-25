@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.fragment.fav.FavFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ai_button"
+            android:contentDescription="@string/desc_save"
+            android:foreground="@drawable/svg_back"
+            android:foregroundGravity="center"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/categoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="@string/trend"
+            android:textColor="@color/main_text_color"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
+
+        <ImageView
+            android:id="@+id/savedButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_save"
+            android:foregroundGravity="center"
+            tools:ignore="ImageContrastCheck" />
+    </LinearLayout>
+    <!-- &&&&&&&&&& RECYCLER &&&&&&&&&&& -->
+    <TextView
+        android:id="@+id/listEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/whisper_text_color"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:fontFamily="@font/inter_bold"
+        android:visibility="visible"
+        android:layout_marginTop="5dp"
+        android:text="@string/empty_list_fav"
+        android:layout_weight="1" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/foodsRcyc"
+        android:visibility="gone"
+        android:layout_marginTop="15dp"
+        android:overScrollMode="never"
+        android:layout_weight="1" />
+</LinearLayout>

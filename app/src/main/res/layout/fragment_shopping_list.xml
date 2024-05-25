@@ -56,6 +56,7 @@
                 android:id="@+id/deleteButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:visibility="invisible"
                 android:layout_gravity="center"
                 android:background="@drawable/ai_button"
                 android:contentDescription="@string/desc_save"

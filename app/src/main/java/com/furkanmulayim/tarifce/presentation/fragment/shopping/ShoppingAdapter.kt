@@ -1,27 +1,20 @@
 import android.content.Context
-import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
-import com.furkanmulayim.tarifce.R
-import com.furkanmulayim.tarifce.data.model.Shopliste
+import com.furkanmulayim.tarifce.data.model.Material
 import com.furkanmulayim.tarifce.databinding.ItemShoppingMaterialsBinding
 import com.furkanmulayim.tarifce.presentation.fragment.shopping.ShoppingItemClickListener
 import com.furkanmulayim.tarifce.util.loadImage
 import com.furkanmulayim.tarifce.util.onSingleClickListener
-import kotlinx.coroutines.*
 
 class ShoppingAdapter(
     private val context: Context,
-    var dataList: ArrayList<Shopliste>,
+    var dataList: ArrayList<Material>,
     private val clickListener: ShoppingItemClickListener
 ) : RecyclerView.Adapter<ShoppingAdapter.ViewHolder>() {
 
@@ -33,55 +26,33 @@ class ShoppingAdapter(
         private val deleteButton: Button = binding.buttonDelete
 
 
-        fun bind(item: Shopliste) {
+        fun bind(item: Material) {
             name.text = item.name
-            image.loadImage(item.image)
+            image.loadImage(item.url)
 
-            if (item.issold == 0) {
-                back.setCardBackgroundColor(getColor(context, R.color.white))
-                image.foreground = null
-                name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            } else {
-                back.setCardBackgroundColor(getColor(context, R.color.yellow))
-                image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
-                name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            }
         }
 
         init {
             itemView.onSingleClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    val item = dataList[position]
-                    if (item.issold == 0) {
-                        item.issold = 1
-                        clickListener.onItemIsSold(item.id, 1)
-                        back.setCardBackgroundColor(getColor(context, R.color.yellow))
-                        image.foreground = ContextCompat.getDrawable(context, R.drawable.check)
-                        name.paintFlags = name.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                    } else {
-                        item.issold = 0
-                        clickListener.onItemIsSold(item.id, 0)
-                        back.setCardBackgroundColor(getColor(context, R.color.white))
-                        image.foreground = null
-                        name.paintFlags = name.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-                    }
+
                 }
             }
 
             deleteButton.onSingleClickListener {
                 val pos = adapterPosition
                 if (pos != RecyclerView.NO_POSITION) {
-                    val itemId = dataList[pos].id
+                    val itemId = dataList[pos].name
                     dataList.removeAt(pos)
                     notifyItemRemoved(pos)
                     notifyItemRangeChanged(pos, itemCount - pos)
-                    clickListener.onItemDelete(itemId)
+                    if (itemId != null) {
+                        clickListener.onItemDelete(itemId)
+                    }
                 }
             }
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -94,15 +65,13 @@ class ShoppingAdapter(
         val item = dataList[position]
         holder.bind(item)
 
-        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.anim_items_2)
-        holder.itemView.startAnimation(animation)
     }
 
     override fun getItemCount(): Int {
         return dataList.size
     }
 
-    fun updateList(newList: ArrayList<Shopliste>) {
+    fun updateList(newList: ArrayList<Material>) {
         dataList.clear()
         dataList.addAll(newList)
         notifyItemRangeChanged(0, newList.size)
