@@ -15,6 +15,8 @@ import com.furkanmulayim.tarifce.databinding.FragmentHelloBinding
 import com.furkanmulayim.tarifce.presentation.fragment.hello.adapters.FoodAdapter
 import com.furkanmulayim.tarifce.presentation.fragment.hello.adapters.FoodCategoryAdapter
 import com.furkanmulayim.tarifce.util.onSingleClickListener
+import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -32,10 +34,19 @@ class HelloFragment : BaseFragment<FragmentHelloBinding, HelloViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.selectedCategory.value = Categorie.BUTUN.names
+        observeConnection()
         initCategoryAdapter()
         observeFoods()
         observeCategories()
         initClickListener()
+    }
+
+    private fun observeConnection() {
+        viewModel.isInternetAvailable.observe(viewLifecycleOwner) { conn ->
+            if (conn) viewGone(binding.ncl.connectionLayout)
+            else viewVisible(binding.ncl.connectionLayout)
+        }
     }
 
     private fun initClickListener() {

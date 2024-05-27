@@ -63,6 +63,10 @@
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
+    <include
+        android:id="@+id/ncl"
+        layout="@layout/layout_no_connection" />
+
     <!-- &&&&&&&&&& BOTTOM BUTTON &&&&&&&&&&& -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/materialRcyc"

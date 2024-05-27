@@ -20,7 +20,7 @@ data class Food(
     @ColumnInfo("person") var person: String? = "",
     @ColumnInfo("level") var level: String? = "",
     @ColumnInfo("hastags") var hastags: String? = "",
-    @ColumnInfo("specifics") var specific: String? = ""
+    @ColumnInfo("specific") var specific: String? = ""
 ) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

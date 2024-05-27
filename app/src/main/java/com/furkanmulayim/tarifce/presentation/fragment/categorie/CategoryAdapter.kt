@@ -14,6 +14,7 @@ import com.furkanmulayim.tarifce.databinding.ItemMaterialGeneralBinding
 import com.furkanmulayim.tarifce.databinding.ItemMaterialIngredientsBinding
 import com.furkanmulayim.tarifce.util.loadImage
 import com.furkanmulayim.tarifce.util.onSingleClickListener
+import com.furkanmulayim.tarifce.util.viewMessage
 
 class CategoryAdapter(
     private var categories: List<CategoryData>,
@@ -70,15 +71,12 @@ class CategoryAdapter(
             holder.image.loadImage(item.url)
 
             holder.itemView.onSingleClickListener {
-
                 if (selectedItems.contains(item)) {
                     holder.background.setBackgroundResource(R.drawable.button_materials_back3)
-                    holder.image.loadImage(item.url)
+
                     selectedItems.remove(item)
                 } else {
                     holder.background.setBackgroundResource(R.drawable.button_materials_back4)
-                    val checkedUrl: String = it.context.getString(R.string.checked_link)
-                    holder.image.loadImage(checkedUrl)
                     selectedItems.add(item)
                 }
                 onClick(selectedItems)

@@ -37,6 +37,15 @@ fun viewMessage(context: Context, message: String) {
     ).show()
 }
 
+fun viewMessageError(context: Context, message: String) {
+    Toasty.error(
+        context,
+        message,
+        Toast.LENGTH_SHORT,
+        true
+    ).show()
+}
+
 
 fun stringToList(str: String): List<String> {
     return str.split(",")

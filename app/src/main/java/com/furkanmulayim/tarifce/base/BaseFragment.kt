@@ -12,6 +12,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.furkanmulayim.tarifce.R
+import com.furkanmulayim.tarifce.util.viewMessageError
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
@@ -20,6 +21,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     val binding get() = _binding!!
     protected lateinit var viewModel: VM
     lateinit var mcontext: Context
+    private var connection: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,13 +37,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loading.observe(viewLifecycleOwner) {
-            if (it) {
-                // show loading
-            } else {
-                // hide loading
-            }
-        }
+        viewModel.checkInternetConnection()
     }
 
     abstract fun getFragmentBinding(inflater: LayoutInflater, container: ViewGroup?): VB

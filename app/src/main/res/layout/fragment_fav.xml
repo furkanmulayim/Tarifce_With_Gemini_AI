@@ -42,9 +42,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/inter_bold"
             android:gravity="center"
-            android:text="@string/trend"
+            android:text="@string/saved_foods"
             android:textColor="@color/main_text_color"
-            android:textSize="25sp"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />

@@ -24,7 +24,6 @@ class HelloViewModel @Inject constructor(
     val selectedCategory = MutableLiveData<String>()
 
     init {
-        selectedCategory.value = Categorie.BUTUN.names
         getFoodData()
     }
 

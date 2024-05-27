@@ -15,6 +15,7 @@ import com.furkanmulayim.tarifce.data.model.Material
 import com.furkanmulayim.tarifce.databinding.FragmentCategoryBinding
 import com.furkanmulayim.tarifce.util.onSingleClickListener
 import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
 import es.dmoral.toasty.Toasty
 
@@ -34,9 +35,20 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeConnection()
         observeCategorie()
         onClickListener()
         observeFragmentState()
+    }
+
+    private fun observeConnection() {
+        viewModel.isInternetAvailable.observe(viewLifecycleOwner) { conn ->
+            if (conn) {
+                viewGone(binding.ncl.connectionLayout)
+            } else {
+                viewVisible(binding.ncl.connectionLayout)
+            }
+        }
     }
 
     private fun onClickListener() {
@@ -44,7 +56,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
             backButton.onSingleClickListener {
                 onBackPressed()
             }
-
             okButton.onSingleClickListener {
                 controlListAndNavigate()
             }

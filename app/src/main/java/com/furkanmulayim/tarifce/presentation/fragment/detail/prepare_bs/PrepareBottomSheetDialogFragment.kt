@@ -17,11 +17,9 @@ class PrepareBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentPrepareBottomSheetDialogBinding
     private lateinit var viewModel: BottomViewModel
     private lateinit var prepareAdapter: PreparesAdapter
-    private lateinit var bundleData: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bundleData = arguments?.getString("prepare").toString()
     }
 
     override fun onCreateView(

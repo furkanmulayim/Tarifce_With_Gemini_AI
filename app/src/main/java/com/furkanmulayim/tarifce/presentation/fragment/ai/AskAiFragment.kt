@@ -32,10 +32,22 @@ class AskAiFragment : BaseFragment<FragmentAskAiBinding, AskAiViewModel>() {
         binding.foodAiRcyc.layoutManager = LinearLayoutManager(mcontext)
         binding.foodAiRcyc.adapter = storyAdapter
 
+        observeConnection()
         observeBundleList()
         setClickListeners()
         observeDataAndSetupAdapter()
     }
+
+    private fun observeConnection() {
+        viewModel.isInternetAvailable.observe(viewLifecycleOwner) { conn ->
+            if (conn) {
+                viewGone(binding.ncl.connectionLayout)
+            } else {
+                viewVisible(binding.ncl.connectionLayout)
+            }
+        }
+    }
+
 
     private fun onClickShare(message: String) {
         if (message.isNotEmpty()) {

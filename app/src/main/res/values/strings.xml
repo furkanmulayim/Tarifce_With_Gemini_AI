@@ -13,11 +13,11 @@
     <string name="ai_now">Şimdi Dene</string>
 
     <!-- &&&&&&&&&& SAVED FRAGMENT &&&&&&&&&&& -->
-
     <string name="saved_hata">Bu ürün beğenilirken hataya düştü.</string>
     <string name="empty_list_fav">❤️‍🔥❤️‍🔥❤️‍🔥 \n Favori Listeniz Boş Görünüyor. \n Lütfen Birkaç Favori Ekleyin.</string>
     <string name="trend">Trend</string>
     <string name="savedds">Kaydedilenler</string>
+    <string name="saved_foods">Kaydettiklerim</string>
     <string name="save_ok">Başarıyla Kaydedildi</string>
     <string name="save_failrue"> Kaydedilemedi</string>
 
@@ -46,15 +46,14 @@
     <string name="shopper_button">Bitir ve Kaydet</string>
     <string name="empty_list_already">Liste Zaten Boş 🥹</string>
 
-
     <!-- &&&&&&&&&&&6 GOOGLE AI &&&&&&&&&&&&&&&&-->
+    <string name="google_ai_header">Gemini\'ye Sor 🧐</string>
     <string name="google_ai_first_message"> malzemeleri ile evde yapabileceğim bir yemeğin yapılışını anlatır mısın?"</string>
     <string name="google_ai_error">Google AI\'dan yanıt alınamadı. Galiba Yemeğinizi ocakta unuttu. Lütfen Daha Sonra Tekrar Deneyiniz."</string>
     <string name="google_ai_second_message">Bu sefer bir öncekinden farklı olarak</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="saved_plain_text">"Lezzet Dolu Yemek Tariflerine Tarifçe İle Kolayca Ulaşın, Cebinizden Muhteşem Tatlar Çıkarın."</string>
     <string name="saved_plain_text_h2">Kaydetmeyi unuyma!</string>
-
 
     <!-- &&&&&&&&&&&6 ASK AI FRAGMENT &&&&&&&&&&&&&&&&-->
     <string name="intent_type">text/plain</string>

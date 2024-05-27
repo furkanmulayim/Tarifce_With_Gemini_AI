@@ -27,6 +27,7 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding, SeeAllViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeCategory()
         observeFood()
         onClickListeners()
     }
@@ -39,7 +40,6 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding, SeeAllViewModel>() {
         }
     }
 
-
     private fun observeFood() {
         viewModel.foodList.observe(viewLifecycleOwner) { data ->
             data.let { foods ->
@@ -49,6 +49,12 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding, SeeAllViewModel>() {
                     }
                 }
             }
+        }
+    }
+
+    private fun observeCategory() {
+        viewModel.category.observe(viewLifecycleOwner) { data ->
+            data?.let { binding.categoryName.text = data }
         }
     }
 

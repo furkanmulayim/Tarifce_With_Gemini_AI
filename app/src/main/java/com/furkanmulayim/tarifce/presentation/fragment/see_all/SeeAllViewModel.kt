@@ -22,7 +22,7 @@ class SeeAllViewModel @Inject constructor(
 ) : BaseViewModel(application) {
 
     var foodList: MutableLiveData<ArrayList<Food>> = MutableLiveData()
-    private var category: String? = ""
+    var category: MutableLiveData<String?> = MutableLiveData()
 
     init {
         getBundle()
@@ -30,7 +30,7 @@ class SeeAllViewModel @Inject constructor(
 
     private fun getBundle() {
         savedStateHandle.get<String>("category").let { categ ->
-            categ?.let { getFoodData(); category = categ }
+            categ?.let { getFoodData(); category.value = categ }
         }
     }
 
@@ -42,10 +42,10 @@ class SeeAllViewModel @Inject constructor(
 
     suspend fun filterFoodsByCategory(): List<Food>? {
         return withContext(Dispatchers.Default) {
-            if (!category.equals(Categorie.BUTUN.names)) {
-                foodList.value?.filter { it.category == category }
-            } else {
+            if (category.value.equals(Categorie.BUTUN.names)) {
                 foodList.value
+            } else {
+                foodList.value?.filter { it.category == category.value }
             }
         }
     }

@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
-    private lateinit var hastagAdapter: HastagAdapter
     private var isProductFav: Boolean = false
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -81,10 +80,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
     private fun observeArgumentFood() {
         viewModel.food.observe(viewLifecycleOwner) { data ->
-            data?.let { food ->
-                binding.shapeableImageView.loadImage(food.image)
-                food.hastags?.let { setHastags(it) }
-                food.specific?.let { setBottomSheet(it) }
+            data.let { food ->
+                if (food != null) {
+                    binding.shapeableImageView.loadImage(food.image)
+                    food.hastags?.let { setHastags(it) }
+                    food.specific?.let { setBottomSheet(it) }
+                }
+
             }
         }
     }
@@ -97,11 +99,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
     }
 
 
-    private fun setBottomSheet(prepareText: String) {
+    private fun setBottomSheet(prepare: String) {
+        val bundle = Bundle().apply {
+            putString("prepare", prepare)
+        }
         binding.seeThePrepare.onSingleClickListener {
-            val bundle = Bundle().apply {
-                putString("prepare", prepareText)
-            }
             val act =
                 DetailFragmentDirections.actionDetailFragmentToPrepareBottomSheetDialogFragment()
             navigateTo(act.actionId, bundle)
