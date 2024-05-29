@@ -72,9 +72,11 @@
 
         <include
             android:id="@+id/ncl"
+            android:visibility="gone"
             layout="@layout/layout_no_connection" />
 
         <androidx.core.widget.NestedScrollView
+            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -160,9 +162,10 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/categoryRcyc"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:foregroundGravity="center"
                     android:overScrollMode="never" />
 
                 <LinearLayout

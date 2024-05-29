@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.furkanmulayim.tarifce"
-        minSdk 26
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.1"
@@ -45,17 +45,16 @@ android {
 
 dependencies {
     def navVersion = '2.7.7'
-    def hiltVersion = '2.48'
+    def hiltVersion = '2.48.1'
     def roomVersion = '2.5.0'
     def rxJavaVersion = '2.2.11'
-    def fragmentVersion = '1.6.2'
-    def retrofitVersion = '2.8.1'
-    def lifecycleVersion = '2.7.0'
+    def fragmentVersion = '1.7.1'
+    def lifecycleVersion = '2.8.0'
     def rxJavaAndroidVersion = '2.1.1'
 
     //FIREBASE
-    implementation 'com.google.firebase:firebase-crashlytics:18.6.4'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.11.1'
+    implementation 'com.google.firebase:firebase-crashlytics:19.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:25.0.0'
 
     //LİVE DATA
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -66,16 +65,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
-
     //Google AI client SDK for Android
     implementation("com.google.ai.client.generativeai:generativeai:0.6.0")
-
-
-    //RETROFİT
-    //RETROFİT
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
     // ROOM
     implementation "androidx.room:room-runtime:$roomVersion"
@@ -104,18 +95,13 @@ dependencies {
     //SHARED PREFERENCES
     implementation 'androidx.preference:preference-ktx:1.2.1'
 
-    //VIEW PAGER INDICATOR
-    implementation 'me.relex:circleindicator:2.1.6'
-
     //SHİMMER EFFECT
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    //PHOTO VIEW
-    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
-    implementation 'androidx.core:core-ktx:1.13.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

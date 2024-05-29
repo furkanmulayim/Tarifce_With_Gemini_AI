@@ -55,11 +55,6 @@ fun stringToListSlash(str: String): List<String> {
     return str.split("/")
 }
 
-fun handleMessage(context: Context, message: Int, icon: Drawable, tintColor: Int) {
-    Toasty.custom(
-        context, message, icon, tintColor, Toast.LENGTH_SHORT, true, true
-    ).show();
-}
 
 fun View.hideKeyboard() {
 //Klavye Kapatmak için

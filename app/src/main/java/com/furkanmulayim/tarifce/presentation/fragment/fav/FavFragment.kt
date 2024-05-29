@@ -49,7 +49,7 @@ class FavFragment : BaseFragment<FragmentFavBinding, FavViewModel>() {
     }
 
     private fun setAdapter(foods: List<Food>) {
-        allAdapter = AllFoodAdapter(mcontext, foods, ::onClickAdapterFoodItem)
+        allAdapter = AllFoodAdapter(mcontext, foods.reversed(), ::onClickAdapterFoodItem)
         with(binding.foodsRcyc) {
             adapter = allAdapter
             val lm = LinearLayoutManager(mcontext, LinearLayoutManager.VERTICAL, false)

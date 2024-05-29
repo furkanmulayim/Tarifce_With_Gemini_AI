@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.GridLayoutManager
 import com.furkanmulayim.tarifce.R
 import com.furkanmulayim.tarifce.base.BaseFragment
@@ -15,9 +13,9 @@ import com.furkanmulayim.tarifce.data.model.Material
 import com.furkanmulayim.tarifce.databinding.FragmentCategoryBinding
 import com.furkanmulayim.tarifce.util.onSingleClickListener
 import com.furkanmulayim.tarifce.util.viewGone
+import com.furkanmulayim.tarifce.util.viewMessageError
 import com.furkanmulayim.tarifce.util.viewVisible
 import dagger.hilt.android.AndroidEntryPoint
-import es.dmoral.toasty.Toasty
 
 @AndroidEntryPoint
 class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
@@ -94,20 +92,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
 
     private fun controlListAndNavigate() {
         if (selectedMaterialList.isEmpty()) {
-            handleEmptyCategory()
+            viewMessageError(mcontext, getString(R.string.please_material_choose))
         } else {
             navigateToResultFragment()
         }
-    }
-
-    private fun handleEmptyCategory() {
-        Toasty.custom(
-            mcontext,
-            getString(R.string.please_material_choose),
-            AppCompatResources.getDrawable(requireContext(), R.drawable.delete),
-            Toast.LENGTH_SHORT,
-            true
-        ).show()
     }
 
     private fun navigateToResultFragment() {

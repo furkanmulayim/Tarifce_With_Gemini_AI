@@ -61,7 +61,6 @@ class AskAiFragment : BaseFragment<FragmentAskAiBinding, AskAiViewModel>() {
     private fun observeBundleList() {
         viewModel.bundleList.observe(viewLifecycleOwner) { data ->
             if (data != null) {
-                println("veri size $data")
                 selectedMaterialsMessage = data
                 viewModel.mesajEkle(data, true)
                 enterStandbyMode()

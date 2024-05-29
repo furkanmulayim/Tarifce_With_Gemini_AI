@@ -17,7 +17,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -353,14 +353,15 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/ingrRcyc"
+                        android:overScrollMode="never"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
-                        android:paddingBottom="90dp" />
+                        android:paddingBottom="60dp" />
                 </LinearLayout>
             </LinearLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -403,21 +404,21 @@
                 android:foreground="@drawable/svg_save"
                 android:foregroundGravity="center"
                 tools:ignore="ImageContrastCheck" />
+
         </LinearLayout>
+
 
         <Button
             android:id="@+id/seeThePrepare"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/ai_button"
+            android:background="@drawable/ai_button_bottom"
             android:fontFamily="@font/inter_bold"
             android:text="@string/see_food_prepare"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

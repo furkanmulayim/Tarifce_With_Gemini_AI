@@ -77,6 +77,8 @@ class HelloFragment : BaseFragment<FragmentHelloBinding, HelloViewModel>() {
                 val action = HelloFragmentDirections.actionHelloFragmentToFavFragment()
                 navigateTo(action.actionId)
             }
+
+
         }
     }
 
